@@ -1,0 +1,58 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--border);
+  background: rgba(11, 15, 20, 0.86);
+  backdrop-filter: blur(18px);
+}
+
+.nav-shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 76px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.brand-copy { display: grid; gap: 0.1rem; }
+.brand-copy strong { font-family: var(--font-display); font-size: 0.95rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.brand-copy small { color: var(--muted); font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; }
+
+.primary-nav { display: flex; align-items: center; gap: clamp(0.7rem, 1.6vw, 1.5rem); }
+.primary-nav a { position: relative; padding: 1.7rem 0 1.45rem; color: var(--muted); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-decoration: none; text-transform: uppercase; transition: color 180ms ease; }
+.primary-nav a::after { position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; background: var(--accent); content: ''; transform: scaleX(0); transition: transform 180ms ease; }
+.primary-nav a:hover, .primary-nav a.is-active { color: var(--text); }
+.primary-nav a.is-active::after { transform: scaleX(1); }
+
+.menu-toggle { display: none; border: 1px solid var(--border); background: transparent; padding: 0.65rem; color: var(--text); }
+.menu-toggle span { display: block; width: 1.25rem; height: 1px; margin: 0.25rem; background: currentColor; }
+
+@media (max-width: 900px) {
+  .menu-toggle { display: block; }
+  .primary-nav { position: absolute; top: 76px; right: 0; left: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; border-bottom: 1px solid var(--border); background: var(--background); padding: 0.7rem var(--gutter) 1rem; }
+  .primary-nav.is-open { display: flex; }
+  .primary-nav a { padding: 0.85rem 0; }
+}

@@ -1,0 +1,103 @@
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-kicker"><span class="signal-dot"></span> A university portfolio on generative AI</div>
+      <p class="hero-label">AI Ethics Portfolio</p>
+      <h1 id="hero-title">When AI changes everything, <em>how should we</em> live with its power?</h1>
+      <p class="hero-intro">This portfolio explores the ethical challenges, impacts, stakeholders and responsible approaches surrounding Artificial Intelligence through six connected questions.</p>
+      <div class="hero-actions">
+        <a routerLink="/topics" class="button button-primary">Explore topics <span aria-hidden="true">↗</span></a>
+        <a routerLink="/ethics-lab" class="button button-quiet">View Ethics Lab <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="hero-index" aria-hidden="true"><span>01</span><span>Scroll to investigate</span></div>
+  </section>
+
+  <section class="about-intro section-band" aria-labelledby="about-title">
+    <div class="section-layout">
+      <div><p class="eyebrow">Begin with the question</p><h2 id="about-title">What is<br /><span>AI ethics?</span></h2></div>
+      <p class="large-about-copy">AI ethics asks how intelligent systems affect people, society and the choices we make. It connects technical possibility with human values: truth, creativity, power and responsibility.</p>
+    </div>
+  </section>
+
+  <section class="overview section-band" aria-labelledby="overview-title">
+    <div class="section-intro-row"><app-section-heading eyebrow="The portfolio" title="A field guide for thinking" description="Move from questions to encounters, from creative work to responsible practice, and from reflection to evidence." /><span class="section-count" aria-hidden="true">06 / 06</span></div>
+    <div class="overview-grid">
+      @for (item of previews; track item.number) { <a class="overview-card" [routerLink]="item.route"><span>{{ item.number }}</span><div><h3>{{ item.title }}</h3><p>{{ item.text }}</p></div><b aria-hidden="true">↗</b></a> }
+    </div>
+  </section>
+
+  <section class="framework section-band" aria-labelledby="framework-title">
+    <div class="section-layout">
+      <div>
+        <p class="eyebrow">The central framework</p>
+        <h2 id="framework-title">Four ideas.<br /><span>One shared question.</span></h2>
+        <p class="section-copy">Every question in this portfolio moves through a chain: how we know, how we make, how influence travels, and who remains responsible.</p>
+      </div>
+      <div class="framework-list">
+        @for (item of framework; track item.label; let index = $index) {
+          <div class="framework-item">
+            <span class="framework-index">0{{ index + 1 }}</span>
+            <div><h3>{{ item.label }}</h3><p>{{ item.text }}</p></div>
+            @if (index < framework.length - 1) { <span class="framework-arrow" aria-hidden="true">↓</span> }
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="questions section-band" id="questions" aria-labelledby="questions-title">
+    <div class="section-intro-row">
+      <app-section-heading eyebrow="Investigate" title="The six questions" description="Six entry points into the ethical tensions created by generative AI. Start anywhere; the questions are connected." />
+      <span class="section-count" aria-hidden="true">06 / 06</span>
+    </div>
+    <div class="topic-grid">
+      @for (topic of topics; track topic.id) { <app-topic-card [topic]="topic" /> }
+    </div>
+  </section>
+
+  <section class="dimensions section-band" aria-labelledby="dimensions-title">
+    <div class="section-intro-row">
+      <app-section-heading eyebrow="Why this matters" title="Ethics is not a footnote" description="AI systems do not arrive in a vacuum. They participate in the stories we tell, the work we value and the decisions that shape our shared future." />
+    </div>
+    <div class="dimension-grid">
+      @for (dimension of dimensions; track dimension.label; let index = $index) {
+        <article class="dimension-card" [class.dimension-featured]="index === 0">
+          <span class="dimension-number">0{{ index + 1 }}</span>
+          <h3>{{ dimension.label }}</h3>
+          <p>{{ dimension.text }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="action-preview section-band" aria-labelledby="action-title">
+    <div class="section-intro-row">
+      <app-section-heading eyebrow="What comes next" title="Ethics in action" description="The lab turns these questions into encounters: dilemmas, artifacts and practices designed to make abstract responsibility tangible." />
+      <a routerLink="/ethics-lab" class="text-link">Visit the lab <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="preview-grid">
+      @for (preview of previews; track preview.number) {
+        <a class="preview-card" [routerLink]="preview.route">
+          <span>{{ preview.number }}</span><div><h3>{{ preview.title }}</h3><p>{{ preview.text }}</p></div><b aria-hidden="true">↗</b>
+        </a>
+      }
+    </div>
+  </section>
+
+  <section class="team section-band" aria-labelledby="team-title">
+    <div class="team-heading"><p class="eyebrow">A shared inquiry</p><h2 id="team-title">The people<br /><span>behind the questions.</span></h2></div>
+    <div class="team-list">
+      @for (member of team; track member.name; let index = $index) {
+        <div class="team-member"><span>0{{ index + 1 }}</span><div><strong>{{ member.name }}</strong><p>{{ member.role }}</p></div></div>
+      }
+    </div>
+  </section>
+
+  <section class="closing-cta" aria-labelledby="cta-title">
+    <p class="eyebrow">Begin with uncertainty</p>
+    <h2 id="cta-title">The future is not<br /><em>pre-decided.</em></h2>
+    <a routerLink="/topics" class="button button-primary">Start exploring <span aria-hidden="true">↗</span></a>
+  </section>
+</main>

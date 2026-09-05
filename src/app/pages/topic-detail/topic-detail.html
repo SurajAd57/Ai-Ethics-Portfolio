@@ -1,0 +1,123 @@
+<main class="topic-page">
+  @if (topic(); as topic) {
+  <section class="topic-hero">
+    <div class="topic-hero-inner">
+      <div class="topic-topline"><a routerLink="/topics" class="back-link">← All questions</a><span>{{ topic.number }} / 06</span></div>
+      <p class="eyebrow">Question {{ topic.number }}</p>
+      <h1>{{ topic.title }}</h1>
+      <p class="topic-subtitle">{{ topic.subtitle }}</p>
+    </div>
+  </section>
+
+  <div class="topic-body">
+    <section class="intro-section topic-section" aria-labelledby="intro-title">
+      <div class="section-label"><span>01</span><span id="intro-title">Orientation</span></div>
+      <div class="intro-copy">
+        @for (paragraph of topic.introduction; track paragraph) { <p>{{ paragraph }}</p> }
+      </div>
+    </section>
+
+    <section class="why-section topic-section" aria-labelledby="why-title">
+      <div class="section-label"><span>02</span><span id="why-title">Why this matters</span></div>
+      <p class="large-copy">{{ topic.whyItMatters }}</p>
+    </section>
+
+    @if (analysis(); as analysis) {
+      <section class="phase3-analysis-section topic-section" aria-labelledby="phase3-analysis-title">
+        <div class="section-label"><span>03</span><span id="phase3-analysis-title">Ethical analysis pathway</span></div>
+        <app-ethical-analysis [analysis]="analysis" />
+      </section>
+    }
+
+    <section class="dilemma-section topic-section" aria-labelledby="dilemma-title">
+      <div class="dilemma-marker">Ethical dilemma</div>
+      <div><h2 id="dilemma-title">{{ topic.dilemma }}</h2><p>There is no responsible answer without asking who benefits, who bears the risk and what remains uncertain.</p></div>
+    </section>
+
+    <section class="topic-section" aria-labelledby="concerns-title">
+      <div class="section-label"><span>03</span><span id="concerns-title">Key ethical concerns</span></div>
+      <div class="concerns-list">
+        @for (concern of topic.concerns; track concern.title; let index = $index) {
+          <article class="concern" [class.is-open]="isConcernExpanded(index)">
+            <button type="button" class="concern-trigger" [attr.aria-expanded]="isConcernExpanded(index)" (click)="toggleConcern(index)">
+              <span class="concern-index">0{{ index + 1 }}</span><span>{{ concern.title }}</span><span class="concern-icon" aria-hidden="true">{{ isConcernExpanded(index) ? '−' : '+' }}</span>
+            </button>
+            @if (isConcernExpanded(index)) { <div class="concern-detail"><p>{{ concern.explanation }}</p><p><strong>Why it matters:</strong> {{ concern.importance }}</p></div> }
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="stakeholder-section topic-section" aria-labelledby="stakeholders-title">
+      <div class="section-label"><span>04</span><span id="stakeholders-title">Stakeholder lens</span></div>
+      <app-stakeholder-map [stakeholders]="topic.stakeholders" />
+    </section>
+
+    <section class="harms-section topic-section" aria-labelledby="harms-title">
+      <div class="section-label"><span>05</span><span id="harms-title">Potential harms</span></div>
+      <div class="harm-grid">
+        @for (harm of topic.harms; track harm.category) {
+          <article class="harm-card"><span>{{ harm.category }}</span><div><h3>Direct harm</h3><p>{{ harm.direct }}</p><h3>Indirect / long-term</h3><p>{{ harm.longTerm }}</p></div></article>
+        }
+      </div>
+    </section>
+
+    <section class="case-section topic-section" aria-labelledby="case-title">
+      <div class="case-card"><div class="case-number">Case<br />study</div><div><p class="eyebrow">A cautious example</p><h2 id="case-title">{{ topic.caseStudy.title }}</h2><p>{{ topic.caseStudy.text }}</p><small>{{ topic.caseStudy.note }}</small></div></div>
+    </section>
+
+    <section class="analysis-section topic-section" aria-labelledby="analysis-title">
+      <div class="section-label"><span>06</span><span id="analysis-title">Ethical analysis</span></div>
+      <div class="analysis-grid">
+        @for (framework of topic.frameworks; track framework.name) {
+          <article class="analysis-card"><p class="eyebrow">{{ framework.name }}</p><h3>{{ framework.principle }}</h3><dl><dt>Applied here</dt><dd>{{ framework.application }}</dd><dt>The tension</dt><dd>{{ framework.tension }}</dd><dt>Reasoned conclusion</dt><dd>{{ framework.conclusion }}</dd></dl></article>
+        }
+      </div>
+    </section>
+
+    <section class="responsible-section topic-section" aria-labelledby="responsible-title">
+      <div class="section-label"><span>07</span><span id="responsible-title">What would responsible AI look like?</span></div>
+      <div class="principles-grid">
+        @for (principle of topic.responsiblePrinciples; track principle.title; let index = $index) { <article><span>0{{ index + 1 }}</span><h3>{{ principle.title }}</h3><p>{{ principle.explanation }}</p></article> }
+      </div>
+    </section>
+
+    <section class="tradeoff-section topic-section" aria-labelledby="tradeoff-title">
+      <div class="tradeoff-label">Trade-off</div>
+      <div class="tradeoff-visual"><span>{{ topic.tradeoff.left }}</span><i aria-hidden="true">↔</i><span>{{ topic.tradeoff.right }}</span></div>
+      <p id="tradeoff-title">{{ topic.tradeoff.explanation }}</p>
+    </section>
+
+    <section class="reflection-section topic-section" aria-labelledby="reflection-title">
+      <div class="section-label"><span>08</span><span id="reflection-title">Questions for reflection</span></div>
+      <ol>@for (question of topic.reflectionQuestions; track question) { <li>{{ question }}</li> }</ol>
+    </section>
+
+    <section class="bigger-section topic-section" aria-labelledby="bigger-title">
+      <p class="eyebrow">The bigger question</p><h2 id="bigger-title">How should we live with<br /><em>generative power?</em></h2><p>{{ topic.biggerQuestion }}</p>
+    </section>
+
+    @if (analysis(); as analysis) {
+      <section class="lab-cta topic-section" aria-labelledby="lab-cta-title">
+        <p class="eyebrow">Phase 3 · Ethics Lab</p>
+        <h2 id="lab-cta-title">Now decide under pressure.</h2>
+        <p>{{ analysis.ethicalIssue }}</p>
+        <div class="lab-cta-actions">
+          <a [routerLink]="['/ethics-lab', topic.id]" class="text-link">Enter this encounter ↗</a>
+          @if (artifact(); as artifact) {
+            <a [routerLink]="['/artifacts', artifact.id]" class="text-link">View the artifact ↗</a>
+          }
+        </div>
+      </section>
+    }
+
+    <nav class="topic-navigation" aria-label="Topic navigation">
+      @if (previousTopic(); as previous) { <a [routerLink]="['/topics', previous.id]" class="topic-nav-link"><span>← Previous</span><strong>{{ previous.number }} {{ previous.title }}</strong></a> } @else { <span></span> }
+      <a routerLink="/topics" class="all-topics-link">All questions</a>
+      @if (nextTopic(); as next) { <a [routerLink]="['/topics', next.id]" class="topic-nav-link next"><span>Next →</span><strong>{{ next.number }} {{ next.title }}</strong></a> }
+    </nav>
+  </div>
+  } @else {
+    <section class="topic-hero"><div class="topic-hero-inner"><a routerLink="/topics" class="back-link">← All questions</a><p class="eyebrow">Missing question</p><h1>This topic is not in the portfolio.</h1></div></section>
+  }
+</main>

@@ -1,0 +1,49 @@
+<div class="artifact-stage" [attr.data-visual]="artifact().visual" aria-hidden="true">
+  @switch (artifact().visual) {
+    @case ('signal') {
+      <div class="signal-board">
+        <p class="stage-kicker">Provenance check</p>
+        <ol>
+          <li><span>01</span>What is this file?</li>
+          <li><span>02</span>Who made it, and when?</li>
+          <li class="is-live"><span>03</span>What does it actually prove?</li>
+        </ol>
+        <p class="stage-foot">Appearance is not a source.</p>
+      </div>
+    }
+    @case ('poster') {
+      <div class="poster-board">
+        <p class="stage-kicker">{{ artifact().type }}</p>
+        <h3>{{ artifact().title }}</h3>
+        <p class="poster-rule">Pause. Confirm. Then act.</p>
+      </div>
+    }
+    @case ('flow') {
+      <div class="flow-board">
+        <p class="stage-kicker">{{ artifact().type }}</p>
+        <div class="flow-steps">
+          <span>Understand</span>
+          <i>→</i>
+          <span>Question</span>
+          <i>→</i>
+          <span>Revise</span>
+          <i>→</i>
+          <strong>Human stops or signs</strong>
+        </div>
+        <p class="stage-foot">If a step is missing, the claim is incomplete.</p>
+      </div>
+    }
+    @case ('matrix') {
+      <div class="matrix-board">
+        <p class="stage-kicker">Test the rule</p>
+        <div class="matrix-cells">
+          <b>Who decided?</b>
+          <b>Whose context?</b>
+          <b>Who has capacity?</b>
+          <b>Who can revise?</b>
+        </div>
+        <p class="stage-foot">Uniformity is not the same as legitimacy.</p>
+      </div>
+    }
+  }
+</div>

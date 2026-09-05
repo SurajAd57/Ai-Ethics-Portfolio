@@ -1,0 +1,9 @@
+<article class="topic-card">
+  <div class="topic-number">{{ topic().number }}</div>
+  <div class="topic-content">
+    <h3>{{ topic().title }}</h3>
+    <p>{{ topic().description }}</p>
+    @if (topic().issue) { <p class="topic-issue"><strong>Ethical issue:</strong> {{ topic().issue }}</p> }
+    <a [routerLink]="['/topics', topic().id]" class="text-link">Explore <span aria-hidden="true">→</span></a>
+  </div>
+</article>

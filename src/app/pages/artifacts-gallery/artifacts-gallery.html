@@ -1,0 +1,39 @@
+<main class="artifacts-page">
+  <section class="artifacts-hero">
+    <div class="artifacts-hero-inner">
+      <div class="artifacts-topline"><a routerLink="/" class="back-link">← Home</a><span>Phase 3 · Portfolio collection</span></div>
+      <p class="eyebrow">Creative artifacts</p>
+      <h1>Make the question visible.</h1>
+      <p class="hero-intro">Six visual objects, one for each topic. Each artifact states its purpose, how AI was involved, and what it cannot prove. The images are designed in the site itself so they are not mistaken for documentary evidence.</p>
+    </div>
+  </section>
+
+  <section class="artifacts-section">
+    <div class="section-label"><span>01</span><span>How to read an artifact</span></div>
+    <div class="method-grid">
+      <article><span>01</span><h2>Context first</h2><p>Every object names the issue, the audience and the limit of what a visual can do.</p></article>
+      <article><span>02</span><h2>Evidence over spectacle</h2><p>Polish is used to clarify a question, not to make an unsupported claim feel authoritative.</p></article>
+      <article><span>03</span><h2>Disclose the process</h2><p>AI assistance is described. Human judgment remains responsible for the published object.</p></article>
+    </div>
+  </section>
+
+  <section class="artifacts-section">
+    <div class="section-label"><span>02</span><span>The collection</span></div>
+    <div class="artifact-grid">
+      @for (item of items; track item.artifact.id) {
+        <a class="artifact-card" [routerLink]="['/artifacts', item.artifact.id]">
+          <app-artifact-visual [artifact]="item.artifact" />
+          <div class="artifact-meta">
+            <span>{{ item.artifact.type }}</span>
+            <h2>{{ item.artifact.title }}</h2>
+            <p>{{ item.topicTitle }}</p>
+          </div>
+        </a>
+      }
+    </div>
+  </section>
+
+  <section class="artifacts-section process-section">
+    <app-ai-usage />
+  </section>
+</main>

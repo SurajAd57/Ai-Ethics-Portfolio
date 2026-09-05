@@ -1,0 +1,9 @@
+<div class="verification-workflow">
+  <div class="workflow-track" role="list" aria-label="AI verification workflow">
+    @for (step of steps; track step.title; let index = $index) {
+      <div role="listitem"><button type="button" class="workflow-step" [class.is-selected]="selectedStep() === index" [attr.aria-label]="'View ' + step.title + ' step'" (click)="selectStep(index)"><span>{{ (index + 1).toString().padStart(2, '0') }}</span><strong>{{ step.title }}</strong>@if (index < steps.length - 1) { <i aria-hidden="true">↓</i> }</button></div>
+    }
+  </div>
+  @if (steps[selectedStep()]; as step) { <article class="workflow-detail" aria-live="polite"><p class="eyebrow">Step {{ selectedStep() + 1 }} · {{ step.title }}</p><p>{{ step.text }}</p></article> }
+  <p class="workflow-message">AI can assist with thinking and creation, but humans remain responsible for evaluating and using its output.</p>
+</div>

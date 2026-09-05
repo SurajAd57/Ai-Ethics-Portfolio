@@ -1,0 +1,23 @@
+<main class="topics-index">
+  <section class="topics-hero">
+    <div class="topics-hero-inner">
+      <p class="eyebrow">Explore the exhibition</p>
+      <h1>The six<br /><em>questions.</em></h1>
+      <p>Six perspectives on how artificial intelligence affects people, society and decision-making.</p>
+    </div>
+    <div class="topics-progress" aria-hidden="true"><span>01</span><i></i><span>06</span></div>
+  </section>
+
+  <section class="topics-list section-band" aria-labelledby="topics-list-title">
+    <div class="section-intro-row">
+      <app-section-heading eyebrow="Choose an entry point" title="Read, question, return" description="Each topic is built as a short academic exhibition: a central dilemma, competing perspectives, real-world stakes and practical safeguards." />
+      <div class="topic-tools">
+        <label class="search-field"><span>Filter topics</span><input type="search" placeholder="Search by title or issue" [value]="searchQuery()" (input)="updateSearch($event)" /></label>
+        <a routerLink="/" class="text-link">Back home <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <div class="topic-grid">
+      @for (topic of topics(); track topic.id) { <app-topic-card [topic]="topic" /> } @empty { <p class="empty-state">No topics match that search. Try a broader question.</p> }
+    </div>
+  </section>
+</main>

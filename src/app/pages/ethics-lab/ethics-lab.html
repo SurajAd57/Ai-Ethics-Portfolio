@@ -1,0 +1,42 @@
+<main class="lab-page">
+  <section class="lab-hero">
+    <div class="lab-hero-inner">
+      <div class="lab-topline"><a routerLink="/" class="back-link">← Home</a><span>Phase 3 · Interactive space</span></div>
+      <p class="eyebrow">Ethics Lab</p>
+      <h1>Think before you decide.</h1>
+      <p class="hero-intro">Six guided encounters. Each one names an issue, places it in context, weighs benefits against risks, and asks you to choose between two imperfect options. There is no score. There is a record of what your choice protects and what it endangers.</p>
+    </div>
+  </section>
+
+  <section class="lab-section">
+    <div class="section-label"><span>01</span><span>How to use the lab</span></div>
+    <div class="method-grid">
+      <article><span>01</span><h2>Read the situation</h2><p>Start with a concrete pressure: speed, trust, credit, simulation, force or global rules.</p></article>
+      <article><span>02</span><h2>Weigh the stakes</h2><p>Notice who benefits, who carries risk, and which questions remain open.</p></article>
+      <article><span>03</span><h2>Choose, then inspect</h2><p>Pick an option. The lab will not crown a winner. It will show the trade-off you accepted.</p></article>
+    </div>
+  </section>
+
+  <section class="lab-section">
+    <div class="section-label"><span>02</span><span>Encounters</span></div>
+    <div class="encounter-grid">
+      @for (item of encounters; track item.analysis.topicId) {
+        <a class="encounter-card" [routerLink]="['/ethics-lab', item.analysis.topicId]">
+          <span>{{ item.number }}</span>
+          <div>
+            <p class="eyebrow">{{ item.analysis.contextType }}</p>
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.analysis.ethicalIssue }}</p>
+          </div>
+          <b aria-hidden="true">↗</b>
+        </a>
+      }
+    </div>
+  </section>
+
+  <section class="lab-note">
+    <p class="eyebrow">A note on method</p>
+    <h2>Judgment becomes visible when a choice has to be made.</h2>
+    <a routerLink="/artifacts" class="button">See the artifacts <span aria-hidden="true">↗</span></a>
+  </section>
+</main>

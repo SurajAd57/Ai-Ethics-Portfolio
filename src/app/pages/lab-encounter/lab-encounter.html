@@ -1,0 +1,120 @@
+<main class="encounter-page">
+  @if (topic(); as topic) {
+    @if (analysis(); as analysis) {
+      <section class="encounter-hero">
+        <div class="encounter-hero-inner">
+          <div class="encounter-topline">
+            <a routerLink="/ethics-lab" class="back-link">← All encounters</a>
+            <span>{{ topic.number }} / 06</span>
+          </div>
+          <p class="eyebrow">Ethics Lab · {{ analysis.contextType }}</p>
+          <h1>{{ topic.title }}</h1>
+          <p class="hero-issue">{{ analysis.ethicalIssue }}</p>
+        </div>
+      </section>
+
+      <div class="encounter-body">
+        <section class="encounter-section">
+          <div class="section-label"><span>01</span><span>Context</span></div>
+          <p class="lead">{{ analysis.realWorldContext }}</p>
+        </section>
+
+        <section class="encounter-section">
+          <div class="section-label"><span>02</span><span>Benefits and risks</span></div>
+          <div class="split-grid">
+            <div>
+              <h2>What it can enable</h2>
+              @for (item of analysis.benefits; track item.title) {
+                <article><h3>{{ item.title }}</h3><p>{{ item.text }}</p></article>
+              }
+            </div>
+            <div>
+              <h2>What it can cost</h2>
+              @for (item of analysis.risks; track item.title) {
+                <article><h3>{{ item.title }}</h3><p>{{ item.text }}</p></article>
+              }
+            </div>
+          </div>
+        </section>
+
+        <section class="encounter-section">
+          <div class="section-label"><span>03</span><span>Questions that refuse a shortcut</span></div>
+          <ol>
+            @for (question of analysis.ethicalQuestions; track question) {
+              <li>{{ question }}</li>
+            }
+          </ol>
+        </section>
+
+        <section class="encounter-section decide">
+          <div class="section-label"><span>04</span><span>Choose an imperfect option</span></div>
+          <p class="decide-copy">Both options can be defended. Select one to see who it protects, who it exposes, and which matrix questions it leaves open.</p>
+          <div class="option-grid">
+            @for (option of analysis.dilemmaOptions; track option.label; let index = $index) {
+              <button type="button" class="option-card" [class.is-selected]="selectedOption() === index" (click)="selectOption(index === 0 ? 0 : 1)">
+                <span>Option {{ option.label }}</span>
+                <h2>{{ option.title }}</h2>
+                <p>Click to inspect this path.</p>
+              </button>
+            }
+          </div>
+
+          @if (choice(); as choice) {
+            <div class="choice-panel">
+              <p class="eyebrow">You chose option {{ choice.label }}</p>
+              <h2>{{ choice.title }}</h2>
+              <div class="choice-grid">
+                <div>
+                  <h3>Advantages</h3>
+                  <ul>@for (item of choice.advantages; track item) { <li>{{ item }}</li> }</ul>
+                </div>
+                <div>
+                  <h3>Risks accepted</h3>
+                  <ul>@for (item of choice.risks; track item) { <li>{{ item }}</li> }</ul>
+                </div>
+                <div>
+                  <h3>Most affected</h3>
+                  <ul>@for (item of choice.affected; track item) { <li>{{ item }}</li> }</ul>
+                </div>
+              </div>
+            </div>
+          }
+        </section>
+
+        <section class="encounter-section">
+          <div class="section-label"><span>05</span><span>Decision matrix</span></div>
+          <div class="matrix-table" role="table" aria-label="Ethical decision matrix">
+            <div class="matrix-row head" role="row">
+              <span>Factor</span><span>Question</span><span>Risk if ignored</span><span>Consideration</span>
+            </div>
+            @for (row of analysis.matrix; track row.factor) {
+              <div class="matrix-row" role="row">
+                <strong>{{ row.factor }}</strong>
+                <span>{{ row.question }}</span>
+                <span>{{ row.risk }}</span>
+                <span>{{ row.consideration }}</span>
+              </div>
+            }
+          </div>
+        </section>
+
+        <section class="encounter-section">
+          <div class="section-label"><span>06</span><span>A responsible approach</span></div>
+          <p class="lead">{{ analysis.responsibleApproach }}</p>
+          <div class="encounter-links">
+            <a [routerLink]="['/topics', topic.id]" class="text-link">Read the full topic ↗</a>
+            @if (artifact(); as artifact) {
+              <a [routerLink]="['/artifacts', artifact.id]" class="text-link">Open the related artifact ↗</a>
+            }
+          </div>
+        </section>
+      </div>
+    }
+  } @else {
+    <section class="missing">
+      <p class="eyebrow">Ethics Lab</p>
+      <h1>This encounter is not in the lab yet.</h1>
+      <a routerLink="/ethics-lab" class="back-link">← Back to encounters</a>
+    </section>
+  }
+</main>

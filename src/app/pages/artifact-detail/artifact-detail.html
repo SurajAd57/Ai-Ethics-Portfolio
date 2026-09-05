@@ -1,0 +1,43 @@
+<main class="artifact-detail">
+  @if (artifact(); as artifact) {
+    <section class="detail-hero">
+      <div class="detail-hero-inner">
+        <div class="detail-topline">
+          <a routerLink="/artifacts" class="back-link">← All artifacts</a>
+          <span>{{ artifact.type }}</span>
+        </div>
+        <p class="eyebrow">Creative artifact</p>
+        <h1>{{ artifact.title }}</h1>
+      </div>
+    </section>
+
+    <div class="detail-body">
+      <app-artifact-visual [artifact]="artifact" />
+
+      <section class="detail-section">
+        <dl>
+          <div><dt>Issue</dt><dd>{{ artifact.issue }}</dd></div>
+          <div><dt>Purpose</dt><dd>{{ artifact.purpose }}</dd></div>
+          <div><dt>Objective</dt><dd>{{ artifact.objective }}</dd></div>
+          <div><dt>Content</dt><dd>{{ artifact.content }}</dd></div>
+          <div><dt>AI involvement</dt><dd>{{ artifact.aiInvolvement }}</dd></div>
+          <div><dt>Limitations</dt><dd>{{ artifact.limitations }}</dd></div>
+          <div><dt>Responsible use</dt><dd>{{ artifact.responsibleUse }}</dd></div>
+        </dl>
+      </section>
+
+      <nav class="detail-links">
+        @if (topic(); as topic) {
+          <a [routerLink]="['/topics', topic.id]">Read the topic ↗</a>
+          <a [routerLink]="['/ethics-lab', topic.id]">Open the lab encounter ↗</a>
+        }
+      </nav>
+    </div>
+  } @else {
+    <section class="missing">
+      <p class="eyebrow">Artifacts</p>
+      <h1>This object is not in the collection.</h1>
+      <a routerLink="/artifacts" class="back-link">← Back to artifacts</a>
+    </section>
+  }
+</main>

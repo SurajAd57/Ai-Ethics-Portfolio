@@ -1,0 +1,32 @@
+<header class="site-header">
+  <div class="nav-shell">
+    <a class="brand" routerLink="/" (click)="closeMenu()" aria-label="AI Ethics Portfolio home">
+      <span class="brand-mark" aria-hidden="true">AE</span>
+      <span class="brand-copy">
+        <strong>AI Ethics Portfolio</strong>
+        <small>Truth • Creativity • Power • Responsibility</small>
+      </span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="primary-navigation"
+      aria-label="Toggle navigation menu"
+      (click)="toggleMenu()"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="primary-navigation" class="primary-nav" [class.is-open]="menuOpen()" aria-label="Primary navigation">
+      <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+      <a routerLink="/topics" routerLinkActive="is-active" (click)="closeMenu()">Topics</a>
+      <a routerLink="/ethics-lab" routerLinkActive="is-active" (click)="closeMenu()">Ethics Lab</a>
+      <a routerLink="/artifacts" routerLinkActive="is-active" (click)="closeMenu()">Artifacts</a>
+      <a routerLink="/responsible-ai" routerLinkActive="is-active" (click)="closeMenu()">Responsible AI</a>
+      <a routerLink="/reflection" routerLinkActive="is-active" (click)="closeMenu()">Reflection</a>
+      <a routerLink="/references" routerLinkActive="is-active" (click)="closeMenu()">References</a>
+    </nav>
+  </div>
+</header>

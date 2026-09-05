@@ -1,0 +1,17 @@
+:host { display: block; }
+.artifact-stage { min-height: 18rem; padding: 1.5rem; border: 1px solid var(--border); background: radial-gradient(circle at 80% 20%, rgba(199, 168, 108, 0.16), transparent 18rem), var(--surface); }
+.stage-kicker, .stage-foot { margin: 0; color: var(--accent); font-size: 0.66rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+.stage-foot { margin-top: 1.5rem; color: var(--muted); }
+.signal-board ol { display: grid; gap: 0.7rem; margin: 1.4rem 0 0; padding: 0; list-style: none; }
+.signal-board li { display: grid; grid-template-columns: 2.2rem 1fr; gap: 0.8rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border); color: var(--muted); font-family: var(--font-display); font-size: 1.15rem; }
+.signal-board li span { color: var(--accent); font-family: var(--font-body); font-size: 0.68rem; font-weight: 800; }
+.signal-board li.is-live { color: var(--text); }
+.poster-board { min-height: 16rem; display: grid; align-content: space-between; }
+.poster-board h3 { max-width: 22rem; margin: 1.5rem 0; color: var(--text); font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 500; line-height: 1; text-transform: uppercase; }
+.poster-rule { margin: 0; color: var(--accent); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.flow-steps { display: flex; flex-wrap: wrap; gap: 0.6rem 0.8rem; align-items: center; margin-top: 2rem; color: var(--text); font-family: var(--font-display); font-size: 1.05rem; text-transform: uppercase; }
+.flow-steps i { color: var(--accent); font-style: normal; }
+.flow-steps strong { color: var(--accent); font-weight: 500; }
+.matrix-cells { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 1.6rem; background: var(--border); }
+.matrix-cells b { min-height: 5.5rem; display: grid; place-items: center; padding: 1rem; background: var(--surface-raised); color: var(--text); font-family: var(--font-display); font-size: 0.95rem; font-weight: 500; text-align: center; text-transform: uppercase; }
+@media (max-width: 560px) { .artifact-stage { min-height: 0; } .flow-steps { font-size: 0.9rem; } }

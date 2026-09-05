@@ -1,0 +1,47 @@
+<div class="analysis-flow">
+  <section class="analysis-block issue-block">
+    <span class="block-number">01</span>
+    <div><p class="eyebrow">The ethical issue</p><p class="lead">{{ analysis().ethicalIssue }}</p></div>
+  </section>
+
+  <section class="analysis-block">
+    <span class="block-number">02</span>
+    <div><p class="eyebrow">{{ analysis().contextType }}</p><p>{{ analysis().realWorldContext }}</p></div>
+  </section>
+
+  <section class="analysis-block two-column">
+    <div><p class="eyebrow">Benefits</p><ul>@for (item of analysis().benefits; track item.title) { <li><strong>{{ item.title }}</strong><span>{{ item.text }}</span></li> }</ul></div>
+    <div class="risk-column"><p class="eyebrow">Risks</p><ul>@for (item of analysis().risks; track item.title) { <li><strong>{{ item.title }}</strong><span>{{ item.text }}</span></li> }</ul></div>
+  </section>
+
+  <section class="analysis-block dilemma-block">
+    <div><span class="block-number">03</span><p class="eyebrow">Ethical dilemma</p></div>
+    <p class="dilemma-copy">Both choices protect something important and expose someone to a different risk.</p>
+    <div class="option-grid">
+      @for (option of analysis().dilemmaOptions; track option.label; let index = $index) {
+        <button type="button" class="option" [class.is-selected]="selectedOption() === index" (click)="selectOption(index === 0 ? 0 : 1)">
+          <span>Option {{ option.label }}</span><strong>{{ option.title }}</strong>
+        </button>
+      }
+    </div>
+    @if (selectedOption() !== null) {
+      @let choice = analysis().dilemmaOptions[selectedOption()!];
+      <div class="choice" aria-live="polite">
+        <p class="eyebrow">Trade-offs for option {{ choice.label }}</p>
+        <div class="choice-grid"><div><strong>Advantages</strong><ul>@for (item of choice.advantages; track item) { <li>{{ item }}</li> }</ul></div><div><strong>Risks</strong><ul>@for (item of choice.risks; track item) { <li>{{ item }}</li> }</ul></div><div><strong>Affected</strong><ul>@for (item of choice.affected; track item) { <li>{{ item }}</li> }</ul></div></div>
+      </div>
+    }
+  </section>
+
+  <section class="analysis-block questions-block">
+    <div><span class="block-number">04</span><p class="eyebrow">Questions to carry forward</p></div>
+    <ol>@for (question of analysis().ethicalQuestions; track question) { <li>{{ question }}</li> }</ol>
+  </section>
+
+  <section class="analysis-block matrix-block">
+    <div><span class="block-number">05</span><p class="eyebrow">Ethical decision matrix</p></div>
+    <div class="matrix" role="table" aria-label="Ethical decision matrix"><div class="matrix-row matrix-head"><span>Factor</span><span>Question</span><span>Risk</span><span>Responsible consideration</span></div>@for (row of analysis().matrix; track row.factor) { <div class="matrix-row"><strong>{{ row.factor }}</strong><span>{{ row.question }}</span><span>{{ row.risk }}</span><span>{{ row.consideration }}</span></div> }</div>
+  </section>
+
+  <section class="analysis-block responsible-block"><span class="block-number">06</span><div><p class="eyebrow">Responsible approach</p><p class="lead">{{ analysis().responsibleApproach }}</p></div></section>
+</div>
