@@ -26,5 +26,4 @@ export class PortfolioPage {
   protected readonly avoidGuidance = AVOID_GUIDANCE;
   protected readonly isResponsibleAi = this.pageKey === 'responsibleAi';
   protected readonly isReflection = this.pageKey === 'reflection';
-  protected readonly isReferences = this.pageKey === 'references';
 }

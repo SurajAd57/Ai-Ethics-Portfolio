@@ -1,6 +1,6 @@
 import { Topic } from './topic.model';
 
-export const TOPICS: readonly Topic[] = [
+const ALL_TOPICS: readonly Topic[] = [
   {
     id: 1,
     number: '01',
@@ -29,7 +29,7 @@ export const TOPICS: readonly Topic[] = [
       { category: 'Social', direct: 'Communities may argue over media that has no reliable context.', longTerm: 'Shared facts become harder to establish across political or cultural differences.' },
       { category: 'Institutional', direct: 'Verification workloads increase for newsrooms, schools and public services.', longTerm: 'Institutions may lose legitimacy if they cannot explain why a claim is accepted or rejected.' },
     ],
-    caseStudy: { title: 'The synthetic image as evidence', text: 'A fabricated image circulated as if it documented a real public event. The ethical lesson does not depend on one specific viral incident: a visual artifact can travel faster than its context, while later corrections rarely reach everyone who saw the first claim.', note: 'General case pattern; attach a verified incident and source in Phase 4.' },
+    caseStudy: { title: 'The synthetic image as evidence', text: 'A fabricated image circulated as if it documented a real public event. The ethical lesson does not depend on one specific viral incident: a visual artifact can travel faster than its context, while later corrections rarely reach everyone who saw the first claim.', note: 'General case pattern; attach a verified incident and source.' },
     frameworks: [
       { name: 'Rights and autonomy', principle: 'People deserve the information needed to make informed choices.', application: 'Undisclosed synthetic evidence can interfere with a person\'s ability to judge a situation for themselves.', tension: 'Full disclosure can be difficult when content is remixed across platforms and contexts.', conclusion: 'Provenance and clear context should be treated as supports for autonomy, not optional decoration.' },
       { name: 'Justice and fairness', principle: 'Risks and protective resources should not be distributed arbitrarily.', application: 'Communities with less media literacy, connectivity or institutional support may bear more of the cost.', tension: 'A single verification rule may not work equally well across languages and access conditions.', conclusion: 'Verification systems should be tested with the communities most likely to be excluded.' },
@@ -80,7 +80,7 @@ export const TOPICS: readonly Topic[] = [
       { category: 'Political', direct: 'False content can distract, intimidate or confuse people during a public debate.', longTerm: 'Repeated manipulation can reduce confidence in elections, journalism and democratic disagreement.' },
       { category: 'Social', direct: 'Communities may be pushed toward anger before corrections travel.', longTerm: 'Polarization makes it harder to recognize good-faith disagreement.' },
     ],
-    caseStudy: { title: 'A cloned voice in a trusted relationship', text: 'A synthetic voice message that resembles a family member, executive or public figure can exploit a relationship before the recipient pauses to verify it. The important ethical question is how systems, institutions and users can make verification normal without placing all responsibility on a potential victim.', note: 'General risk pattern; attach a verified fraud case in Phase 4.' },
+    caseStudy: { title: 'A cloned voice in a trusted relationship', text: 'A synthetic voice message that resembles a family member, executive or public figure can exploit a relationship before the recipient pauses to verify it. The important ethical question is how systems, institutions and users can make verification normal without placing all responsibility on a potential victim.', note: 'General risk pattern; attach a verified fraud case.' },
     frameworks: [
       { name: 'Autonomy', principle: 'Persuasion should leave people able to deliberate rather than covertly bypassing their judgment.', application: 'Undisclosed impersonation interferes with the audience\'s ability to assess who is speaking and why.', tension: 'All communication uses framing, and not every emotional appeal is manipulation.', conclusion: 'The key boundary is meaningful awareness, consent and the avoidance of exploitative targeting.' },
       { name: 'Consequentialism', principle: 'An action should be judged partly by its foreseeable effects.', application: 'A small act of fabrication can cause large harm when a platform amplifies it.', tension: 'Over-removal can suppress satire, dissent or legitimate creative work.', conclusion: 'Proportionate safeguards should consider reach, vulnerability, likelihood and reversibility of harm.' },
@@ -131,7 +131,7 @@ export const TOPICS: readonly Topic[] = [
       { category: 'Cultural', direct: 'Outputs may imitate styles without recognizing the communities that developed them.', longTerm: 'Cultural expression can be detached from context and redistributed toward already powerful institutions.' },
       { category: 'Educational', direct: 'Unclear assistance can make evaluation of student learning unreliable.', longTerm: 'Learners may practice less if producing an answer becomes easier than developing a skill.' },
     ],
-    caseStudy: { title: 'The AI-assisted creative brief', text: 'A designer uses a generative system for variations, selects a direction, redraws key elements and presents the result to a client. The case shows why authorship is better understood as a spectrum of contribution than as a binary label.', note: 'Illustrative case; connect to verified copyright and labor sources in Phase 4.' },
+    caseStudy: { title: 'The AI-assisted creative brief', text: 'A designer uses a generative system for variations, selects a direction, redraws key elements and presents the result to a client. The case shows why authorship is better understood as a spectrum of contribution than as a binary label.', note: 'Illustrative case; connect to verified copyright and labor sources.' },
     frameworks: [
       { name: 'Justice', principle: 'Benefits and burdens should be distributed fairly among contributors.', application: 'A system that captures value from creative labor without recognition raises distributive concerns.', tension: 'It is difficult to measure the influence of millions of works or assign a single contribution value.', conclusion: 'Fairness may require multiple mechanisms: consent choices, attribution, compensation and labor protections.' },
       { name: 'Virtue ethics', principle: 'Good creative practice cultivates honesty, care and responsibility.', application: 'A creator who discloses meaningful assistance and checks the work demonstrates integrity.', tension: 'Disclosure norms vary by context, and total process transparency can be burdensome.', conclusion: 'The relevant virtue is not rejection of tools but truthful representation of one\'s contribution.' },
@@ -233,7 +233,7 @@ export const TOPICS: readonly Topic[] = [
       { category: 'Political', direct: 'Propaganda can obscure facts and intimidate populations.', longTerm: 'Public trust in evidence and civilian oversight can erode.' },
       { category: 'Moral', direct: 'Operators may distance themselves from consequences mediated by a system.', longTerm: 'Responsibility for violence may become normalized as a technical property rather than a human choice.' },
     ],
-    caseStudy: { title: 'The automated targeting chain', text: 'A system identifies a pattern, an analyst reviews a recommendation and a commander authorizes an operation. Each step may be defensible in isolation, yet accountability depends on whether the people involved understood uncertainty and had meaningful power to challenge the result.', note: 'General case pattern; add verified conflict-specific sources in Phase 4.' },
+    caseStudy: { title: 'The automated targeting chain', text: 'A system identifies a pattern, an analyst reviews a recommendation and a commander authorizes an operation. Each step may be defensible in isolation, yet accountability depends on whether the people involved understood uncertainty and had meaningful power to challenge the result.', note: 'General case pattern; add verified conflict-specific sources.' },
     frameworks: [
       { name: 'Deontological ethics', principle: 'Some duties, including duties to protect civilians, should not be traded away for convenience.', application: 'A system should not treat people as instruments of an optimization target.', tension: 'Military decisions often involve competing duties under uncertainty.', conclusion: 'Human review must evaluate whether an action respects constraints, not only whether it improves a predicted outcome.' },
       { name: 'Responsibility ethics', principle: 'Those who exercise power must answer for foreseeable consequences.', application: 'A complex system does not remove responsibility from the institution that deploys it.', tension: 'Prediction and control are limited when environments change.', conclusion: 'Clear ownership, audit trails and post-action review are necessary before deployment.' },
@@ -287,7 +287,7 @@ export const TOPICS: readonly Topic[] = [
       { category: 'Political', direct: 'Communities may be affected by decisions made without representation.', longTerm: 'Governance gaps can weaken trust in both institutions and international cooperation.' },
       { category: 'Environmental', direct: 'Infrastructure costs and resource use may be located far from those who benefit.', longTerm: 'Unequal ecological burdens can become part of the global AI economy.' },
     ],
-    caseStudy: { title: 'One standard, many contexts', text: 'A global provider introduces an AI service using a common safety policy across countries. The policy may offer a valuable baseline, yet local communities report that its assumptions do not fit their language, public institutions or cultural practices. The governance question is who can revise the baseline and whose evidence counts.', note: 'Illustrative governance case; add verified policy comparisons in Phase 4.' },
+    caseStudy: { title: 'One standard, many contexts', text: 'A global provider introduces an AI service using a common safety policy across countries. The policy may offer a valuable baseline, yet local communities report that its assumptions do not fit their language, public institutions or cultural practices. The governance question is who can revise the baseline and whose evidence counts.', note: 'Illustrative governance case; add verified policy comparisons.' },
     frameworks: [
       { name: 'Justice', principle: 'People affected by a system should share fairly in its benefits and decision-making.', application: 'Global rules should address unequal access to compute, data, skills and institutional power.', tension: 'Equal treatment can mean different support when starting conditions are unequal.', conclusion: 'Fair governance may require capacity-building and representation, not only identical formal rules.' },
       { name: 'Contextual ethics', principle: 'Ethical judgment must attend to relationships, history and local meaning.', application: 'A rule about privacy or public benefit may need different implementation across societies.', tension: 'Context cannot excuse abuses of basic rights or become a veto against all shared standards.', conclusion: 'Universal protections and participatory local interpretation should constrain and inform each other.' },
@@ -311,6 +311,8 @@ export const TOPICS: readonly Topic[] = [
     sources: [],
   },
 ];
+
+export const TOPICS: readonly Topic[] = ALL_TOPICS.filter((topic) => topic.id <= 3);
 
 export function findTopic(id: number): Topic | undefined {
   return TOPICS.find((topic) => topic.id === id);

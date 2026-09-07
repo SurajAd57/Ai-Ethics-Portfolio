@@ -1,6 +1,6 @@
 import { Artifact, Phase3TopicAnalysis } from './phase3.model';
 
-export const PHASE3_ANALYSES: readonly Phase3TopicAnalysis[] = [
+const ALL_PHASE3_ANALYSES: readonly Phase3TopicAnalysis[] = [
   {
     topicId: 1,
     ethicalIssue: 'A convincing generated image is treated as documentation of a public event before anyone can verify what, if anything, it records.',
@@ -267,7 +267,7 @@ export const PHASE3_ANALYSES: readonly Phase3TopicAnalysis[] = [
   },
 ];
 
-export const ARTIFACTS: readonly Artifact[] = [
+const ALL_ARTIFACTS: readonly Artifact[] = [
   {
     id: 'signal-provenance',
     title: 'If you cannot name the origin, it is not yet evidence',
@@ -365,3 +365,6 @@ export function findArtifact(id: string): Artifact | undefined {
 export function artifactsForTopic(topicId: number): readonly Artifact[] {
   return ARTIFACTS.filter((artifact) => artifact.topicId === topicId);
 }
+
+export const PHASE3_ANALYSES: readonly Phase3TopicAnalysis[] = ALL_PHASE3_ANALYSES.filter((analysis) => analysis.topicId <= 3);
+export const ARTIFACTS: readonly Artifact[] = ALL_ARTIFACTS.filter((artifact) => artifact.topicId <= 3);

@@ -18,6 +18,5 @@ export const routes: Routes = [
 	{ path: 'artifacts/:id', component: ArtifactDetail, title: 'Artifact | AI Ethics Portfolio' },
 	{ path: 'responsible-ai', component: PortfolioPage, data: { pageKey: 'responsibleAi' }, title: 'Responsible AI | AI Ethics Portfolio' },
 	{ path: 'reflection', component: PortfolioPage, data: { pageKey: 'reflection' }, title: 'Reflection | AI Ethics Portfolio' },
-	{ path: 'references', component: PortfolioPage, data: { pageKey: 'references' }, title: 'References | AI Ethics Portfolio' },
 	{ path: '**', redirectTo: '' },
 ];

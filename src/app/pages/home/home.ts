@@ -52,8 +52,7 @@ export class Home {
     { number: '02', title: 'AI-Generated Artifacts', text: 'Objects for close reading and questioning.', route: '/artifacts' },
     { number: '03', title: 'Deepfake Awareness', text: 'Tools for a more careful gaze.', route: '/ethics-lab/2' },
     { number: '04', title: 'Authorship Questions', text: 'Where does creative credit begin?', route: '/ethics-lab/3' },
-    { number: '05', title: 'Global AI Governance', text: 'Rules, borders and uneven power.', route: '/ethics-lab/6' },
-    { number: '06', title: 'Responsible AI Practices', text: 'Principles translated into action.', route: '/responsible-ai' },
+    { number: '05', title: 'Responsible AI Practices', text: 'Principles translated into action.', route: '/responsible-ai' },
   ];
 
   protected readonly team: readonly TeamItem[] = [

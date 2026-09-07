@@ -2,7 +2,7 @@
   @if (topic(); as topic) {
   <section class="topic-hero">
     <div class="topic-hero-inner">
-      <div class="topic-topline"><a routerLink="/topics" class="back-link">← All questions</a><span>{{ topic.number }} / 06</span></div>
+      <div class="topic-topline"><a routerLink="/topics" class="back-link">← All questions</a><span>{{ topic.number }} / 03</span></div>
       <p class="eyebrow">Question {{ topic.number }}</p>
       <h1>{{ topic.title }}</h1>
       <p class="topic-subtitle">{{ topic.subtitle }}</p>
@@ -25,6 +25,7 @@
     @if (analysis(); as analysis) {
       <section class="phase3-analysis-section topic-section" aria-labelledby="phase3-analysis-title">
         <div class="section-label"><span>03</span><span id="phase3-analysis-title">Ethical analysis pathway</span></div>
+        <p class="section-intro">This pathway separates the real-world context, possible benefits, foreseeable risks and responsibilities before a decision is made.</p>
         <app-ethical-analysis [analysis]="analysis" />
       </section>
     }
@@ -35,7 +36,7 @@
     </section>
 
     <section class="topic-section" aria-labelledby="concerns-title">
-      <div class="section-label"><span>03</span><span id="concerns-title">Key ethical concerns</span></div>
+      <div class="section-label"><span>04</span><span id="concerns-title">Key ethical concerns</span></div>
       <div class="concerns-list">
         @for (concern of topic.concerns; track concern.title; let index = $index) {
           <article class="concern" [class.is-open]="isConcernExpanded(index)">
@@ -99,7 +100,7 @@
 
     @if (analysis(); as analysis) {
       <section class="lab-cta topic-section" aria-labelledby="lab-cta-title">
-        <p class="eyebrow">Phase 3 · Ethics Lab</p>
+        <p class="eyebrow">Ethics Lab</p>
         <h2 id="lab-cta-title">Now decide under pressure.</h2>
         <p>{{ analysis.ethicalIssue }}</p>
         <div class="lab-cta-actions">

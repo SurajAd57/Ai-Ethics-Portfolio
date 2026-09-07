@@ -8,6 +8,9 @@
 	--accent: #c7a86c;
 	--font-body: 'Trebuchet MS', 'Segoe UI', sans-serif;
 	--font-display: 'Bodoni 72', 'Baskerville', 'Times New Roman', serif;
+	--heading-hero: clamp(3rem, 6.5vw, 6.5rem);
+	--heading-section: clamp(2rem, 4vw, 4rem);
+	--heading-card: clamp(1.2rem, 2.2vw, 2rem);
 	--gutter: clamp(1.25rem, 5vw, 5rem);
 	--max-width: 1440px;
 }

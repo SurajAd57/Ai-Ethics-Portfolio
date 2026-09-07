@@ -15,7 +15,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
     :host { display: block; }
     .section-heading { max-width: 44rem; }
     .eyebrow { margin: 0 0 0.8rem; color: var(--accent); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; }
-    h2 { margin: 0; color: var(--text); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 500; letter-spacing: 0.01em; line-height: 1.02; text-transform: uppercase; }
+    h2 { margin: 0; color: var(--text); font-family: var(--font-display); font-size: var(--heading-section); font-weight: 500; letter-spacing: 0.01em; line-height: 1.02; text-transform: uppercase; }
     .description { margin: 1rem 0 0; color: var(--muted); font-size: 1rem; line-height: 1.7; }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

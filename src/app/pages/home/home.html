@@ -5,7 +5,7 @@
       <div class="hero-kicker"><span class="signal-dot"></span> A university portfolio on generative AI</div>
       <p class="hero-label">AI Ethics Portfolio</p>
       <h1 id="hero-title">When AI changes everything, <em>how should we</em> live with its power?</h1>
-      <p class="hero-intro">This portfolio explores the ethical challenges, impacts, stakeholders and responsible approaches surrounding Artificial Intelligence through six connected questions.</p>
+      <p class="hero-intro">This portfolio explores the ethical challenges, impacts, stakeholders and responsible approaches surrounding Artificial Intelligence through three connected questions.</p>
       <div class="hero-actions">
         <a routerLink="/topics" class="button button-primary">Explore topics <span aria-hidden="true">↗</span></a>
         <a routerLink="/ethics-lab" class="button button-quiet">View Ethics Lab <span aria-hidden="true">→</span></a>
@@ -22,7 +22,7 @@
   </section>
 
   <section class="overview section-band" aria-labelledby="overview-title">
-    <div class="section-intro-row"><app-section-heading eyebrow="The portfolio" title="A field guide for thinking" description="Move from questions to encounters, from creative work to responsible practice, and from reflection to evidence." /><span class="section-count" aria-hidden="true">06 / 06</span></div>
+    <div class="section-intro-row"><app-section-heading eyebrow="The portfolio" title="A field guide for thinking" description="Move from questions to encounters, from creative work to responsible practice, and from reflection to evidence." /><span class="section-count" aria-hidden="true">05 / 05</span></div>
     <div class="overview-grid">
       @for (item of previews; track item.number) { <a class="overview-card" [routerLink]="item.route"><span>{{ item.number }}</span><div><h3>{{ item.title }}</h3><p>{{ item.text }}</p></div><b aria-hidden="true">↗</b></a> }
     </div>
@@ -49,8 +49,8 @@
 
   <section class="questions section-band" id="questions" aria-labelledby="questions-title">
     <div class="section-intro-row">
-      <app-section-heading eyebrow="Investigate" title="The six questions" description="Six entry points into the ethical tensions created by generative AI. Start anywhere; the questions are connected." />
-      <span class="section-count" aria-hidden="true">06 / 06</span>
+      <app-section-heading eyebrow="Investigate" title="The three questions" description="Three entry points into the ethical tensions created by generative AI. Start anywhere; the questions are connected." />
+      <span class="section-count" aria-hidden="true">03 / 03</span>
     </div>
     <div class="topic-grid">
       @for (topic of topics; track topic.id) { <app-topic-card [topic]="topic" /> }

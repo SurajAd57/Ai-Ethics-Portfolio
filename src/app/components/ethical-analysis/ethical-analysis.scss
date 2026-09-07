@@ -1,10 +1,10 @@
 :host { display: block; }
 .analysis-flow { border-top: 1px solid var(--border); }
-.analysis-block { display: grid; grid-template-columns: 3rem 1fr; gap: 1.2rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+.analysis-block { display: grid; grid-template-columns: 3rem 1fr; gap: 1.2rem; padding: 1.7rem 0; border-bottom: 1px solid var(--border); }
 .block-number { color: var(--accent); font-size: .7rem; font-weight: 800; letter-spacing: .12em; }
 .eyebrow { margin: 0 0 .75rem; color: var(--accent); font-size: .66rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .analysis-block p:not(.eyebrow) { max-width: 62rem; margin: 0; color: var(--muted); line-height: 1.75; }
-.lead { color: var(--text) !important; font-family: var(--font-display); font-size: clamp(1.35rem, 2.5vw, 2rem); line-height: 1.25 !important; }
+.lead { color: var(--text) !important; font-family: var(--font-body); font-size: 1.06rem; line-height: 1.8 !important; }
 .two-column, .choice-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
 ul, ol { margin: 0; padding-left: 1.25rem; color: var(--muted); line-height: 1.65; }
 li { margin: .6rem 0; } li strong { display: block; color: var(--text); } li span { display: block; }
