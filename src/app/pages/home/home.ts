@@ -58,8 +58,7 @@ export class Home {
     { number: '02', title: 'Ethics Lab', text: 'Interactive encounters testing ethical judgment under pressure.', route: '/ethics-lab' },
     { number: '03', title: 'Creative Artifacts', text: 'Visual objects, awareness posters and forensic signals.', route: '/artifacts' },
     { number: '04', title: 'Ethical Analysis (2-3p)', text: 'Formal academic whitepaper deliverable with multi-framework evaluation.', route: '/analysis' },
-    { number: '05', title: 'Presentation Mode (5-7m)', text: 'Structured full-screen deck with live timer and member speaker notes.', route: '/presentation' },
-    { number: '06', title: 'Responsible AI & Reflection', text: 'Principles, limitations, verification protocol and team reflections.', route: '/responsible-ai' },
+    { number: '05', title: 'Responsible AI & Reflection', text: 'Principles, limitations, verification protocol and team reflections.', route: '/responsible-ai' },
   ];
 
   protected readonly labEncounters: readonly PreviewItem[] = [
@@ -73,19 +72,19 @@ export class Home {
       name: 'Team Member 1',
       role: 'Epistemic Trust & Media Lead',
       topic: 'Topic 01: Synthetic Reality & Epistemic Risk',
-      contribution: 'Researched fallibilist epistemology (Floridi & Fallis), designed C2PA Provenance Placard artifact, and leads presentation opening & Slide 2.',
+      contribution: 'Researched fallibilist epistemology (Floridi & Fallis), designed C2PA Provenance Placard artifact, and led Section 1.0 philosophical formulation.',
     },
     {
       name: 'Team Member 2',
       role: 'Biometric Forensics & Influence Lead',
       topic: 'Topic 02: Misinformation, Deepfakes & Persuasion',
-      contribution: 'Analyzed zero-shot voice cloning vectors and the Liar’s Dividend, designed Forensic Audio Warning Poster, and leads presentation Slide 3.',
+      contribution: 'Analyzed zero-shot voice cloning vectors and the Liar’s Dividend, designed Forensic Audio Warning Poster, and led Section 2.0 deception taxonomy.',
     },
     {
       name: 'Team Member 3',
       role: 'Intellectual Labor & Authorship Lead',
       topic: 'Topic 03: Authorship, Creativity & Labor',
-      contribution: 'Evaluated training data consent and copyright boundaries (UNESCO & US Copyright Office), designed Authorship Spectrum Flow, and leads presentation Slide 4.',
+      contribution: 'Evaluated training data consent and copyright boundaries (UNESCO & US Copyright Office), designed Authorship Spectrum Flow, and led Section 3.0 labor equity analysis.',
     },
   ];
 }

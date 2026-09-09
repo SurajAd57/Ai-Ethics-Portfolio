@@ -52,7 +52,7 @@
   </section>
 
   <section class="overview section-band" aria-labelledby="overview-title">
-    <div class="section-intro-row"><app-section-heading eyebrow="The portfolio" title="A field guide for thinking" description="Move from questions to encounters, from creative work to responsible practice, and from reflection to evidence." /><span class="section-count" aria-hidden="true">06 / 06</span></div>
+    <div class="section-intro-row"><app-section-heading eyebrow="The portfolio" title="A field guide for thinking" description="Move from questions to encounters, from creative work to responsible practice, and from reflection to evidence." /><span class="section-count" aria-hidden="true">05 / 05</span></div>
     <div class="overview-grid">
       @for (item of previews; track item.number) { <a class="overview-card" [routerLink]="item.route"><span>{{ item.number }}</span><div><h3>{{ item.title }}</h3><p>{{ item.text }}</p></div><b aria-hidden="true">↗</b></a> }
     </div>
@@ -120,7 +120,7 @@
     <div class="team-heading">
       <p class="eyebrow">A shared inquiry · Equal Team Participation</p>
       <h2 id="team-title">The student team<br /><span>behind the questions.</span></h2>
-      <p class="section-copy">Each team member assumed individual responsibility for the research, case studies, creative artifact development, and presentation segment for one distinct Unit-5 domain.</p>
+      <p class="section-copy">Each team member assumed individual responsibility for the research, case studies, creative artifact development, and case analysis for one distinct Unit-5 domain.</p>
     </div>
     <div class="team-list">
       @for (member of team; track member.name; let index = $index) {
