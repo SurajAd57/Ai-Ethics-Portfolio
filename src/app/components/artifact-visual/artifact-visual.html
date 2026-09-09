@@ -1,4 +1,4 @@
-<div class="artifact-stage" [attr.data-visual]="artifact().visual" aria-hidden="true">
+<div class="artifact-stage" [attr.data-visual]="artifact().visual" role="figure" [attr.aria-label]="artifact().type + ': ' + artifact().title">
   @switch (artifact().visual) {
     @case ('signal') {
       <div class="signal-board">
@@ -31,18 +31,6 @@
           <strong>Human stops or signs</strong>
         </div>
         <p class="stage-foot">If a step is missing, the claim is incomplete.</p>
-      </div>
-    }
-    @case ('matrix') {
-      <div class="matrix-board">
-        <p class="stage-kicker">Test the rule</p>
-        <div class="matrix-cells">
-          <b>Who decided?</b>
-          <b>Whose context?</b>
-          <b>Who has capacity?</b>
-          <b>Who can revise?</b>
-        </div>
-        <p class="stage-foot">Uniformity is not the same as legitimacy.</p>
       </div>
     }
   }

@@ -1,49 +1,39 @@
-# AiEthicsPortfolio
-
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.1.
-
-## Development server
-
-To start a local development server, run:
-
-```bash
 # AI Ethics Portfolio
 
-An Angular 21 digital ethics portfolio for the CIA-3 project, **Generative AI, Truth, Creativity, and Global Ethical Order**. The application presents six ethical topics, interactive dilemmas, creative artifacts, responsible-AI guidance, reflection and a transparent reference trail.
+An Angular 21 digital ethics portfolio for the CIA-3 project on **Generative AI, Truth, Creativity, and Responsibility**. The application presents three focused ethical topics, interactive dilemmas, creative visual artifacts, responsible-AI guidance, verified academic literature references, and a student team reflection.
+
+## Core Topics
+1. **Synthetic Reality & Epistemic Risk** (`/topics/1`): When seeing is no longer enough to believe.
+2. **Misinformation, Deepfakes & Persuasion** (`/topics/2`): When influence crosses the line into manipulation.
+3. **Authorship, Creativity & Intellectual Labor** (`/topics/3`): When making becomes a collaboration with a machine.
 
 ## Technologies
-
-- Angular 21 standalone components
+- Angular 21 (Standalone components, signals, control flow)
 - TypeScript
 - SCSS
 - Angular Router
-- Vitest through the Angular CLI test builder
+- Vitest via Angular CLI test builder
 
-## Install dependencies
+## Getting Started
 
+### 1. Install dependencies
 ```bash
 npm install
 ```
 
-## Development server
-
+### 2. Development server
 ```bash
 npm start
 ```
+Open `http://localhost:4200/`. The development server reloads automatically when source files change.
 
-Open `http://localhost:4200/`. The development server reloads when source files change.
-
-## Tests
-
+### 3. Run unit tests
 ```bash
 npm test -- --watch=false
 ```
 
-## Production build
-
+### 4. Production build
 ```bash
 npm run build
 ```
-
-The optimized output is written to `dist/ai-ethics-portfolio/`.
-For end-to-end (e2e) testing, run:
+The optimized bundle is written to `dist/ai-ethics-portfolio/`.

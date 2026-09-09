@@ -1,14 +1,19 @@
 :host { display: block; }
 .lab-hero { border-bottom: 1px solid var(--border); background: radial-gradient(circle at 78% 35%, rgba(199, 168, 108, 0.17), transparent 28rem), var(--surface); }
 .lab-hero-inner { position: relative; max-width: var(--max-width); min-height: 30rem; margin: 0 auto; padding: 4rem var(--gutter) 5.5rem; }
-.lab-hero-inner::after { position: absolute; right: 9%; bottom: -13rem; width: 28rem; height: 28rem; border: 1px solid rgba(199, 168, 108, 0.24); border-radius: 50%; content: ''; }
+.lab-hero-inner::after { position: absolute; right: 9%; bottom: -13rem; width: 28rem; height: 28rem; border: 1px solid rgba(199, 168, 108, 0.24); border-radius: 50%; content: ''; pointer-events: none; }
 .lab-topline { display: flex; justify-content: space-between; color: var(--accent); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
 .back-link { color: var(--muted); text-decoration: none; }
 .back-link:hover { color: var(--accent); }
 .eyebrow, .section-label { color: var(--accent); font-size: 0.67rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
-.lab-hero .eyebrow { position: relative; z-index: 1; margin: 6.5rem 0 1rem; }
-.lab-hero h1 { position: relative; z-index: 1; max-width: 58rem; margin: 0; color: var(--text); font-family: var(--font-display); font-size: clamp(3.2rem, 7vw, 7rem); font-weight: 500; line-height: 0.88; text-transform: uppercase; }
-.hero-intro { position: relative; z-index: 1; max-width: 42rem; margin: 1.4rem 0 0; color: var(--muted); font-size: 1rem; line-height: 1.7; }
+.lab-hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: end; margin-top: 4.5rem; }
+.lab-hero-copy .eyebrow { margin: 0 0 1rem; }
+.lab-hero h1 { max-width: 58rem; margin: 0; color: var(--text); font-family: var(--font-display); font-size: clamp(3.2rem, 7vw, 7rem); font-weight: 500; line-height: 0.88; text-transform: uppercase; }
+.hero-intro { max-width: 42rem; margin: 1.4rem 0 0; color: var(--muted); font-size: 1rem; line-height: 1.7; }
+.lab-hero-figure { margin: 0; border: 1px solid var(--border); background: var(--surface); border-radius: 4px; overflow: hidden; }
+.lab-hero-img { display: block; width: 100%; height: auto; max-height: 300px; object-fit: cover; object-position: center; transition: transform 300ms ease; }
+.lab-hero-figure:hover .lab-hero-img { transform: scale(1.02); }
+.lab-hero-figure figcaption { padding: 0.85rem 1.2rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.72rem; letter-spacing: 0.05em; line-height: 1.5; text-transform: uppercase; }
 .lab-section { max-width: var(--max-width); margin: 0 auto; padding: 6.5rem var(--gutter); border-bottom: 1px solid var(--border); }
 .section-label { display: flex; gap: 1.5rem; align-items: baseline; margin-bottom: 2.4rem; }
 .section-label span:first-child { color: var(--muted); }
@@ -27,4 +32,5 @@
 .lab-note h2 { max-width: 46rem; margin: 1rem auto 2rem; color: var(--text); font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 3.6rem); font-weight: 500; line-height: 1; }
 .button { display: inline-flex; align-items: center; gap: 0.7rem; padding: 0.95rem 1.15rem; background: var(--accent); color: var(--background); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-decoration: none; text-transform: uppercase; }
 .button:hover { background: var(--text); }
+@media (max-width: 960px) { .lab-hero-grid { grid-template-columns: 1fr; gap: 2.5rem; margin-top: 3.5rem; } }
 @media (max-width: 780px) { .method-grid { grid-template-columns: 1fr; } .encounter-card { grid-template-columns: 3rem 1fr; } .encounter-card b { display: none; } }

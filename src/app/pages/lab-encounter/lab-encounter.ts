@@ -19,7 +19,7 @@ export class LabEncounter {
     { initialValue: Number(this.route.snapshot.paramMap.get('id')) },
   );
 
-  protected readonly selectedOption = signal<0 | 1 | null>(null);
+  protected readonly selectedOption = signal<number | null>(null);
 
   constructor() {
     effect(() => {
@@ -40,7 +40,7 @@ export class LabEncounter {
     return analysis.dilemmaOptions[selected];
   });
 
-  protected selectOption(index: 0 | 1): void {
+  protected selectOption(index: number): void {
     this.selectedOption.set(index);
   }
 }

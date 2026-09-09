@@ -51,7 +51,7 @@
           <p class="decide-copy">Both options can be defended. Select one to see who it protects, who it exposes, and which matrix questions it leaves open.</p>
           <div class="option-grid">
             @for (option of analysis.dilemmaOptions; track option.label; let index = $index) {
-              <button type="button" class="option-card" [class.is-selected]="selectedOption() === index" (click)="selectOption(index === 0 ? 0 : 1)">
+              <button type="button" class="option-card" [class.is-selected]="selectedOption() === index" (click)="selectOption(index)">
                 <span>Option {{ option.label }}</span>
                 <h2>{{ option.title }}</h2>
                 <p>Click to inspect this path.</p>

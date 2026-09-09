@@ -30,34 +30,44 @@ interface TeamItem {
 })
 export class Home {
   protected readonly topics: readonly TopicCardData[] = TOPICS.map((topic) => ({
-    id: topic.id, number: topic.number, title: topic.title, description: topic.subtitle, issue: topic.dilemma,
+    id: topic.id,
+    number: topic.number,
+    title: topic.title,
+    description: topic.subtitle,
+    issue: topic.dilemma,
   }));
 
   protected readonly framework: readonly FrameworkItem[] = [
-    { label: 'Truth', text: 'What can we know?' },
-    { label: 'Creativity', text: 'What can we claim?' },
-    { label: 'Power', text: 'Who gets to shape reality?' },
-    { label: 'Responsibility', text: 'What do we owe one another?' },
+    { label: 'Truth', text: 'What can we know when synthetic media blurs evidence?' },
+    { label: 'Creativity', text: 'What can we claim when machines participate in making?' },
+    { label: 'Power', text: 'Who gets to shape reality and control persuasive tools?' },
+    { label: 'Responsibility', text: 'What do we owe one another in design, governance and use?' },
   ];
 
   protected readonly dimensions: readonly FrameworkItem[] = [
-    { label: 'Truth', text: 'How AI-generated content affects trust, information and knowledge.' },
-    { label: 'Creativity', text: 'How AI changes authorship, originality and intellectual labor.' },
-    { label: 'Power', text: 'How AI can influence persuasion, propaganda and conflict.' },
-    { label: 'Responsibility', text: 'Why humans and institutions remain accountable for how AI is designed and used.' },
+    { label: 'Truth', text: 'How AI-generated content affects trust, verification and shared facts.' },
+    { label: 'Creativity', text: 'How AI transforms authorship, originality and creative labor.' },
+    { label: 'Power', text: 'How influence, deepfakes and persuasion cross into manipulation.' },
+    { label: 'Responsibility', text: 'Why humans remain accountable for every AI-assisted choice.' },
   ];
 
   protected readonly previews: readonly PreviewItem[] = [
-    { number: '01', title: 'Ethical Dilemmas', text: 'Cases that refuse easy answers.', route: '/ethics-lab' },
-    { number: '02', title: 'AI-Generated Artifacts', text: 'Objects for close reading and questioning.', route: '/artifacts' },
-    { number: '03', title: 'Deepfake Awareness', text: 'Tools for a more careful gaze.', route: '/ethics-lab/2' },
-    { number: '04', title: 'Authorship Questions', text: 'Where does creative credit begin?', route: '/ethics-lab/3' },
-    { number: '05', title: 'Responsible AI Practices', text: 'Principles translated into action.', route: '/responsible-ai' },
+    { number: '01', title: 'Ethical Topics', text: 'Three exhibitions exploring truth, deception and authorship.', route: '/topics' },
+    { number: '02', title: 'Ethics Lab', text: 'Interactive encounters testing judgment under pressure.', route: '/ethics-lab' },
+    { number: '03', title: 'Creative Artifacts', text: 'Visual objects and signals for critical reading.', route: '/artifacts' },
+    { number: '04', title: 'Responsible AI', text: 'Actionable principles, limitations and verification workflows.', route: '/responsible-ai' },
+    { number: '05', title: 'Our Reflection', text: 'Documented team learning, process notes and honest boundaries.', route: '/reflection' },
+  ];
+
+  protected readonly labEncounters: readonly PreviewItem[] = [
+    { number: '01', title: 'The Synthetic Witness', text: 'Decide how to treat an unverified viral image presented as evidence.', route: '/ethics-lab/1' },
+    { number: '02', title: 'The Persuasive Voice', text: 'Weigh urgent friction versus open access when a cloned voice asks for trust.', route: '/ethics-lab/2' },
+    { number: '03', title: 'The Creative Brief', text: 'Navigate attribution, human craft and tool disclosures in AI-assisted work.', route: '/ethics-lab/3' },
   ];
 
   protected readonly team: readonly TeamItem[] = [
-    { name: 'Member 1', role: 'Truth & Information' },
-    { name: 'Member 2', role: 'Creativity & Intellectual Labor' },
-    { name: 'Member 3', role: 'Power & Governance' },
+    { name: 'Member 1', role: 'Truth & Epistemic Trust' },
+    { name: 'Member 2', role: 'Persuasion, Deepfakes & Influence' },
+    { name: 'Member 3', role: 'Authorship & Intellectual Labor' },
   ];
 }

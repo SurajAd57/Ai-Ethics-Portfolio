@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PHASE3_ANALYSES } from '../../data/phase3.data';
+import { PORTFOLIO_PAGES } from '../../data/portfolio.data';
 import { findTopic } from '../../data/topics.data';
 
 @Component({
@@ -11,6 +12,7 @@ import { findTopic } from '../../data/topics.data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EthicsLab {
+  protected readonly pageData = PORTFOLIO_PAGES['ethicsLab'];
   protected readonly encounters = PHASE3_ANALYSES.map((analysis) => {
     const topic = findTopic(analysis.topicId);
     return {

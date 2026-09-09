@@ -52,4 +52,5 @@ export interface Topic {
   readonly reflectionQuestions: readonly string[];
   readonly biggerQuestion: string;
   readonly sources: readonly TopicSource[];
+  readonly image?: { readonly url: string; readonly alt: string; readonly caption: string };
 }

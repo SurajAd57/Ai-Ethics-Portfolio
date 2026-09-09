@@ -16,8 +16,17 @@
 
   <section class="about-intro section-band" aria-labelledby="about-title">
     <div class="section-layout">
-      <div><p class="eyebrow">Begin with the question</p><h2 id="about-title">What is<br /><span>AI ethics?</span></h2></div>
-      <p class="large-about-copy">AI ethics asks how intelligent systems affect people, society and the choices we make. It connects technical possibility with human values: truth, creativity, power and responsibility.</p>
+      <div>
+        <p class="eyebrow">Begin with the question</p>
+        <h2 id="about-title">What is<br /><span>AI ethics?</span></h2>
+      </div>
+      <div>
+        <p class="large-about-copy">AI ethics asks how intelligent systems affect people, society and the choices we make. It connects technical possibility with human values: truth, creativity, power and responsibility.</p>
+        <figure class="about-figure">
+          <img src="/images/ai-ethics-typewriter.jpg" alt="Vintage typewriter with paper reading AI ETHICS" class="about-img" loading="lazy" />
+          <figcaption>Grounding machine capability in human values, critical inquiry, and historical reflection.</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -78,9 +87,9 @@
       <a routerLink="/ethics-lab" class="text-link">Visit the lab <span aria-hidden="true">↗</span></a>
     </div>
     <div class="preview-grid">
-      @for (preview of previews; track preview.number) {
-        <a class="preview-card" [routerLink]="preview.route">
-          <span>{{ preview.number }}</span><div><h3>{{ preview.title }}</h3><p>{{ preview.text }}</p></div><b aria-hidden="true">↗</b>
+      @for (encounter of labEncounters; track encounter.number) {
+        <a class="preview-card" [routerLink]="encounter.route">
+          <span>{{ encounter.number }}</span><div><h3>{{ encounter.title }}</h3><p>{{ encounter.text }}</p></div><b aria-hidden="true">↗</b>
         </a>
       }
     </div>

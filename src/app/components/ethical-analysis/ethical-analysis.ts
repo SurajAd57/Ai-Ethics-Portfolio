@@ -9,9 +9,9 @@ import { Phase3TopicAnalysis } from '../../data/phase3.model';
 })
 export class EthicalAnalysis {
   readonly analysis = input.required<Phase3TopicAnalysis>();
-  protected readonly selectedOption = signal<0 | 1 | null>(null);
+  protected readonly selectedOption = signal<number | null>(null);
 
-  protected selectOption(index: 0 | 1): void {
+  protected selectOption(index: number): void {
     this.selectedOption.set(index);
   }
 }

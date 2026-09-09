@@ -10,6 +10,7 @@ export interface PortfolioPageData {
   readonly title: string;
   readonly accent: string;
   readonly intro: string;
+  readonly image?: { readonly url: string; readonly alt: string; readonly caption: string };
   readonly sections: readonly { readonly title: string; readonly text: string }[];
   readonly cards: readonly PortfolioCard[];
   readonly closing: string;
@@ -19,6 +20,11 @@ export const PORTFOLIO_PAGES: Record<string, PortfolioPageData> = {
   ethicsLab: {
     key: 'ethicsLab', title: 'The Ethics Lab', accent: 'Think before you decide.',
     intro: 'A set of guided encounters for testing ethical judgment. Weigh benefits, risks and two imperfect options, then inspect the trade-off you accepted.',
+    image: {
+      url: '/images/ethical-scales.jpg',
+      alt: 'Scales of justice weighing machine artificial intelligence against the human brain',
+      caption: 'Weighing machine capability against human judgment, values, and moral responsibility.',
+    },
     sections: [
       { title: 'Read the situation', text: 'Begin with a concrete scenario where an AI system changes what people can know, make, decide or control.' },
       { title: 'Map the stakeholders', text: 'Notice who gains power, who carries risk and whose perspective is missing from the first explanation.' },
@@ -52,6 +58,11 @@ export const PORTFOLIO_PAGES: Record<string, PortfolioPageData> = {
   responsibleAi: {
     key: 'responsibleAi', title: 'Responsible AI', accent: 'Using Generative AI with responsibility requires more than technical capability — it requires human judgment, transparency, accountability and awareness of potential harm.',
     intro: 'Responsible AI is not a single checklist. It is an ongoing commitment to design and use systems in ways that respect people, reduce foreseeable harm and keep accountability visible.',
+    image: {
+      url: '/images/responsible-ai-audit.jpg',
+      alt: 'Human practitioner auditing AI systems with legal, safety, and verification workflows',
+      caption: 'Active human oversight: connecting technical capability with legal justice, auditing, and public safety.',
+    },
     sections: [
       { title: 'Start with people', text: 'Define who is affected, what they need and what could go wrong before choosing a technical solution.' },
       { title: 'Make limits visible', text: 'Explain data, uncertainty, capability and failure modes so users can make informed decisions.' },
@@ -70,6 +81,11 @@ export const PORTFOLIO_PAGES: Record<string, PortfolioPageData> = {
   reflection: {
     key: 'reflection', title: 'Our Reflection', accent: 'Learning is part of the artifact.',
     intro: 'This page holds the reflective structure for the team’s final account of researching, designing and using generative AI responsibly. The prompts below are ready for our own voice.',
+    image: {
+      url: '/images/intelligence-crossword.jpg',
+      alt: 'Scrabble tiles exploring artificial intelligence, human thought, and vulnerability',
+      caption: 'Critical inquiry: distinguishing artificial fluency from human reasoning, ethics, and accountability.',
+    },
     sections: [
       { title: 'What we learned', text: 'Which ideas changed as we moved from definitions to cases, stakeholders and trade-offs?' },
       { title: 'How AI affected our thinking', text: 'Where did generative tools help us explore possibilities, and where did human judgment remain essential?' },

@@ -19,7 +19,7 @@
     <p class="dilemma-copy">Both choices protect something important and expose someone to a different risk.</p>
     <div class="option-grid">
       @for (option of analysis().dilemmaOptions; track option.label; let index = $index) {
-        <button type="button" class="option" [class.is-selected]="selectedOption() === index" (click)="selectOption(index === 0 ? 0 : 1)">
+        <button type="button" class="option" [class.is-selected]="selectedOption() === index" (click)="selectOption(index)">
           <span>Option {{ option.label }}</span><strong>{{ option.title }}</strong>
         </button>
       }

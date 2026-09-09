@@ -1,7 +1,38 @@
 <div class="stakeholder-map">
-  <div class="map-visual" aria-hidden="true"><span class="node node-top">PEOPLE</span><span class="node node-center">AI SYSTEM</span><span class="node node-left">POWER</span><span class="node node-right">PUBLIC</span><span class="node node-bottom">DUTY</span></div>
-  <div class="stakeholder-list" role="tablist" aria-label="Stakeholder concerns">
-    @for (stakeholder of stakeholders(); track stakeholder.name; let index = $index) { <button type="button" role="tab" [attr.aria-selected]="selected() === index" [class.is-active]="selected() === index" (click)="select(index)"><span>0{{ index + 1 }}</span>{{ stakeholder.name }}</button> }
+  <div class="map-visual" aria-hidden="true">
+    <span class="node node-top">PEOPLE</span>
+    <span class="node node-center">AI SYSTEM</span>
+    <span class="node node-left">POWER</span>
+    <span class="node node-right">PUBLIC</span>
+    <span class="node node-bottom">DUTY</span>
   </div>
-  @if (stakeholders()[selected()]; as stakeholder) { <article class="stakeholder-detail" role="tabpanel"><p class="eyebrow">At stake for {{ stakeholder.name }}</p><p>{{ stakeholder.stake }}</p></article> }
+  <div class="stakeholder-sidebar">
+    <div class="stakeholder-list" role="tablist" aria-label="Stakeholder concerns">
+      @for (stakeholder of stakeholders(); track stakeholder.name; let index = $index) {
+        <button
+          type="button"
+          role="tab"
+          [id]="'stakeholder-tab-' + index"
+          [attr.aria-selected]="selected() === index"
+          [attr.aria-controls]="'stakeholder-panel'"
+          [class.is-active]="selected() === index"
+          (click)="select(index)"
+        >
+          <span>0{{ index + 1 }}</span>
+          {{ stakeholder.name }}
+        </button>
+      }
+    </div>
+    @if (stakeholders()[selected()]; as stakeholder) {
+      <article
+        class="stakeholder-detail"
+        role="tabpanel"
+        id="stakeholder-panel"
+        [attr.aria-labelledby]="'stakeholder-tab-' + selected()"
+      >
+        <p class="eyebrow">At stake for {{ stakeholder.name }}</p>
+        <p>{{ stakeholder.stake }}</p>
+      </article>
+    }
+  </div>
 </div>

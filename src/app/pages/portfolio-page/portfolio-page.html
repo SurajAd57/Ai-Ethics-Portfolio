@@ -2,10 +2,20 @@
   <section class="portfolio-hero">
     <div class="portfolio-hero-inner">
       <div class="portfolio-topline"><a routerLink="/" class="back-link">← Home</a></div>
-      <p class="eyebrow">AI Ethics Portfolio</p>
-      <h1>{{ page().title }}</h1>
-      <p class="hero-accent">{{ page().accent }}</p>
-      <p class="hero-intro">{{ page().intro }}</p>
+      <div class="portfolio-hero-grid">
+        <div class="portfolio-hero-copy">
+          <p class="eyebrow">AI Ethics Portfolio</p>
+          <h1>{{ page().title }}</h1>
+          <p class="hero-accent">{{ page().accent }}</p>
+          <p class="hero-intro">{{ page().intro }}</p>
+        </div>
+        @if (page().image; as image) {
+          <figure class="portfolio-hero-figure">
+            <img [src]="image.url" [alt]="image.alt" class="portfolio-hero-img" loading="lazy" />
+            <figcaption>{{ image.caption }}</figcaption>
+          </figure>
+        }
+      </div>
     </div>
   </section>
 
@@ -25,7 +35,7 @@
         @if (card.route) {
           <a class="collection-card" [routerLink]="card.route"><span>{{ card.number }}</span><div><h2>{{ card.title }}</h2><p>{{ card.text }}</p></div><b aria-hidden="true">↗</b></a>
         } @else {
-          <article class="collection-card"><span>{{ card.number }}</span><div><h2>{{ card.title }}</h2><p>{{ card.text }}</p></div><b aria-hidden="true">+</b></article>
+          <article class="collection-card"><span>{{ card.number }}</span><div><h2>{{ card.title }}</h2><p>{{ card.text }}</p></div></article>
         }
       }
     </div>

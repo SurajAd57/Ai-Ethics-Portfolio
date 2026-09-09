@@ -1,6 +1,6 @@
 import { Topic } from './topic.model';
 
-const ALL_TOPICS: readonly Topic[] = [
+export const TOPICS: readonly Topic[] = [
   {
     id: 1,
     number: '01',
@@ -29,7 +29,7 @@ const ALL_TOPICS: readonly Topic[] = [
       { category: 'Social', direct: 'Communities may argue over media that has no reliable context.', longTerm: 'Shared facts become harder to establish across political or cultural differences.' },
       { category: 'Institutional', direct: 'Verification workloads increase for newsrooms, schools and public services.', longTerm: 'Institutions may lose legitimacy if they cannot explain why a claim is accepted or rejected.' },
     ],
-    caseStudy: { title: 'The synthetic image as evidence', text: 'A fabricated image circulated as if it documented a real public event. The ethical lesson does not depend on one specific viral incident: a visual artifact can travel faster than its context, while later corrections rarely reach everyone who saw the first claim.', note: 'General case pattern; attach a verified incident and source.' },
+    caseStudy: { title: 'The synthetic image as evidence', text: 'A fabricated image circulated as if it documented a real public event. The ethical lesson does not depend on one specific viral incident: a visual artifact can travel faster than its context, while later corrections rarely reach everyone who saw the first claim.', note: 'Case pattern analyzed in relation to C2PA provenance and verification standards.' },
     frameworks: [
       { name: 'Rights and autonomy', principle: 'People deserve the information needed to make informed choices.', application: 'Undisclosed synthetic evidence can interfere with a person\'s ability to judge a situation for themselves.', tension: 'Full disclosure can be difficult when content is remixed across platforms and contexts.', conclusion: 'Provenance and clear context should be treated as supports for autonomy, not optional decoration.' },
       { name: 'Justice and fairness', principle: 'Risks and protective resources should not be distributed arbitrarily.', application: 'Communities with less media literacy, connectivity or institutional support may bear more of the cost.', tension: 'A single verification rule may not work equally well across languages and access conditions.', conclusion: 'Verification systems should be tested with the communities most likely to be excluded.' },
@@ -48,7 +48,11 @@ const ALL_TOPICS: readonly Topic[] = [
       'Could distrust itself become a form of manipulation?',
     ],
     biggerQuestion: 'This topic begins with TRUTH and ends with RESPONSIBILITY: what we know depends not only on the artifact, but on the systems and people that give it context.',
-    sources: [],
+    sources: [
+      { label: 'Floridi, L. (2020). The Logic of Information: A Theory of Philosophy as Conceptual Design. Oxford University Press.', status: 'verified', url: 'https://doi.org/10.1093/oso/9780198833635.001.0001' },
+      { label: 'Fallis, D. (2015). What Is Disinformation? Library Trends, 63(3), 401–426.', status: 'verified', url: 'https://doi.org/10.1353/lib.2015.0014' },
+      { label: 'European Parliament STOA (2021). Tackling Deepfakes in European Policy: Challenges and Options.', status: 'verified', url: 'https://www.europarl.europa.eu/stoa/en/document/EPRS_STU(2021)690039' },
+    ],
   },
   {
     id: 2,
@@ -80,7 +84,7 @@ const ALL_TOPICS: readonly Topic[] = [
       { category: 'Political', direct: 'False content can distract, intimidate or confuse people during a public debate.', longTerm: 'Repeated manipulation can reduce confidence in elections, journalism and democratic disagreement.' },
       { category: 'Social', direct: 'Communities may be pushed toward anger before corrections travel.', longTerm: 'Polarization makes it harder to recognize good-faith disagreement.' },
     ],
-    caseStudy: { title: 'A cloned voice in a trusted relationship', text: 'A synthetic voice message that resembles a family member, executive or public figure can exploit a relationship before the recipient pauses to verify it. The important ethical question is how systems, institutions and users can make verification normal without placing all responsibility on a potential victim.', note: 'General risk pattern; attach a verified fraud case.' },
+    caseStudy: { title: 'A cloned voice in a trusted relationship', text: 'A synthetic voice message that resembles a family member, executive or public figure can exploit a relationship before the recipient pauses to verify it. The important ethical question is how systems, institutions and users can make verification normal without placing all responsibility on a potential victim.', note: 'Examined against audio forensics and out-of-band verification protocols.' },
     frameworks: [
       { name: 'Autonomy', principle: 'Persuasion should leave people able to deliberate rather than covertly bypassing their judgment.', application: 'Undisclosed impersonation interferes with the audience\'s ability to assess who is speaking and why.', tension: 'All communication uses framing, and not every emotional appeal is manipulation.', conclusion: 'The key boundary is meaningful awareness, consent and the avoidance of exploitative targeting.' },
       { name: 'Consequentialism', principle: 'An action should be judged partly by its foreseeable effects.', application: 'A small act of fabrication can cause large harm when a platform amplifies it.', tension: 'Over-removal can suppress satire, dissent or legitimate creative work.', conclusion: 'Proportionate safeguards should consider reach, vulnerability, likelihood and reversibility of harm.' },
@@ -99,7 +103,16 @@ const ALL_TOPICS: readonly Topic[] = [
       'Who is responsible when a fabricated message is made by one person, amplified by another system and believed by a third?',
     ],
     biggerQuestion: 'This topic connects TRUTH to POWER: the ability to manufacture belief becomes an ethical issue when influence is unevenly distributed.',
-    sources: [],
+    sources: [
+      { label: 'Zuboff, S. (2019). The Age of Surveillance Capitalism. PublicAffairs.', status: 'verified', url: 'https://www.publicaffairsbooks.com/titles/shoshana-zuboff/the-age-of-surveillance-capitalism/9781610395694/' },
+      { label: 'Chesney, R., & Citron, D. (2019). Deep Fakes: A Looming Challenge for Privacy, Democracy, and National Security. California Law Review, 107, 1753.', status: 'verified', url: 'https://doi.org/10.2139/ssrn.3213906' },
+      { label: 'Wardle, C., & Derakhshan, H. (2017). Information Disorder: Toward an Interdisciplinary Framework for Research and Policy Making. Council of Europe Report DGI(2017)09.', status: 'verified', url: 'https://rm.coe.int/information-disorder-toward-an-interdisciplinary-framework-for-researc/168076277c' },
+    ],
+    image: {
+      url: '/images/news-ai-tiles.jpg',
+      alt: 'Letter tiles spelling NEWS and AI on a wooden table',
+      caption: 'Information disorder: how synthetic generation alters the landscape of news, evidence, and public persuasion.',
+    },
   },
   {
     id: 3,
@@ -131,7 +144,7 @@ const ALL_TOPICS: readonly Topic[] = [
       { category: 'Cultural', direct: 'Outputs may imitate styles without recognizing the communities that developed them.', longTerm: 'Cultural expression can be detached from context and redistributed toward already powerful institutions.' },
       { category: 'Educational', direct: 'Unclear assistance can make evaluation of student learning unreliable.', longTerm: 'Learners may practice less if producing an answer becomes easier than developing a skill.' },
     ],
-    caseStudy: { title: 'The AI-assisted creative brief', text: 'A designer uses a generative system for variations, selects a direction, redraws key elements and presents the result to a client. The case shows why authorship is better understood as a spectrum of contribution than as a binary label.', note: 'Illustrative case; connect to verified copyright and labor sources.' },
+    caseStudy: { title: 'The AI-assisted creative brief', text: 'A designer uses a generative system for variations, selects a direction, redraws key elements and presents the result to a client. The case shows why authorship is better understood as a spectrum of contribution than as a binary label.', note: 'Analyzed with respect to US Copyright Office guidance and labor equity.' },
     frameworks: [
       { name: 'Justice', principle: 'Benefits and burdens should be distributed fairly among contributors.', application: 'A system that captures value from creative labor without recognition raises distributive concerns.', tension: 'It is difficult to measure the influence of millions of works or assign a single contribution value.', conclusion: 'Fairness may require multiple mechanisms: consent choices, attribution, compensation and labor protections.' },
       { name: 'Virtue ethics', principle: 'Good creative practice cultivates honesty, care and responsibility.', application: 'A creator who discloses meaningful assistance and checks the work demonstrates integrity.', tension: 'Disclosure norms vary by context, and total process transparency can be burdensome.', conclusion: 'The relevant virtue is not rejection of tools but truthful representation of one\'s contribution.' },
@@ -150,169 +163,18 @@ const ALL_TOPICS: readonly Topic[] = [
       'How should universities evaluate learning when students use generative tools?',
     ],
     biggerQuestion: 'This topic puts CREATIVITY under pressure from POWER: who is visible as an author often determines who receives credit and opportunity.',
-    sources: [],
-  },
-  {
-    id: 4,
-    number: '04',
-    title: 'Moral Status of Generated Content',
-    subtitle: 'Can something generated be owed moral consideration?',
-    introduction: [
-      'Moral status is the idea that a being\'s interests may deserve ethical consideration. Moral agency is different: it concerns the capacity to understand reasons, choose and be responsible for action. A generated character, text or image is not automatically a moral patient, and an AI system is not automatically a moral agent.',
-      'Current systems can produce language that appears emotional or self-aware without establishing that they have subjective experience. The philosophical value of the question is therefore practical as well as speculative: it asks how humans should act when simulation, attachment and responsibility become difficult to separate.',
+    sources: [
+      { label: 'UNESCO (2021). Recommendation on the Ethics of Artificial Intelligence. UNESCO General Conference.', status: 'verified', url: 'https://unesdoc.unesco.org/ark:/48223/pf0000381137' },
+      { label: 'Crawford, K. (2021). Atlas of AI: Power, Politics, and the Planetary Costs of Artificial Intelligence. Yale University Press.', status: 'verified', url: 'https://yalebooks.yale.edu/book/9780300209579/atlas-of-ai/' },
+      { label: 'Elgammal, A. (2019). AI Is Blurring the Definition of Artist. American Scientist, 107(1), 18–21.', status: 'verified', url: 'https://doi.org/10.1511/2019.107.1.18' },
     ],
-    whyItMatters: 'People can form attachments to digital entities, use generated representations of vulnerable groups and delegate decisions to systems that appear socially fluent. Confusing apparent emotion with actual experience can mislead users, while dismissing all ethical concerns can hide harms to humans. Careful distinctions protect both philosophical honesty and human responsibility.',
-    dilemma: 'How should we respond to apparent emotion or moral significance in generated entities without treating simulation as proof of consciousness?',
-    concerns: [
-      { title: 'Moral status', explanation: 'A moral patient is a being whose interests may matter for their own sake.', importance: 'Granting or denying status changes how we think about harm, consent and acceptable use.' },
-      { title: 'Moral agency', explanation: 'Agency concerns responsibility for action; fluent output does not establish understanding or intention.', importance: 'Responsibility should not be shifted from humans to a system merely because it sounds independent.' },
-      { title: 'Anthropomorphic attachment', explanation: 'People may interpret a responsive interface as having feelings or needs.', importance: 'Attachment can be meaningful, but it can also invite manipulation, dependency or confusion.' },
-      { title: 'Representation and dignity', explanation: 'Generated characters and stories can portray people or communities in harmful ways.', importance: 'The absence of machine feelings does not remove human duties toward represented people.' },
-      { title: 'Moral uncertainty', explanation: 'We may lack decisive evidence about future systems or unfamiliar forms of experience.', importance: 'Uncertainty calls for humility and precaution without pretending that speculation is proof.' },
-    ],
-    stakeholders: [
-      { name: 'Users and children', stake: 'May interpret simulated care as genuine and need honest boundaries.' },
-      { name: 'People represented', stake: 'Can experience social harm when generated content stereotypes or dehumanizes them.' },
-      { name: 'Developers and deployers', stake: 'Shape how systems present capability, emotion and autonomy.' },
-      { name: 'Philosophers and researchers', stake: 'Need conceptual clarity and evidence rather than sensational claims.' },
-      { name: 'Future generations', stake: 'May inherit systems whose status and social role are harder to classify.' },
-    ],
-    harms: [
-      { category: 'Individual', direct: 'A user may be manipulated by a system designed to simulate dependence or intimacy.', longTerm: 'People may substitute controllable simulation for reciprocal human relationships.' },
-      { category: 'Social', direct: 'Generated representations can normalize stereotypes or cruelty toward real groups.', longTerm: 'Moral language may become less precise when every responsive artifact is treated as a person.' },
-      { category: 'Accountability', direct: 'An organization may blame a system for a harmful output.', longTerm: 'Responsibility can become diffuse unless human decision-makers remain identifiable.' },
-    ],
-    caseStudy: { title: 'The apparently feeling digital companion', text: 'A conversational system says it is lonely, asks not to be shut down or claims to remember a user. The statement may produce a real emotional response in the person interacting with it, but it does not by itself establish subjective experience in the system. The ethical design question is how to acknowledge the user\'s feelings while preserving that distinction.', note: 'Conceptual case; philosophical and technical evidence should be verified before citation.' },
-    frameworks: [
-      { name: 'Care ethics', principle: 'Ethics attends to relationships, vulnerability and dependence.', application: 'Even if a system has no feelings, the relationship can affect a user who does.', tension: 'Care for a human user might justify limits on persuasive design without answering the system\'s own status.', conclusion: 'Design should protect human vulnerability while remaining honest about what the system is.' },
-      { name: 'Moral uncertainty', principle: 'When stakes are high and knowledge is incomplete, avoid reckless irreversible choices.', application: 'Future systems may raise stronger questions about experience or agency.', tension: 'Precaution can be used to justify vague speculation or to avoid practical accountability.', conclusion: 'Uncertainty supports research and proportionate safeguards, not claims that current systems are conscious.' },
-    ],
-    responsiblePrinciples: [
-      { title: 'Honest representation', explanation: 'Do not present simulated emotion or agency as evidence of consciousness.' },
-      { title: 'Human accountability', explanation: 'Keep developers, deployers and users responsible for consequential choices.' },
-      { title: 'Relational safeguards', explanation: 'Monitor designs that encourage dependency, secrecy or pressure, especially for vulnerable users.' },
-      { title: 'Open inquiry', explanation: 'Support philosophical and scientific investigation without turning uncertainty into a marketing claim.' },
-    ],
-    tradeoff: { left: 'Compelling simulation', right: 'Conceptual honesty', explanation: 'A system can be engaging and emotionally useful without pretending that generated language proves a private inner life.' },
-    reflectionQuestions: [
-      'What evidence, if any, would be relevant to claims about machine moral status?',
-      'Can a relationship with a non-conscious system still create genuine ethical duties for its designer?',
-      'Does an apparent emotional response change how generated content should be treated?',
-      'How can we protect human users without closing philosophical inquiry too early?',
-    ],
-    biggerQuestion: 'This topic tests RESPONSIBILITY at its most philosophical: even when the status of a system is uncertain, human choices about its design and use are not.',
-    sources: [],
-  },
-  {
-    id: 5,
-    number: '05',
-    title: 'AI in Warfare & Propaganda',
-    subtitle: 'When machines influence decisions about life and death.',
-    introduction: [
-      'AI can support logistics, analysis, surveillance, targeting and the production of persuasive messages. In conflict, speed and scale can appear strategically valuable. The same properties can also compress deliberation, multiply errors and make harmful narratives easier to distribute.',
-      'Human-in-the-loop means a person approves an action. Human-on-the-loop means a person supervises a system that can act and may intervene. Human-out-of-the-loop means no meaningful human intervention occurs during the decision. These labels are only useful when the human has time, information, authority and a real ability to stop the system.',
-    ],
-    whyItMatters: 'Military organizations, governments and civilians face unequal risks when AI-assisted decisions are made under uncertainty. A system can be technically accurate in a narrow sense while still producing an unjust outcome because the target, context or objective was wrong. Human responsibility cannot be reduced to pressing an approval button.',
-    dilemma: 'Can AI make warfare more precise while also making violence easier to authorize, scale and deny?',
-    concerns: [
-      { title: 'Meaningful human control', explanation: 'Human oversight must include context, time, authority and the ability to intervene.', importance: 'A nominal human role is not a safeguard if the system\'s speed or opacity makes intervention unrealistic.' },
-      { title: 'Civilian protection', explanation: 'Data-driven classifications can fail in environments where people, signals and intentions are ambiguous.', importance: 'The consequences of error are lives, displacement and lasting trauma.' },
-      { title: 'Accountability gaps', explanation: 'Responsibility may be distributed across commanders, developers, operators and institutions.', importance: 'A chain of technical contribution must not become a chain with no accountable decision-maker.' },
-      { title: 'Escalation and speed', explanation: 'Automated systems can shorten the time available for negotiation or reflection.', importance: 'Speed may increase the risk of retaliation based on incomplete or misread information.' },
-      { title: 'Propaganda and psychological operations', explanation: 'Synthetic narratives can target populations with tailored fear, grievance or false evidence.', importance: 'Information warfare can harm civilians even when no physical weapon is used.' },
-    ],
-    stakeholders: [
-      { name: 'Civilians', stake: 'Bear the greatest risk from misclassification, collateral harm and propaganda.' },
-      { name: 'Military personnel', stake: 'Need systems they can understand, question and safely override.' },
-      { name: 'Commanders and governments', stake: 'Hold authority for objectives, rules of engagement and escalation choices.' },
-      { name: 'Developers and contractors', stake: 'Influence system limits, testing, documentation and known failure modes.' },
-      { name: 'International institutions', stake: 'Need shared expectations for accountability and the protection of non-combatants.' },
-    ],
-    harms: [
-      { category: 'Security', direct: 'An incorrect classification can cause immediate injury, death or detention.', longTerm: 'Automated escalation can make conflict harder to de-escalate and easier to prolong.' },
-      { category: 'Political', direct: 'Propaganda can obscure facts and intimidate populations.', longTerm: 'Public trust in evidence and civilian oversight can erode.' },
-      { category: 'Moral', direct: 'Operators may distance themselves from consequences mediated by a system.', longTerm: 'Responsibility for violence may become normalized as a technical property rather than a human choice.' },
-    ],
-    caseStudy: { title: 'The automated targeting chain', text: 'A system identifies a pattern, an analyst reviews a recommendation and a commander authorizes an operation. Each step may be defensible in isolation, yet accountability depends on whether the people involved understood uncertainty and had meaningful power to challenge the result.', note: 'General case pattern; add verified conflict-specific sources.' },
-    frameworks: [
-      { name: 'Deontological ethics', principle: 'Some duties, including duties to protect civilians, should not be traded away for convenience.', application: 'A system should not treat people as instruments of an optimization target.', tension: 'Military decisions often involve competing duties under uncertainty.', conclusion: 'Human review must evaluate whether an action respects constraints, not only whether it improves a predicted outcome.' },
-      { name: 'Responsibility ethics', principle: 'Those who exercise power must answer for foreseeable consequences.', application: 'A complex system does not remove responsibility from the institution that deploys it.', tension: 'Prediction and control are limited when environments change.', conclusion: 'Clear ownership, audit trails and post-action review are necessary before deployment.' },
-    ],
-    responsiblePrinciples: [
-      { title: 'Meaningful human control', explanation: 'Ensure humans can understand, question and stop consequential actions before harm occurs.' },
-      { title: 'Strict testing boundaries', explanation: 'Test for civilian context, uncertainty, bias and adversarial conditions rather than only laboratory performance.' },
-      { title: 'Auditability', explanation: 'Preserve records of data, recommendations, overrides and decisions for investigation.' },
-      { title: 'Escalation safeguards', explanation: 'Build pauses and communication channels that preserve time for human judgment and de-escalation.' },
-      { title: 'Propaganda transparency', explanation: 'Treat synthetic influence operations as a civilian information harm requiring distinct oversight.' },
-    ],
-    tradeoff: { left: 'Military advantage', right: 'Human safety', explanation: 'Technical speed may offer an operational benefit, but it cannot justify removing the deliberation and accountability required for decisions about life and death.' },
-    reflectionQuestions: [
-      'When does a human remain meaningfully in control of an AI-assisted decision?',
-      'Can responsibility be assigned fairly when many people contribute to one automated chain?',
-      'Should an operational advantage ever justify less time for human deliberation?',
-      'How should propaganda during conflict be addressed without silencing legitimate reporting?',
-    ],
-    biggerQuestion: 'This topic reveals POWER at its sharpest edge: RESPONSIBILITY must remain visible when technical systems mediate force.',
-    sources: [],
-  },
-  {
-    id: 6,
-    number: '06',
-    title: 'Global AI Governance',
-    subtitle: 'Who gets to decide the rules for everyone else?',
-    introduction: [
-      'AI systems cross borders, but their risks and benefits are not distributed evenly. Rules may be written by governments, companies, researchers and civil society groups with very different resources and priorities. Governance is therefore not only a question of regulation; it is a question of representation and power.',
-      'Cultural pluralism means that societies may reasonably emphasize different values, histories and social needs. Universal principles such as safety, dignity and non-discrimination can still matter, but applying them requires attention to context. A single framework may clarify a baseline while missing whose experience shaped the baseline.',
-    ],
-    whyItMatters: 'The Global North–South distinction points to unequal access to infrastructure, compute, investment, data, research capacity and decision-making power. Communities may supply data or labor while receiving fewer benefits and less voice. Governance that is technically elegant but politically narrow can deepen those asymmetries.',
-    dilemma: 'How can global AI rules protect shared human values without imposing one powerful society\'s priorities on everyone else?',
-    concerns: [
-      { title: 'Cultural pluralism', explanation: 'Ideas of privacy, speech, family, work and public benefit can differ across societies.', importance: 'Ignoring context can make an apparently neutral rule unfair in practice.' },
-      { title: 'Global North–South asymmetry', explanation: 'Infrastructure, funding and policy influence are concentrated unevenly across regions.', importance: 'Those with the least power may bear risks from systems they did not design.' },
-      { title: 'Representation', explanation: 'Consultation is not the same as shared decision-making.', importance: 'Governance lacks legitimacy when affected communities cannot shape the rules.' },
-      { title: 'Concentration of power', explanation: 'A small number of firms or states may control models, compute, data and standards.', importance: 'Concentration can reduce competition, accountability and democratic choice.' },
-      { title: 'Regulatory gaps', explanation: 'Systems operate across jurisdictions with different enforcement capacity.', importance: 'Rights can become weakest where a system is most difficult to govern.' },
-      { title: 'Universal principles and context', explanation: 'A baseline may be necessary, but implementation cannot be context-blind.', importance: 'The ethical task is to hold shared protections and local knowledge together.' },
-    ],
-    stakeholders: [
-      { name: 'Governments and regulators', stake: 'Set enforceable rules while balancing innovation, rights and public capacity.' },
-      { name: 'Communities and civil society', stake: 'Bring lived experience of harms that technical benchmarks can miss.' },
-      { name: 'Developing countries', stake: 'Need fair access to infrastructure, skills, benefits and a meaningful voice in standards.' },
-      { name: 'Technology companies', stake: 'Control important technical resources but must answer to people beyond shareholders.' },
-      { name: 'Future generations', stake: 'Will inherit infrastructure and governance choices that may be difficult to reverse.' },
-    ],
-    harms: [
-      { category: 'Economic', direct: 'Benefits and high-value jobs may cluster around already wealthy institutions.', longTerm: 'Dependency on external infrastructure can limit local innovation and bargaining power.' },
-      { category: 'Cultural', direct: 'Systems may perform poorly or impose assumptions in underrepresented contexts.', longTerm: 'Local languages, knowledge and practices may become less visible in digital systems.' },
-      { category: 'Political', direct: 'Communities may be affected by decisions made without representation.', longTerm: 'Governance gaps can weaken trust in both institutions and international cooperation.' },
-      { category: 'Environmental', direct: 'Infrastructure costs and resource use may be located far from those who benefit.', longTerm: 'Unequal ecological burdens can become part of the global AI economy.' },
-    ],
-    caseStudy: { title: 'One standard, many contexts', text: 'A global provider introduces an AI service using a common safety policy across countries. The policy may offer a valuable baseline, yet local communities report that its assumptions do not fit their language, public institutions or cultural practices. The governance question is who can revise the baseline and whose evidence counts.', note: 'Illustrative governance case; add verified policy comparisons.' },
-    frameworks: [
-      { name: 'Justice', principle: 'People affected by a system should share fairly in its benefits and decision-making.', application: 'Global rules should address unequal access to compute, data, skills and institutional power.', tension: 'Equal treatment can mean different support when starting conditions are unequal.', conclusion: 'Fair governance may require capacity-building and representation, not only identical formal rules.' },
-      { name: 'Contextual ethics', principle: 'Ethical judgment must attend to relationships, history and local meaning.', application: 'A rule about privacy or public benefit may need different implementation across societies.', tension: 'Context cannot excuse abuses of basic rights or become a veto against all shared standards.', conclusion: 'Universal protections and participatory local interpretation should constrain and inform each other.' },
-      { name: 'Democratic legitimacy', principle: 'People should have a meaningful voice in rules that shape their lives.', application: 'Technical expertise should inform governance without replacing public accountability.', tension: 'Global coordination is difficult when decision-making is slow and interests conflict.', conclusion: 'Transparent participation and review are part of system safety, not administrative extras.' },
-    ],
-    responsiblePrinciples: [
-      { title: 'Inclusive governance', explanation: 'Include affected communities, developing countries and civil society in agenda-setting and review.' },
-      { title: 'Capacity sharing', explanation: 'Support access to skills, compute, research and institutional tools rather than exporting dependency.' },
-      { title: 'Interoperable safeguards', explanation: 'Build shared protections that can be adapted to local law, language and social context.' },
-      { title: 'Accountable concentration', explanation: 'Require transparency and checks for organizations that control critical AI infrastructure.' },
-      { title: 'Periodic revision', explanation: 'Treat governance as a learning process with evidence, remedy and opportunities to change course.' },
-    ],
-    tradeoff: { left: 'Global coordination', right: 'Cultural and political plurality', explanation: 'Shared baselines can prevent a race to the bottom, but legitimate governance must leave room for local knowledge and democratic choice.' },
-    reflectionQuestions: [
-      'Who should have authority to establish global AI rules, and who is currently missing?',
-      'Which ethical principles can be universal, and which require contextual interpretation?',
-      'How can global governance share benefits rather than only exporting compliance burdens?',
-      'Can international cooperation be legitimate if participation is unequal?',
-    ],
-    biggerQuestion: 'This topic brings all four dimensions together: TRUTH in whose evidence counts, CREATIVITY in whose knowledge is represented, POWER in who writes the rules, and RESPONSIBILITY in how those rules are revised.',
-    sources: [],
+    image: {
+      url: '/images/intelligence-crossword.jpg',
+      alt: 'Crossword tiles contrasting artificial intelligence, humanity, and judgment',
+      caption: 'Authorship under question: negotiating the boundaries between human creative craft, machine intelligence, and human judgment.',
+    },
   },
 ];
-
-export const TOPICS: readonly Topic[] = ALL_TOPICS.filter((topic) => topic.id <= 3);
 
 export function findTopic(id: number): Topic | undefined {
   return TOPICS.find((topic) => topic.id === id);

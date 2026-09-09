@@ -2,9 +2,19 @@
   <section class="lab-hero">
     <div class="lab-hero-inner">
       <div class="lab-topline"><a routerLink="/" class="back-link">← Home</a></div>
-      <p class="eyebrow">Ethics Lab</p>
-      <h1>Think before you decide.</h1>
-      <p class="hero-intro">Guided encounters for the three questions. Each one names an issue, places it in context, weighs benefits against risks, and asks you to choose between two imperfect options. There is no score. There is a record of what your choice protects and what it endangers.</p>
+      <div class="lab-hero-grid">
+        <div class="lab-hero-copy">
+          <p class="eyebrow">Ethics Lab</p>
+          <h1>Think before you decide.</h1>
+          <p class="hero-intro">Guided encounters for the three questions. Each one names an issue, places it in context, weighs benefits against risks, and asks you to choose between two imperfect options. There is no score. There is a record of what your choice protects and what it endangers.</p>
+        </div>
+        @if (pageData.image; as image) {
+          <figure class="lab-hero-figure">
+            <img [src]="image.url" [alt]="image.alt" class="lab-hero-img" loading="lazy" />
+            <figcaption>{{ image.caption }}</figcaption>
+          </figure>
+        }
+      </div>
     </div>
   </section>
 

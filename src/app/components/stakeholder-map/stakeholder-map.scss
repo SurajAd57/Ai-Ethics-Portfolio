@@ -1,1 +1,24 @@
-:host { display: block; }.stakeholder-map { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }.map-visual { position: relative; min-height: 19rem; background: var(--surface-raised); border: 1px solid var(--border); }.map-visual::before, .map-visual::after { position: absolute; content: ''; background: var(--border); }.map-visual::before { left: 15%; right: 15%; top: 50%; height: 1px; }.map-visual::after { top: 15%; bottom: 15%; left: 50%; width: 1px; }.node { position: absolute; z-index: 1; display: grid; place-items: center; width: 6.4rem; height: 2.5rem; border: 1px solid var(--accent); background: var(--background); color: var(--text); font-size: .61rem; font-weight: 800; letter-spacing: .08em; text-align: center; }.node-center { top: calc(50% - 1.25rem); left: calc(50% - 3.2rem); color: var(--background); background: var(--accent); }.node-top { top: 1.1rem; left: calc(50% - 3.2rem); }.node-bottom { bottom: 1.1rem; left: calc(50% - 3.2rem); }.node-left { top: calc(50% - 1.25rem); left: 1.1rem; }.node-right { top: calc(50% - 1.25rem); right: 1.1rem; }.stakeholder-list { display: grid; gap: .35rem; }.stakeholder-list button { display: flex; gap: .8rem; align-items: center; padding: .85rem 0; border: 0; border-bottom: 1px solid var(--border); background: transparent; color: var(--muted); text-align: left; cursor: pointer; }.stakeholder-list button span { color: var(--accent); font-size: .65rem; }.stakeholder-list button.is-active, .stakeholder-list button:hover { color: var(--text); }.stakeholder-detail { grid-column: 2; padding: 1.2rem; border-left: 2px solid var(--accent); background: var(--surface); }.eyebrow { margin: 0 0 .7rem; color: var(--accent); font-size: .65rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }.stakeholder-detail p:last-child { margin: 0; color: var(--muted); line-height: 1.65; }@media (max-width: 700px) { .stakeholder-map { grid-template-columns: 1fr; }.stakeholder-detail { grid-column: auto; }.map-visual { min-height: 15rem; } }
+:host { display: block; }
+.stakeholder-map { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+.map-visual { position: relative; min-height: 20rem; background: var(--surface-raised); border: 1px solid var(--border); }
+.map-visual::before, .map-visual::after { position: absolute; content: ''; background: var(--border); }
+.map-visual::before { left: 15%; right: 15%; top: 50%; height: 1px; }
+.map-visual::after { top: 15%; bottom: 15%; left: 50%; width: 1px; }
+.node { position: absolute; z-index: 1; display: grid; place-items: center; width: 6.4rem; height: 2.5rem; border: 1px solid var(--accent); background: var(--background); color: var(--text); font-size: .61rem; font-weight: 800; letter-spacing: .08em; text-align: center; }
+.node-center { top: calc(50% - 1.25rem); left: calc(50% - 3.2rem); color: var(--background); background: var(--accent); }
+.node-top { top: 1.1rem; left: calc(50% - 3.2rem); }
+.node-bottom { bottom: 1.1rem; left: calc(50% - 3.2rem); }
+.node-left { top: calc(50% - 1.25rem); left: 1.1rem; }
+.node-right { top: calc(50% - 1.25rem); right: 1.1rem; }
+.stakeholder-sidebar { display: grid; gap: 1.5rem; }
+.stakeholder-list { display: grid; gap: .35rem; }
+.stakeholder-list button { display: flex; gap: .8rem; align-items: center; padding: .85rem 0; border: 0; border-bottom: 1px solid var(--border); background: transparent; color: var(--muted); text-align: left; cursor: pointer; transition: color 180ms ease; }
+.stakeholder-list button span { color: var(--accent); font-size: .65rem; }
+.stakeholder-list button.is-active, .stakeholder-list button:hover { color: var(--text); }
+.stakeholder-detail { padding: 1.2rem; border-left: 2px solid var(--accent); background: var(--surface); }
+.eyebrow { margin: 0 0 .7rem; color: var(--accent); font-size: .65rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.stakeholder-detail p:last-child { margin: 0; color: var(--muted); line-height: 1.65; }
+@media (max-width: 700px) {
+  .stakeholder-map { grid-template-columns: 1fr; }
+  .map-visual { min-height: 15rem; }
+}

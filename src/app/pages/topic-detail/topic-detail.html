@@ -17,6 +17,13 @@
       </div>
     </section>
 
+    @if (topic.image; as image) {
+      <figure class="topic-editorial-figure">
+        <img [src]="image.url" [alt]="image.alt" class="topic-editorial-img" loading="lazy" />
+        <figcaption>{{ image.caption }}</figcaption>
+      </figure>
+    }
+
     <section class="why-section topic-section" aria-labelledby="why-title">
       <div class="section-label"><span>02</span><span id="why-title">Why this matters</span></div>
       <p class="large-copy">{{ topic.whyItMatters }}</p>
@@ -40,22 +47,41 @@
       <div class="concerns-list">
         @for (concern of topic.concerns; track concern.title; let index = $index) {
           <article class="concern" [class.is-open]="isConcernExpanded(index)">
-            <button type="button" class="concern-trigger" [attr.aria-expanded]="isConcernExpanded(index)" (click)="toggleConcern(index)">
-              <span class="concern-index">0{{ index + 1 }}</span><span>{{ concern.title }}</span><span class="concern-icon" aria-hidden="true">{{ isConcernExpanded(index) ? '−' : '+' }}</span>
+            <button
+              type="button"
+              class="concern-trigger"
+              [id]="'concern-trigger-' + index"
+              [attr.aria-expanded]="isConcernExpanded(index)"
+              [attr.aria-controls]="'concern-panel-' + index"
+              (click)="toggleConcern(index)"
+            >
+              <span class="concern-index">0{{ index + 1 }}</span>
+              <span>{{ concern.title }}</span>
+              <span class="concern-icon" aria-hidden="true">{{ isConcernExpanded(index) ? '−' : '+' }}</span>
             </button>
-            @if (isConcernExpanded(index)) { <div class="concern-detail"><p>{{ concern.explanation }}</p><p><strong>Why it matters:</strong> {{ concern.importance }}</p></div> }
+            @if (isConcernExpanded(index)) {
+              <div
+                class="concern-detail"
+                [id]="'concern-panel-' + index"
+                role="region"
+                [attr.aria-labelledby]="'concern-trigger-' + index"
+              >
+                <p>{{ concern.explanation }}</p>
+                <p><strong>Why it matters:</strong> {{ concern.importance }}</p>
+              </div>
+            }
           </article>
         }
       </div>
     </section>
 
     <section class="stakeholder-section topic-section" aria-labelledby="stakeholders-title">
-      <div class="section-label"><span>04</span><span id="stakeholders-title">Stakeholder lens</span></div>
+      <div class="section-label"><span>05</span><span id="stakeholders-title">Stakeholder lens</span></div>
       <app-stakeholder-map [stakeholders]="topic.stakeholders" />
     </section>
 
     <section class="harms-section topic-section" aria-labelledby="harms-title">
-      <div class="section-label"><span>05</span><span id="harms-title">Potential harms</span></div>
+      <div class="section-label"><span>06</span><span id="harms-title">Potential harms</span></div>
       <div class="harm-grid">
         @for (harm of topic.harms; track harm.category) {
           <article class="harm-card"><span>{{ harm.category }}</span><div><h3>Direct harm</h3><p>{{ harm.direct }}</p><h3>Indirect / long-term</h3><p>{{ harm.longTerm }}</p></div></article>
@@ -68,7 +94,7 @@
     </section>
 
     <section class="analysis-section topic-section" aria-labelledby="analysis-title">
-      <div class="section-label"><span>06</span><span id="analysis-title">Ethical analysis</span></div>
+      <div class="section-label"><span>07</span><span id="analysis-title">Ethical analysis</span></div>
       <div class="analysis-grid">
         @for (framework of topic.frameworks; track framework.name) {
           <article class="analysis-card"><p class="eyebrow">{{ framework.name }}</p><h3>{{ framework.principle }}</h3><dl><dt>Applied here</dt><dd>{{ framework.application }}</dd><dt>The tension</dt><dd>{{ framework.tension }}</dd><dt>Reasoned conclusion</dt><dd>{{ framework.conclusion }}</dd></dl></article>
@@ -77,7 +103,7 @@
     </section>
 
     <section class="responsible-section topic-section" aria-labelledby="responsible-title">
-      <div class="section-label"><span>07</span><span id="responsible-title">What would responsible AI look like?</span></div>
+      <div class="section-label"><span>08</span><span id="responsible-title">What would responsible AI look like?</span></div>
       <div class="principles-grid">
         @for (principle of topic.responsiblePrinciples; track principle.title; let index = $index) { <article><span>0{{ index + 1 }}</span><h3>{{ principle.title }}</h3><p>{{ principle.explanation }}</p></article> }
       </div>
@@ -90,9 +116,26 @@
     </section>
 
     <section class="reflection-section topic-section" aria-labelledby="reflection-title">
-      <div class="section-label"><span>08</span><span id="reflection-title">Questions for reflection</span></div>
+      <div class="section-label"><span>09</span><span id="reflection-title">Questions for reflection</span></div>
       <ol>@for (question of topic.reflectionQuestions; track question) { <li>{{ question }}</li> }</ol>
     </section>
+
+    @if (topic.sources.length > 0) {
+      <section class="sources-section topic-section" aria-labelledby="sources-title">
+        <div class="section-label"><span>10</span><span id="sources-title">Verified academic references</span></div>
+        <div class="sources-list">
+          @for (source of topic.sources; track source.label) {
+            <article class="source-card">
+              <span class="source-badge">{{ source.status }}</span>
+              <p class="source-text">{{ source.label }}</p>
+              @if (source.url) {
+                <a [href]="source.url" target="_blank" rel="noopener noreferrer" class="source-link">Access publication <span aria-hidden="true">↗</span></a>
+              }
+            </article>
+          }
+        </div>
+      </section>
+    }
 
     <section class="bigger-section topic-section" aria-labelledby="bigger-title">
       <p class="eyebrow">The bigger question</p><h2 id="bigger-title">How should we live with<br /><em>generative power?</em></h2><p>{{ topic.biggerQuestion }}</p>

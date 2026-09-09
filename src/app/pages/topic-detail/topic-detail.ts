@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, signal, untracked } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map } from 'rxjs';
@@ -29,6 +29,13 @@ export class TopicDetail {
   protected readonly previousTopic = computed(() => TOPICS.find((item) => item.id === this.topicId() - 1));
   protected readonly nextTopic = computed(() => TOPICS.find((item) => item.id === this.topicId() + 1));
 
+  constructor() {
+    effect(() => {
+      this.topicId();
+      untracked(() => this.expandedConcerns.set(new Set([0])));
+    });
+  }
+
   protected toggleConcern(index: number): void {
     this.expandedConcerns.update((expanded) => {
       const next = new Set(expanded);
@@ -44,5 +51,4 @@ export class TopicDetail {
   protected isConcernExpanded(index: number): boolean {
     return this.expandedConcerns().has(index);
   }
-
 }
