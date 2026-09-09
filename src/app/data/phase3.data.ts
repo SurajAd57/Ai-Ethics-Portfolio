@@ -149,6 +149,13 @@ export const ARTIFACTS: readonly Artifact[] = [
     limitations: 'A campus poster cannot verify a file. It can only change how quickly someone treats an image as proof.',
     responsibleUse: 'Use as a literacy prompt. Do not treat the artifact itself as forensic evidence.',
     visual: 'signal',
+    aiProvenance: {
+      promptExploration: 'Draft 5 minimalist public awareness slogans contrasting photorealistic synthetic generation with forensic epistemic evidence. Focus on provenance, metadata chains, and critical doubt.',
+      model: 'Anthropic Claude 3.5 Sonnet / OpenAI GPT-4o (Comparative Prompting)',
+      humanIntervention: 'Filtered out aggressive "AI is a lie" framing; reframed around Luciano Floridi’s information ethics and C2PA standards. Created interactive verification status badges.',
+      biasRiskAudit: 'AI drafts tended toward alarmism. Human editing restored institutional epistemic nuance: synthetic media has legitimate artistic and assistive uses.',
+      verificationStep: 'Cross-checked against Coalition for Content Provenance and Authenticity (C2PA) technical specifications and fallibilist epistemological theory.',
+    },
   },
   {
     id: 'poster-voice',
@@ -163,6 +170,13 @@ export const ARTIFACTS: readonly Artifact[] = [
     limitations: 'Awareness does not stop determined fraud. It only reduces the chance that surprise does all the work.',
     responsibleUse: 'Share with context. Do not imply that every synthetic voice is criminal.',
     visual: 'poster',
+    aiProvenance: {
+      promptExploration: 'Generate behavioral guidance steps for families and enterprises facing zero-shot neural voice cloning scams. Emphasize out-of-band verification and emotional pausing.',
+      model: 'Claude 3.5 Sonnet & GPT-4o',
+      humanIntervention: 'Rejected generic password tips; structured a 3-step biometric triage protocol (Listen for cadence artifacts, Out-of-band callback, Challenge question).',
+      biasRiskAudit: 'Initial model outputs assumed high-tech detection apps are readily available. Human team redesigned protocol for low-tech, accessible human verification under emotional stress.',
+      verificationStep: 'Verified against FTC consumer alerts on voice cloning fraud and Council of Europe information disorder frameworks.',
+    },
   },
   {
     id: 'flow-credit',
@@ -177,6 +191,13 @@ export const ARTIFACTS: readonly Artifact[] = [
     limitations: 'A flow cannot measure the influence of millions of training works. It is a prompt for honesty, not a complete labor theory.',
     responsibleUse: 'Attach this to real project notes. Empty disclosure is worse than a simple diagram.',
     visual: 'flow',
+    aiProvenance: {
+      promptExploration: 'Propose a taxonomy of human-AI creative collaboration steps ranging from latent space generation to semantic steering, human curatorial filtering, and legal authorship claims.',
+      model: 'Claude 3.5 Sonnet',
+      humanIntervention: 'Replaced linear "human vs machine" binary with a multi-layered spectrum of creative labor; ensured terminal accountability remains exclusively human.',
+      biasRiskAudit: 'AI responses minimized source artist exploitation. The team explicitly added "Source Corpus & Training Labor" as an indispensable first node.',
+      verificationStep: 'Benchmarked against US Copyright Office AI Registration Guidance (2023) and UNESCO Recommendation on the Ethics of Artificial Intelligence (2021).',
+    },
   },
 ];
 

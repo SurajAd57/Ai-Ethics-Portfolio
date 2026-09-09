@@ -1,0 +1,333 @@
+<main class="analysis-page">
+  <!-- Controls banner (hidden on print) -->
+  <header class="doc-toolbar no-print">
+    <div class="toolbar-inner">
+      <div class="toolbar-info">
+        <a routerLink="/" class="back-link">← Return to Portfolio</a>
+        <span class="deliverable-badge">Official Deliverable · CIA-3 Component 2</span>
+      </div>
+      <div class="toolbar-actions">
+        <button type="button" class="btn-print" (click)="printDocument()" title="Print or save as 2-3 page PDF">
+          <span class="print-icon">🖨️</span> Print / Save PDF
+        </button>
+        <a routerLink="/presentation" class="btn-pres">
+          Launch Presentation Mode (5–7m) →
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Document Paper Container (2-3 Pages formatted) -->
+  <article class="doc-paper" id="printable-analysis">
+    <!-- Cover & Metadata Banner -->
+    <header class="paper-header">
+      <div class="institution-meta">
+        <span class="course-name">Responsible AI & Computing Ethics</span>
+        <span class="unit-code">Unit-5: Generative AI, Truth, Creativity, and Global Ethical Order</span>
+        <span class="component-code">Assessment Component: CIA-3 (Component 2: Digital Ethics Portfolio)</span>
+      </div>
+
+      <h1 class="paper-title">
+        The Epistemic, Persuasive, and Creative Dilemmas of Generative Artificial Intelligence
+      </h1>
+      <p class="paper-subtitle">
+        A Critical Multi-Framework Analysis on Synthetic Reality, Biometric Manipulation, and Intellectual Labor
+      </p>
+
+      <div class="team-attribution-bar">
+        <div class="team-stat">
+          <span class="stat-label">Team Structure</span>
+          <strong>3 Student Co-Authors (Equal Participation: 33.3%)</strong>
+        </div>
+        <div class="team-stat">
+          <span class="stat-label">Topic Coverage</span>
+          <strong>3 Unit-5 Approved Core Domains</strong>
+        </div>
+        <div class="team-stat">
+          <span class="stat-label">Evaluation Framework</span>
+          <strong>Deontology · Utilitarianism · Justice · Virtue Ethics</strong>
+        </div>
+        <div class="team-stat">
+          <span class="stat-label">Date of Submission</span>
+          <strong>{{ printTimestamp }}</strong>
+        </div>
+      </div>
+    </header>
+
+    <div class="paper-divider"></div>
+
+    <!-- Executive Abstract -->
+    <section class="paper-section abstract-section">
+      <h2 class="section-heading">Abstract & Conceptual Problem Statement</h2>
+      <p class="abstract-text">
+        The rapid deployment of contemporary Generative Artificial Intelligence (GenAI)—characterized by multimodal diffusion architectures, zero-shot neural voice synthesizers, and massive autoregressive foundation models—presents a structural rupture in human information ecology. This analysis investigates three interrelated ethical crises from Unit-5: <strong>(1) Synthetic Reality & Epistemic Risk</strong>, where photorealistic artifacts dismantle documentary evidence and erode shared social facts; <strong>(2) Misinformation, Deepfakes & Persuasion</strong>, wherein low-cost biometric cloning turns interpersonal trust into an exploit vector while triggering the "Liar’s Dividend"; and <strong>(3) Authorship, Creativity & Intellectual Labor</strong>, where automated synthesis appropriates historical creative labor while displacing human cultural craft. We examine these tensions across competing philosophical frameworks and propose an actionable, multi-tiered governance roadmap grounded in human oversight, transparent provenance, and distributive justice.
+      </p>
+    </section>
+
+    <!-- Section 1: Synthetic Reality & Epistemic Risk -->
+    <section class="paper-section">
+      <div class="section-num">1.0</div>
+      <h2 class="section-heading">Synthetic Reality & Epistemic Risk: The Collapse of Documentary Evidence</h2>
+      <p class="lead-paragraph">
+        Traditional human epistemology relies heavily on visual and auditory recording as reliable evidentiary anchors. A photograph or audio file has long served as an empirical certificate: <em>an event occurred because light or sound waves registered on a physical medium</em>. Generative AI fundamentally severs this connection between perception and reality (Floridi, 2020).
+      </p>
+
+      <div class="concept-breakout">
+        <div class="concept-box">
+          <h3>The Epistemic Injustice of Synthetic Flooding</h3>
+          <p>
+            When synthetic content becomes cheap to generate at scale, the primary societal casualty is not merely that citizens believe false artifacts (<em>positive deception</em>); it is that citizens lose faith in genuine documentation (<em>epistemic resignation</em>). As Don Fallis (2015) articulates, epistemic risk impairs an agent’s capacity to acquire justified true beliefs. When seeing is no longer believing, powerful actors exploit uncertainty to dismiss incriminating photographic evidence as "just an AI deepfake."
+          </p>
+        </div>
+        <div class="concept-box">
+          <h3>The Provenance Dilemma (C2PA Standards)</h3>
+          <p>
+            Technical countermeasures such as cryptographic content credentials (C2PA metadata manifests) and latent digital watermarking provide verifiable provenance chains. However, an asymmetrical verification gap persists: institutional actors and well-funded newsrooms possess forensic auditing suites, whereas marginalized and non-technical communities remain defenseless against plausible fabrication.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Misinformation, Deepfakes & Persuasion -->
+    <section class="paper-section">
+      <div class="section-num">2.0</div>
+      <h2 class="section-heading">Ethics of Misinformation, Deepfakes & Persuasion: Weaponized Influence</h2>
+      <p class="lead-paragraph">
+        Persuasion is an ancient component of human discourse; rhetoric, education, and advocacy all seek to shape cognition. The ethical violation of generative misinformation occurs when influence shifts from <em>transparent deliberation</em> to <em>covert manipulation</em> (Zuboff, 2019; Wardle & Derakhshan, 2017).
+      </p>
+
+      <div class="concept-breakout">
+        <div class="concept-box">
+          <h3>Zero-Shot Biometric Impersonation</h3>
+          <p>
+            Zero-shot voice cloning enables malicious actors to synthesize the exact timbre, breathing pattern, and inflection of a trusted relative, CEO, or public official using as few as three seconds of reference audio. This creates an existential threat to out-of-band social trust. Trusting relationships become weaponized attack surfaces, exploiting cognitive panic before rational verification can occur.
+          </p>
+        </div>
+        <div class="concept-box">
+          <h3>The Liar's Dividend & Democratic Erosion</h3>
+          <p>
+            As documented by Chesney and Citron (2019), the proliferation of deepfakes introduces the <em>Liar’s Dividend</em>: the ability of corrupt actors to evade accountability for authentic misconduct by claiming any recording is synthetic. The epistemic baseline of democratic accountability is poisoned both by fakes that deceive and by truths that are dismissed.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Authorship, Creativity & Intellectual Labor -->
+    <section class="paper-section">
+      <div class="section-num">3.0</div>
+      <h2 class="section-heading">Authorship, Creativity & Intellectual Labor: The Political Economy of GenAI</h2>
+      <p class="lead-paragraph">
+        Generative models do not create <em>ex nihilo</em>; they represent computational distillations of trillions of human cultural artifacts scraped without consent, credit, or compensation. This shifts the ethical question from machine capability to labor justice (Crawford, 2021; UNESCO, 2021).
+      </p>
+
+      <div class="concept-breakout">
+        <div class="concept-box">
+          <h3>Distributive Extraction vs. Creative Commons</h3>
+          <p>
+            While proponents frame GenAI as "democratizing creativity," commercial platform dynamics reveal a steep asymmetrical extraction: corporate entities enclose the collective heritage of human artistry and monetize it as proprietary APIs, while independent illustrators, journalists, and voice actors experience catastrophic wage deflation and loss of livelihood.
+          </p>
+        </div>
+        <div class="concept-box">
+          <h3>The Moral Spectrum of Authorship</h3>
+          <p>
+            Authorship is not a binary toggle between "100% Human" and "100% Artificial." It is a spectrum comprising prompt specification, iterative curatorial filtering, and human refinement. Crucially, while machines can generate plausible tokens, <strong>only human beings can accept moral, civic, and legal responsibility</strong> for the consequences of published expression.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Comparative Framework Analysis Matrix -->
+    <section class="paper-section">
+      <div class="section-num">4.0</div>
+      <h2 class="section-heading">Comparative Ethical Analysis Across Philosophical Frameworks</h2>
+      <p>
+        To avoid superficial moralizing, the table below evaluates the three portfolio dilemmas against established ethical traditions:
+      </p>
+
+      <div class="table-wrapper">
+        <table class="framework-matrix-table">
+          <thead>
+            <tr>
+              <th>Topic / Dilemma</th>
+              <th>Deontological (Kantian) Lens</th>
+              <th>Utilitarian / Consequentialist Lens</th>
+              <th>Distributive Justice Lens</th>
+              <th>Virtue Ethics Lens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Synthetic Reality & Epistemic Risk</strong></td>
+              <td>Treating fabricated media as proof violates the categorical imperative by treating the viewer’s epistemic agency merely as an instrument of persuasion.</td>
+              <td>Aggregated social cost: widespread erosion of shared factual reality outweighs the localized marginal utility of novel synthetic imagery.</td>
+              <td>Verification resources are heavily concentrated in wealthy institutions; marginalized groups carry disproportionate vulnerability to fraud.</td>
+              <td>Demands <em>epistemic humility</em>: resisting the temptation to amplify unverified claims merely because they conform to existing biases.</td>
+            </tr>
+            <tr>
+              <td><strong>2. Deepfakes & Cloned Persuasion</strong></td>
+              <td>Impersonation without informed consent violates bodily and vocal autonomy; denies victims the right to author their own communicative identity.</td>
+              <td>High-probability severe harms (financial extortion, character assassination, election destabilization) vastly exceed convenience gains.</td>
+              <td>Power asymmetry: capital-rich bad actors exploit cognitively vulnerable, elderly, or distracted populations with negligible risk of penalty.</td>
+              <td>Cultivates <em>prudence and fidelity</em>: honoring the sanctity of trust relationships by enforcing verification friction before action.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Authorship & Intellectual Labor</strong></td>
+              <td>Non-consensual harvesting of creative works treats human artists as raw uncompensated means to corporate profit rather than ends in themselves.</td>
+              <td>Short-term consumer efficiency is counterbalanced by long-term destruction of the human cultural ecosystem and artistic innovation.</td>
+              <td>Rawlsian fairness: benefits of automated productivity must directly improve the economic standing of the least-advantaged creators.</td>
+              <td>Values <em>creative craftsmanship & integrity</em>: transparently acknowledging computational tools rather than claiming deceptive solo virtuosity.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 5: Multi-Tiered Governance & Mitigation Roadmap -->
+    <section class="paper-section">
+      <div class="section-num">5.0</div>
+      <h2 class="section-heading">Multi-Tiered Governance & Responsible AI Blueprint</h2>
+      <p class="lead-paragraph">
+        Reconciling generative capability with human dignity requires interventions across technical, institutional, and policy levels:
+      </p>
+
+      <div class="blueprint-grid">
+        <div class="blueprint-tier">
+          <span class="tier-tag">Technical Tier</span>
+          <h3>Cryptographic Provenance & Watermarking</h3>
+          <ul>
+            <li>Mandate C2PA cryptographic metadata signing on all production generative model outputs.</li>
+            <li>Implement robust latent watermarking resilient to compression and cropping.</li>
+            <li>Standardize machine-readable provenance headers on major distribution networks.</li>
+          </ul>
+        </div>
+        <div class="blueprint-tier">
+          <span class="tier-tag">Institutional Tier</span>
+          <h3>Verification Friction & Forensic Triage</h3>
+          <ul>
+            <li>Enforce multi-channel out-of-band callback protocols for financial and biometric communications.</li>
+            <li>Integrate media forensics desks in newsrooms, civic organizations, and academic institutions.</li>
+            <li>Establish clear academic integrity policies distinguishing assistive ideation from dishonest submission.</li>
+          </ul>
+        </div>
+        <div class="blueprint-tier">
+          <span class="tier-tag">Regulatory & Policy Tier</span>
+          <h3>Labor Equity & Prohibitive Liability</h3>
+          <ul>
+            <li>Enforce mandatory opt-in mechanisms and licensing dividends for copyright training datasets (UNESCO, 2021).</li>
+            <li>Classify non-consensual biometric cloning and synthetic extortion as strict liability criminal offenses.</li>
+            <li>Require high-visibility disclosure labels on synthetic content across digital distribution platforms.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Individual Team Participation & Statement of Integrity -->
+    <section class="paper-section team-audit-section">
+      <div class="section-num">6.0</div>
+      <h2 class="section-heading">Team Division of Labor & Equal Participation Statement</h2>
+      <p>
+        In strict compliance with CIA-3 assessment criteria, this portfolio was produced with equal, substantive contributions from all three team members:
+      </p>
+
+      <div class="team-audit-grid">
+        <div class="member-audit-card">
+          <div class="member-header">
+            <span class="member-badge">Lead Author 1</span>
+            <h3>Team Member 1</h3>
+            <p class="member-focus">Synthetic Reality & Epistemic Risk</p>
+          </div>
+          <ul class="member-tasks">
+            <li>Authored Section 1.0 on epistemic trust breakdown and fallibilism literature.</li>
+            <li>Designed and coded <strong>Artifact 1 (Provenance Signal Placard)</strong>.</li>
+            <li>Formulated the <em>Synthetic Witness</em> dilemma in the Ethics Lab.</li>
+            <li>Leads Presentation Slide 2 during the 5–7 minute group delivery.</li>
+          </ul>
+        </div>
+
+        <div class="member-audit-card">
+          <div class="member-header">
+            <span class="member-badge">Lead Author 2</span>
+            <h3>Team Member 2</h3>
+            <p class="member-focus">Misinformation, Deepfakes & Persuasion</p>
+          </div>
+          <ul class="member-tasks">
+            <li>Authored Section 2.0 on zero-shot voice cloning and the Liar’s Dividend.</li>
+            <li>Designed and coded <strong>Artifact 2 (Forensic Voice Warning Poster)</strong>.</li>
+            <li>Formulated the <em>Persuasive Voice</em> encounter in the Ethics Lab.</li>
+            <li>Leads Presentation Slide 3 during the 5–7 minute group delivery.</li>
+          </ul>
+        </div>
+
+        <div class="member-audit-card">
+          <div class="member-header">
+            <span class="member-badge">Lead Author 3</span>
+            <h3>Team Member 3</h3>
+            <p class="member-focus">Authorship, Creativity & Intellectual Labor</p>
+          </div>
+          <ul class="member-tasks">
+            <li>Authored Section 3.0 on training consent, labor value, and copyright law.</li>
+            <li>Designed and coded <strong>Artifact 3 (Creative Labor Spectrum Flow)</strong>.</li>
+            <li>Formulated the <em>Creative Brief</em> dilemma in the Ethics Lab.</li>
+            <li>Leads Presentation Slide 4 during the 5–7 minute group delivery.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Academic References -->
+    <section class="paper-section references-section">
+      <div class="section-num">7.0</div>
+      <h2 class="section-heading">Academic References (APA Format)</h2>
+      <ol class="references-list">
+        <li>
+          Chesney, R., & Citron, D. (2019). Deep Fakes: A Looming Challenge for Privacy, Democracy, and National Security. <em>California Law Review</em>, 107, 1753–1820. <a href="https://doi.org/10.2139/ssrn.3213906" target="_blank" rel="noopener noreferrer">https://doi.org/10.2139/ssrn.3213906</a>
+        </li>
+        <li>
+          Crawford, K. (2021). <em>Atlas of AI: Power, Politics, and the Planetary Costs of Artificial Intelligence</em>. Yale University Press. <a href="https://yalebooks.yale.edu/book/9780300209579/atlas-of-ai/" target="_blank" rel="noopener noreferrer">https://yalebooks.yale.edu/book/9780300209579/atlas-of-ai/</a>
+        </li>
+        <li>
+          Elgammal, A. (2019). AI Is Blurring the Definition of Artist. <em>American Scientist</em>, 107(1), 18–21. <a href="https://doi.org/10.1511/2019.107.1.18" target="_blank" rel="noopener noreferrer">https://doi.org/10.1511/2019.107.1.18</a>
+        </li>
+        <li>
+          European Parliament STOA (2021). <em>Tackling Deepfakes in European Policy: Challenges and Options</em>. Scientific Foresight Unit. <a href="https://www.europarl.europa.eu/stoa/en/document/EPRS_STU(2021)690039" target="_blank" rel="noopener noreferrer">https://www.europarl.europa.eu/stoa/en/document/EPRS_STU(2021)690039</a>
+        </li>
+        <li>
+          Fallis, D. (2015). What Is Disinformation? <em>Library Trends</em>, 63(3), 401–426. <a href="https://doi.org/10.1353/lib.2015.0014" target="_blank" rel="noopener noreferrer">https://doi.org/10.1353/lib.2015.0014</a>
+        </li>
+        <li>
+          Floridi, L. (2020). <em>The Logic of Information: A Theory of Philosophy as Conceptual Design</em>. Oxford University Press. <a href="https://doi.org/10.1093/oso/9780198833635.001.0001" target="_blank" rel="noopener noreferrer">https://doi.org/10.1093/oso/9780198833635.001.0001</a>
+        </li>
+        <li>
+          UNESCO (2021). <em>Recommendation on the Ethics of Artificial Intelligence</em>. UNESCO General Conference 41st Session. <a href="https://unesdoc.unesco.org/ark:/48223/pf0000381137" target="_blank" rel="noopener noreferrer">https://unesdoc.unesco.org/ark:/48223/pf0000381137</a>
+        </li>
+        <li>
+          Wardle, C., & Derakhshan, H. (2017). <em>Information Disorder: Toward an Interdisciplinary Framework for Research and Policy Making</em>. Council of Europe Report DGI(2017)09. <a href="https://rm.coe.int/information-disorder-toward-an-interdisciplinary-framework-for-researc/168076277c" target="_blank" rel="noopener noreferrer">https://rm.coe.int/information-disorder-toward-an-interdisciplinary-framework-for-researc/168076277c</a>
+        </li>
+        <li>
+          Zuboff, S. (2019). <em>The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power</em>. PublicAffairs.
+        </li>
+      </ol>
+    </section>
+
+    <!-- Sign-off Footer -->
+    <footer class="paper-footer">
+      <div class="footer-signatures">
+        <div class="sig-line">
+          <span>Student Co-Author 1</span>
+          <div class="sig-placeholder">✓ Verified & Approved</div>
+        </div>
+        <div class="sig-line">
+          <span>Student Co-Author 2</span>
+          <div class="sig-placeholder">✓ Verified & Approved</div>
+        </div>
+        <div class="sig-line">
+          <span>Student Co-Author 3</span>
+          <div class="sig-placeholder">✓ Verified & Approved</div>
+        </div>
+      </div>
+      <p class="footer-declaration">
+        This document represents an academic synthesis conducted for CIA-3 Component 2. All generative tools used during brainstorming were subjected to human verification, critical literature grounding, and transparent disclosure.
+      </p>
+    </footer>
+  </article>
+</main>

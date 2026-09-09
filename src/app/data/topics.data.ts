@@ -53,6 +53,11 @@ export const TOPICS: readonly Topic[] = [
       { label: 'Fallis, D. (2015). What Is Disinformation? Library Trends, 63(3), 401–426.', status: 'verified', url: 'https://doi.org/10.1353/lib.2015.0014' },
       { label: 'European Parliament STOA (2021). Tackling Deepfakes in European Policy: Challenges and Options.', status: 'verified', url: 'https://www.europarl.europa.eu/stoa/en/document/EPRS_STU(2021)690039' },
     ],
+    leadMember: {
+      name: 'Team Member 1',
+      role: 'Epistemic Trust & Synthetic Media Lead',
+      contribution: 'Investigated epistemic injustice, synthetic watermarking standards (C2PA), and Fallis & Floridi epistemology frameworks.',
+    },
   },
   {
     id: 2,
@@ -113,6 +118,11 @@ export const TOPICS: readonly Topic[] = [
       alt: 'Letter tiles spelling NEWS and AI on a wooden table',
       caption: 'Information disorder: how synthetic generation alters the landscape of news, evidence, and public persuasion.',
     },
+    leadMember: {
+      name: 'Team Member 2',
+      role: 'Forensic Misinformation & Deepfake Lead',
+      contribution: 'Analyzed biometric cloning vulnerabilities, information disorder types (Wardle & Derakhshan), and the Liar’s Dividend.',
+    },
   },
   {
     id: 3,
@@ -172,6 +182,11 @@ export const TOPICS: readonly Topic[] = [
       url: '/images/intelligence-crossword.jpg',
       alt: 'Crossword tiles contrasting artificial intelligence, humanity, and judgment',
       caption: 'Authorship under question: negotiating the boundaries between human creative craft, machine intelligence, and human judgment.',
+    },
+    leadMember: {
+      name: 'Team Member 3',
+      role: 'Intellectual Labor & Creative Authorship Lead',
+      contribution: 'Evaluated copyright fair-use boundaries, training data consent models, and UNESCO AI ethics labor equity guidelines.',
     },
   },
 ];

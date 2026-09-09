@@ -26,6 +26,45 @@
         </dl>
       </section>
 
+      @if (artifact.aiProvenance; as prov) {
+        <section class="provenance-audit-section" aria-labelledby="prov-title">
+          <div class="provenance-header">
+            <div>
+              <span class="prov-badge">CIA-3 Evaluation Criterion 4</span>
+              <h2 id="prov-title">AI Tool Usage & Forensic Verification Audit</h2>
+            </div>
+            <span class="prov-tag">Verified Responsible Practice</span>
+          </div>
+
+          <div class="provenance-grid">
+            <div class="prov-card">
+              <span class="prov-label">01 · Prompt Engineering Exploration</span>
+              <p class="prov-prompt">“{{ prov.promptExploration }}”</p>
+            </div>
+
+            <div class="prov-card">
+              <span class="prov-label">02 · Generative Model Pipeline</span>
+              <p class="prov-val">{{ prov.model }}</p>
+            </div>
+
+            <div class="prov-card">
+              <span class="prov-label">03 · Human Post-Editing & Editorial Restraint</span>
+              <p class="prov-val">{{ prov.humanIntervention }}</p>
+            </div>
+
+            <div class="prov-card">
+              <span class="prov-label">04 · Hallucination & Bias Risk Audit</span>
+              <p class="prov-val">{{ prov.biasRiskAudit }}</p>
+            </div>
+
+            <div class="prov-card prov-full">
+              <span class="prov-label">05 · Grounding & Forensic Verification Methodology</span>
+              <p class="prov-val">{{ prov.verificationStep }}</p>
+            </div>
+          </div>
+        </section>
+      }
+
       <nav class="detail-links">
         @if (topic(); as topic) {
           <a [routerLink]="['/topics', topic.id]">Read the topic ↗</a>

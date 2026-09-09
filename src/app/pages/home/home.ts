@@ -19,6 +19,8 @@ interface PreviewItem {
 interface TeamItem {
   readonly name: string;
   readonly role: string;
+  readonly topic: string;
+  readonly contribution: string;
 }
 
 @Component({
@@ -52,11 +54,12 @@ export class Home {
   ];
 
   protected readonly previews: readonly PreviewItem[] = [
-    { number: '01', title: 'Ethical Topics', text: 'Three exhibitions exploring truth, deception and authorship.', route: '/topics' },
-    { number: '02', title: 'Ethics Lab', text: 'Interactive encounters testing judgment under pressure.', route: '/ethics-lab' },
-    { number: '03', title: 'Creative Artifacts', text: 'Visual objects and signals for critical reading.', route: '/artifacts' },
-    { number: '04', title: 'Responsible AI', text: 'Actionable principles, limitations and verification workflows.', route: '/responsible-ai' },
-    { number: '05', title: 'Our Reflection', text: 'Documented team learning, process notes and honest boundaries.', route: '/reflection' },
+    { number: '01', title: 'Ethical Topics', text: 'Three Unit-5 exhibitions exploring truth, deception and authorship.', route: '/topics' },
+    { number: '02', title: 'Ethics Lab', text: 'Interactive encounters testing ethical judgment under pressure.', route: '/ethics-lab' },
+    { number: '03', title: 'Creative Artifacts', text: 'Visual objects, awareness posters and forensic signals.', route: '/artifacts' },
+    { number: '04', title: 'Ethical Analysis (2-3p)', text: 'Formal academic whitepaper deliverable with multi-framework evaluation.', route: '/analysis' },
+    { number: '05', title: 'Presentation Mode (5-7m)', text: 'Structured full-screen deck with live timer and member speaker notes.', route: '/presentation' },
+    { number: '06', title: 'Responsible AI & Reflection', text: 'Principles, limitations, verification protocol and team reflections.', route: '/responsible-ai' },
   ];
 
   protected readonly labEncounters: readonly PreviewItem[] = [
@@ -66,8 +69,23 @@ export class Home {
   ];
 
   protected readonly team: readonly TeamItem[] = [
-    { name: 'Member 1', role: 'Truth & Epistemic Trust' },
-    { name: 'Member 2', role: 'Persuasion, Deepfakes & Influence' },
-    { name: 'Member 3', role: 'Authorship & Intellectual Labor' },
+    {
+      name: 'Team Member 1',
+      role: 'Epistemic Trust & Media Lead',
+      topic: 'Topic 01: Synthetic Reality & Epistemic Risk',
+      contribution: 'Researched fallibilist epistemology (Floridi & Fallis), designed C2PA Provenance Placard artifact, and leads presentation opening & Slide 2.',
+    },
+    {
+      name: 'Team Member 2',
+      role: 'Biometric Forensics & Influence Lead',
+      topic: 'Topic 02: Misinformation, Deepfakes & Persuasion',
+      contribution: 'Analyzed zero-shot voice cloning vectors and the Liar’s Dividend, designed Forensic Audio Warning Poster, and leads presentation Slide 3.',
+    },
+    {
+      name: 'Team Member 3',
+      role: 'Intellectual Labor & Authorship Lead',
+      topic: 'Topic 03: Authorship, Creativity & Labor',
+      contribution: 'Evaluated training data consent and copyright boundaries (UNESCO & US Copyright Office), designed Authorship Spectrum Flow, and leads presentation Slide 4.',
+    },
   ];
 }

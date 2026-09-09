@@ -9,6 +9,8 @@
       <div class="hero-actions">
         <a routerLink="/topics" class="button button-primary">Explore topics <span aria-hidden="true">↗</span></a>
         <a routerLink="/ethics-lab" class="button button-quiet">View Ethics Lab <span aria-hidden="true">→</span></a>
+        <a routerLink="/analysis" class="button button-quiet">Ethical Analysis (2-3p) <span aria-hidden="true">📄</span></a>
+        <a routerLink="/presentation" class="button button-quiet">Present Deck (5–7m) <span aria-hidden="true">▶</span></a>
       </div>
     </div>
     <div class="hero-index" aria-hidden="true"><span>01</span><span>Scroll to investigate</span></div>
@@ -31,7 +33,7 @@
   </section>
 
   <section class="overview section-band" aria-labelledby="overview-title">
-    <div class="section-intro-row"><app-section-heading eyebrow="The portfolio" title="A field guide for thinking" description="Move from questions to encounters, from creative work to responsible practice, and from reflection to evidence." /><span class="section-count" aria-hidden="true">05 / 05</span></div>
+    <div class="section-intro-row"><app-section-heading eyebrow="The portfolio" title="A field guide for thinking" description="Move from questions to encounters, from creative work to responsible practice, and from reflection to evidence." /><span class="section-count" aria-hidden="true">06 / 06</span></div>
     <div class="overview-grid">
       @for (item of previews; track item.number) { <a class="overview-card" [routerLink]="item.route"><span>{{ item.number }}</span><div><h3>{{ item.title }}</h3><p>{{ item.text }}</p></div><b aria-hidden="true">↗</b></a> }
     </div>
@@ -96,10 +98,22 @@
   </section>
 
   <section class="team section-band" aria-labelledby="team-title">
-    <div class="team-heading"><p class="eyebrow">A shared inquiry</p><h2 id="team-title">The people<br /><span>behind the questions.</span></h2></div>
+    <div class="team-heading">
+      <p class="eyebrow">A shared inquiry · Equal Team Participation</p>
+      <h2 id="team-title">The student team<br /><span>behind the questions.</span></h2>
+      <p class="section-copy">Each team member assumed individual responsibility for the research, case studies, creative artifact development, and presentation segment for one distinct Unit-5 domain.</p>
+    </div>
     <div class="team-list">
       @for (member of team; track member.name; let index = $index) {
-        <div class="team-member"><span>0{{ index + 1 }}</span><div><strong>{{ member.name }}</strong><p>{{ member.role }}</p></div></div>
+        <div class="team-member">
+          <span class="member-idx">0{{ index + 1 }}</span>
+          <div>
+            <strong>{{ member.name }}</strong>
+            <span class="member-role-badge">{{ member.role }}</span>
+            <p class="member-topic-link">{{ member.topic }}</p>
+            <p class="member-contrib">{{ member.contribution }}</p>
+          </div>
+        </div>
       }
     </div>
   </section>

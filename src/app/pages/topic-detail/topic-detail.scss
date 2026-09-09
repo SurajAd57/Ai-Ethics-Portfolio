@@ -20,7 +20,7 @@
 .intro-copy p, .large-copy { margin: 0 0 1.2rem; color: var(--muted); font-size: 1.06rem; line-height: 1.8; }
 .large-copy { max-width: 55rem; margin-bottom: 0; color: var(--text); font-family: var(--font-display); font-size: clamp(1.7rem, 3vw, 2.7rem); line-height: 1.15; }
 .topic-editorial-figure { margin: 3.5rem 0; border: 1px solid var(--border); background: var(--surface); border-radius: 4px; overflow: hidden; }
-.topic-editorial-img { display: block; width: 100%; height: auto; max-height: 440px; object-fit: cover; object-position: center; transition: transform 300ms ease; }
+.topic-editorial-img { display: block; width: 100%; height: auto; max-height: 460px; object-fit: cover; object-position: top center; transition: transform 300ms ease; }
 .topic-editorial-figure:hover .topic-editorial-img { transform: scale(1.015); }
 .topic-editorial-figure figcaption { padding: 0.9rem 1.4rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.72rem; letter-spacing: 0.05em; line-height: 1.5; text-transform: uppercase; }
 .why-section { display: grid; grid-template-columns: 0.65fr 1.35fr; gap: 5rem; }

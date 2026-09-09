@@ -1,36 +1,192 @@
 <div class="artifact-stage" [attr.data-visual]="artifact().visual" role="figure" [attr.aria-label]="artifact().type + ': ' + artifact().title">
   @switch (artifact().visual) {
     @case ('signal') {
-      <div class="signal-board">
-        <p class="stage-kicker">Provenance check</p>
-        <ol>
-          <li><span>01</span>What is this file?</li>
-          <li><span>02</span>Who made it, and when?</li>
-          <li class="is-live"><span>03</span>What does it actually prove?</li>
-        </ol>
-        <p class="stage-foot">Appearance is not a source.</p>
-      </div>
-    }
-    @case ('poster') {
-      <div class="poster-board">
-        <p class="stage-kicker">{{ artifact().type }}</p>
-        <h3>{{ artifact().title }}</h3>
-        <p class="poster-rule">Pause. Confirm. Then act.</p>
-      </div>
-    }
-    @case ('flow') {
-      <div class="flow-board">
-        <p class="stage-kicker">{{ artifact().type }}</p>
-        <div class="flow-steps">
-          <span>Understand</span>
-          <i>→</i>
-          <span>Question</span>
-          <i>→</i>
-          <span>Revise</span>
-          <i>→</i>
-          <strong>Human stops or signs</strong>
+      <div class="signal-hud">
+        <!-- Forensic HUD Header -->
+        <div class="hud-topline">
+          <div class="hud-status">
+            <span class="status-indicator" [class.is-checking]="isSimulatingCheck()" [class.is-verified]="isCheckComplete()"></span>
+            <strong>
+              @if (isSimulatingCheck()) {
+                SCANNING CRYPTOGRAPHIC MANIFEST...
+              } @else if (isCheckComplete()) {
+                C2PA AUDIT: SYNTHETIC ORIGIN CONFIRMED (PROBABILITY: 99.4%)
+              } @else {
+                PROVENANCE STATUS: UNVERIFIED LATENT MEDIA
+              }
+            </strong>
+          </div>
+          <span class="hud-code">STANDARD C2PA-v2.1</span>
         </div>
-        <p class="stage-foot">If a step is missing, the claim is incomplete.</p>
+
+        <div class="hud-main-placard">
+          <p class="stage-kicker">Epistemic Provenance Check</p>
+          <h3 class="placard-title">{{ artifact().title }}</h3>
+
+          <div class="placard-steps">
+            <div class="placard-step" [class.is-highlighted]="activeStep() === 1" (click)="selectStep(1)">
+              <div class="step-num">01</div>
+              <div class="step-desc">
+                <strong>Ingestion & Genesis</strong>
+                <p>Latent diffusion synthesis; no physical sensor photons recorded.</p>
+              </div>
+            </div>
+
+            <div class="placard-step" [class.is-highlighted]="activeStep() === 2" (click)="selectStep(2)">
+              <div class="step-num">02</div>
+              <div class="step-desc">
+                <strong>Chain of Custody</strong>
+                <p>Cryptographic hash unanchored. Origin: Synthetic Model Pipeline.</p>
+              </div>
+            </div>
+
+            <div class="placard-step" [class.is-highlighted]="activeStep() === 3" (click)="selectStep(3)">
+              <div class="step-num">03</div>
+              <div class="step-desc">
+                <strong>Evidential Status</strong>
+                <p>Plausible appearance does not constitute documentary fact.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive HUD Controls -->
+          <div class="hud-actions">
+            <button type="button" class="hud-btn hud-btn-primary" [disabled]="isSimulatingCheck()" (click)="runC2PACheck()">
+              @if (isSimulatingCheck()) {
+                <span>⏳</span> Auditing Signatures...
+              } @else {
+                <span>🔍</span> Run Forensic Provenance Audit
+              }
+            </button>
+            <button type="button" class="hud-btn" (click)="toggleMetadata()">
+              {{ showMetadata() ? 'Hide Metadata Ledger ▲' : 'Inspect C2PA Manifest ▼' }}
+            </button>
+          </div>
+
+          <!-- Expanded Metadata Ledger -->
+          @if (showMetadata()) {
+            <div class="metadata-ledger">
+              <div class="ledger-row"><span>Artifact Hash:</span><code>sha256:8f4b2e91a0c4...77d</code></div>
+              <div class="ledger-row"><span>Model Identifier:</span><code>Diffusion-XL / Multimodal Latent Space</code></div>
+              <div class="ledger-row"><span>Camera / Physical Sensor:</span><code>None (Purely Synthetic)</code></div>
+              <div class="ledger-row"><span>Epistemic Classification:</span><strong class="risk-high">High Epistemic Risk</strong></div>
+            </div>
+          }
+        </div>
+
+        <p class="stage-foot">Rule of Law & Epistemic Duty: Appearance is never an evidential source.</p>
+      </div>
+    }
+
+    @case ('poster') {
+      <div class="poster-canvas">
+        <div class="poster-hazard-strip">
+          <span>⚠️ FORENSIC AWARENESS PROTOCOL</span>
+          <span>BIOMETRIC ZERO-TRUST NOTICE</span>
+          <span>UNIT-5 CIA-3</span>
+        </div>
+
+        <div class="poster-hero-content">
+          <div class="waveform-container" aria-hidden="true">
+            <div class="wave-bar h-30"></div>
+            <div class="wave-bar h-60"></div>
+            <div class="wave-bar h-100 synthetic-glitch"></div>
+            <div class="wave-bar h-80"></div>
+            <div class="wave-bar h-40"></div>
+            <div class="wave-bar h-90 synthetic-glitch"></div>
+            <div class="wave-bar h-70"></div>
+            <div class="wave-bar h-50"></div>
+            <div class="wave-bar h-100"></div>
+            <div class="wave-bar h-20"></div>
+          </div>
+
+          <h3 class="poster-headline">A Familiar Voice is Not a Finished Identity Check.</h3>
+          <p class="poster-sub">
+            Zero-shot neural voice cloning can duplicate timbre, pitch, and cadence from 3 seconds of recorded audio. Interpersonal trust is no longer a physical certainty.
+          </p>
+
+          <div class="triage-protocol-grid">
+            <div class="triage-card">
+              <div class="lock-icon">🔒 1</div>
+              <strong>Cadence Triage</strong>
+              <p>Listen for mechanical breathing cadence, unnatural phoneme transitions, and absence of ambient room acoustic reflection.</p>
+            </div>
+            <div class="triage-card">
+              <div class="lock-icon">🔒 2</div>
+              <strong>Out-of-Band Callback</strong>
+              <p>Disconnect immediately. Re-initiate contact through a physically verified telephone number or secure pre-arranged channel.</p>
+            </div>
+            <div class="triage-card">
+              <div class="lock-icon">🔒 3</div>
+              <strong>Shared Secret Challenge</strong>
+              <p>Prompt the caller with a contextual personal question impossible to scrape from social media or public web footprints.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="poster-footer-alert">
+          <strong>EMERGENCY DIRECTIVE:</strong> Never transfer funds, confidential credentials, or panic-induced authorizations based on audio transmission alone.
+        </div>
+      </div>
+    }
+
+    @case ('flow') {
+      <div class="flow-canvas">
+        <div class="flow-header">
+          <span class="stage-kicker">Creative Labor & Authorship Spectrum</span>
+          <h3 class="flow-title">Who Did What Before the Work Was Signed?</h3>
+          <p class="flow-subtitle">Authorship is not binary. It is a spectrum of human steering, computational synthesis, and human moral liability.</p>
+        </div>
+
+        <div class="spectrum-steps">
+          <div class="spectrum-node" [class.is-active]="activeStep() === 1" (click)="selectStep(1)">
+            <span class="node-num">Stage 01</span>
+            <strong>Source Corpus Labor</strong>
+            <small>Human Artists & Writers</small>
+            <p>Trillions of human cultural hours mined without individual consent.</p>
+          </div>
+
+          <div class="node-arrow" aria-hidden="true">→</div>
+
+          <div class="spectrum-node" [class.is-active]="activeStep() === 2" (click)="selectStep(2)">
+            <span class="node-num">Stage 02</span>
+            <strong>Latent Interpolation</strong>
+            <small>Generative Model</small>
+            <p>Probabilistic token generation in multi-billion parameter space.</p>
+          </div>
+
+          <div class="node-arrow" aria-hidden="true">→</div>
+
+          <div class="spectrum-node" [class.is-active]="activeStep() === 3" (click)="selectStep(3)">
+            <span class="node-num">Stage 03</span>
+            <strong>Steering & Curation</strong>
+            <small>Human Creative Director</small>
+            <p>Iterative prompt design, negative constraints, 92% discard filtering.</p>
+          </div>
+
+          <div class="node-arrow" aria-hidden="true">→</div>
+
+          <div class="spectrum-node terminal-node" [class.is-active]="activeStep() === 4" (click)="selectStep(4)">
+            <span class="node-num">Stage 04</span>
+            <strong>Moral Sign-Off</strong>
+            <small>Accountable Human Author</small>
+            <p>Accepts 100% legal, civil, and ethical liability for the final output.</p>
+          </div>
+        </div>
+
+        <!-- Accountability Gauge -->
+        <div class="accountability-gauge">
+          <div class="gauge-bar">
+            <div class="gauge-machine" style="width: 40%;"><span>Tool Capability: 40%</span></div>
+            <div class="gauge-human" style="width: 60%;"><span>Human Moral Liability: 100% (Indivisible)</span></div>
+          </div>
+          <div class="gauge-labels">
+            <span>Machine provides probabilities</span>
+            <strong>Only human beings can accept moral responsibility</strong>
+          </div>
+        </div>
+
+        <p class="stage-foot">If attribution omits source labor or pretends the tool is an author, the claim is ethically defective.</p>
       </div>
     }
   }

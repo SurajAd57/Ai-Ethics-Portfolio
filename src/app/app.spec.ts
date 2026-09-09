@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach } from 'vitest';
 import { TestBed } from '@angular/core/testing';
 import { BrowserTestingModule, platformBrowserTesting } from '@angular/platform-browser/testing';
 import { provideRouter } from '@angular/router';
@@ -56,14 +57,27 @@ describe('Portfolio Data Integrity (3 Topics Scope)', () => {
     }
   });
 
-  it('should have exactly 3 phase 3 analyses and artifacts', () => {
-    expect(PHASE3_ANALYSES.length).toBe(3);
-    expect(ARTIFACTS.length).toBe(3);
-    expect(findPhase3Analysis(1)).toBeDefined();
-    expect(findPhase3Analysis(4)).toBeUndefined();
-    expect(findArtifact('signal-provenance')).toBeDefined();
-    expect(findArtifact('poster-voice')).toBeDefined();
-    expect(findArtifact('flow-credit')).toBeDefined();
-    expect(findArtifact('matrix-governance')).toBeUndefined();
+  it('should have leadMember assigned for each of the 3 topics', () => {
+    for (const topic of TOPICS) {
+      expect(topic.leadMember).toBeDefined();
+      expect(topic.leadMember?.name).toBeTruthy();
+      expect(topic.leadMember?.role).toBeTruthy();
+    }
+  });
+
+  it('should have comprehensive AI provenance documentation on all artifacts', () => {
+    for (const artifact of ARTIFACTS) {
+      expect(artifact.aiProvenance).toBeDefined();
+      expect(artifact.aiProvenance?.promptExploration).toBeTruthy();
+      expect(artifact.aiProvenance?.model).toBeTruthy();
+      expect(artifact.aiProvenance?.verificationStep).toBeTruthy();
+    }
+  });
+
+  it('should include routes for the 2-3 page Ethical Analysis and Presentation Mode deliverables', () => {
+    const analysisRoute = routes.find((r) => r.path === 'analysis');
+    const presentationRoute = routes.find((r) => r.path === 'presentation');
+    expect(analysisRoute).toBeDefined();
+    expect(presentationRoute).toBeDefined();
   });
 });

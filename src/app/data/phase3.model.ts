@@ -31,6 +31,14 @@ export interface Phase3TopicAnalysis {
   readonly matrix: readonly MatrixRow[];
 }
 
+export interface AiProvenance {
+  readonly promptExploration: string;
+  readonly model: string;
+  readonly humanIntervention: string;
+  readonly biasRiskAudit: string;
+  readonly verificationStep: string;
+}
+
 export interface Artifact {
   readonly id: string;
   readonly title: string;
@@ -44,4 +52,5 @@ export interface Artifact {
   readonly limitations: string;
   readonly responsibleUse: string;
   readonly visual: 'poster' | 'flow' | 'matrix' | 'signal';
+  readonly aiProvenance?: AiProvenance;
 }

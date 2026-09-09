@@ -1,0 +1,125 @@
+<main class="presentation-container" [class.with-notes]="isNotesOpen()">
+  <!-- Presentation Header Bar -->
+  <header class="deck-topbar">
+    <div class="deck-brand">
+      <a routerLink="/" class="exit-btn" title="Exit to Portfolio">✕ Exit Deck</a>
+      <span class="deck-title">CIA-3 Presentation (5–7m)</span>
+    </div>
+
+    <!-- Live Timer -->
+    <div class="deck-timer" [class]="timerStatusClass">
+      <span class="timer-display">{{ formatTime(elapsedSeconds()) }} / 07:00</span>
+      <div class="timer-controls">
+        <button type="button" class="btn-timer-icon" (click)="toggleTimer()" [title]="isTimerRunning() ? 'Pause' : 'Start'">
+          {{ isTimerRunning() ? '⏸' : '▶' }}
+        </button>
+        <button type="button" class="btn-timer-icon" (click)="resetTimer()" title="Reset Timer">
+          ↺
+        </button>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="deck-actions">
+      <button type="button" class="deck-btn" [class.is-active]="isNotesOpen()" (click)="toggleNotes()">
+        <span>📝</span> Speaker Notes (N)
+      </button>
+      <button type="button" class="deck-btn" (click)="toggleFullscreen()">
+        <span>⛶</span> Fullscreen (F)
+      </button>
+    </div>
+  </header>
+
+  <!-- Slide Stage -->
+  <div class="deck-stage">
+    @if (slides[currentSlideIndex()]; as slide) {
+      <div class="slide-content">
+        <div class="slide-header">
+          <div class="slide-meta-row">
+            <span class="slide-category">{{ slide.category }}</span>
+            <div class="speaker-pill">
+              <span class="speaker-dot"></span>
+              <strong>{{ slide.speaker }}</strong>
+              <small>{{ slide.timeAllocated }}</small>
+            </div>
+          </div>
+          <h1 class="slide-title">{{ slide.title }}</h1>
+          <blockquote class="slide-quote">“{{ slide.quote }}”</blockquote>
+        </div>
+
+        <div class="slide-body">
+          <div class="takeaways-grid">
+            @for (takeaway of slide.keyTakeaways; track takeaway; let i = $index) {
+              <div class="takeaway-card">
+                <span class="takeaway-num">0{{ i + 1 }}</span>
+                <p>{{ takeaway }}</p>
+              </div>
+            }
+          </div>
+
+          @if (slide.artifactReference; as ref) {
+            <div class="slide-artifact-banner">
+              <span class="artifact-tag">Featured Creative Artifact</span>
+              <strong>{{ ref }}</strong>
+              <a routerLink="/artifacts" target="_blank" class="artifact-link">Inspect Artifact in Gallery ↗</a>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Slide Navigation Footer -->
+  <footer class="deck-footer">
+    <div class="nav-controls">
+      <button type="button" class="btn-nav" [disabled]="currentSlideIndex() === 0" (click)="prevSlide()">
+        ← Previous
+      </button>
+      <div class="slide-progress">
+        @for (slide of slides; track slide.id; let i = $index) {
+          <button
+            type="button"
+            class="progress-dot"
+            [class.is-active]="i === currentSlideIndex()"
+            (click)="goToSlide(i)"
+            [attr.aria-label]="'Go to slide ' + (i + 1)"
+          >
+            <span>0{{ i + 1 }}</span>
+          </button>
+        }
+      </div>
+      <button type="button" class="btn-nav btn-primary" [disabled]="currentSlideIndex() === slides.length - 1" (click)="nextSlide()">
+        Next →
+      </button>
+    </div>
+
+    <div class="deck-hints">
+      <span>Use <kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd> to change slides</span>
+      <span class="slide-index-label">{{ currentSlideIndex() + 1 }} of {{ slides.length }}</span>
+    </div>
+  </footer>
+
+  <!-- Speaker Notes Drawer -->
+  @if (isNotesOpen()) {
+    <aside class="notes-drawer">
+      <div class="notes-header">
+        <div class="notes-title">
+          <span>🎙️ Speaker Cue Card</span>
+          <strong>{{ slides[currentSlideIndex()].speaker }}</strong>
+        </div>
+        <button type="button" class="close-notes-btn" (click)="toggleNotes()" title="Close notes">✕</button>
+      </div>
+      <div class="notes-body">
+        <p class="notes-timing-badge">Time Target: {{ slides[currentSlideIndex()].timeAllocated }}</p>
+        <ul class="speaker-cues-list">
+          @for (cue of slides[currentSlideIndex()].speakerNotes; track cue) {
+            <li>{{ cue }}</li>
+          }
+        </ul>
+        <div class="rubric-tip">
+          <strong>Evaluation Tip:</strong> Speak with clarity, pace your 90 seconds evenly, and connect theoretical concepts with our creative artifacts!
+        </div>
+      </div>
+    </aside>
+  }
+</main>

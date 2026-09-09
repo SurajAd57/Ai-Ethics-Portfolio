@@ -34,6 +34,12 @@ export interface TopicSource {
   readonly status: 'to-verify' | 'verified';
 }
 
+export interface TopicLeadMember {
+  readonly name: string;
+  readonly role: string;
+  readonly contribution: string;
+}
+
 export interface Topic {
   readonly id: number;
   readonly number: string;
@@ -53,4 +59,5 @@ export interface Topic {
   readonly biggerQuestion: string;
   readonly sources: readonly TopicSource[];
   readonly image?: { readonly url: string; readonly alt: string; readonly caption: string };
+  readonly leadMember?: TopicLeadMember;
 }
