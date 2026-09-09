@@ -3,31 +3,31 @@
 .phase3-analysis-section .section-intro { max-width: 55rem; margin: -0.8rem 0 2.2rem; color: var(--muted); font-size: 1.06rem; line-height: 1.8; }
 .phase3-analysis-section { padding-top: 4rem; padding-bottom: 4rem; }
 .topic-hero { overflow: hidden; border-bottom: 1px solid var(--border); background: radial-gradient(circle at 78% 40%, rgba(199, 168, 108, 0.16), transparent 28rem), var(--surface); }
-.topic-hero-inner { position: relative; max-width: var(--max-width); min-height: 31rem; margin: 0 auto; padding: 4.5rem var(--gutter) 5rem; }
+.topic-hero-inner { position: relative; max-width: var(--max-width); min-height: auto; margin: 0 auto; padding: 3.5rem var(--gutter) 3.5rem; }
 .topic-hero-inner::after { position: absolute; right: 7%; bottom: -13rem; width: 28rem; height: 28rem; border: 1px solid rgba(199, 168, 108, 0.23); border-radius: 50%; content: ''; }
 .topic-topline { display: flex; justify-content: space-between; color: var(--accent); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
 .back-link { color: var(--muted); text-decoration: none; }
 .back-link:hover { color: var(--accent); }
 .eyebrow, .section-label, .dilemma-marker, .tradeoff-label { color: var(--accent); font-size: 0.67rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
-.topic-hero .eyebrow { position: relative; z-index: 1; margin: 6rem 0 1rem; }
-.topic-hero h1 { position: relative; z-index: 1; max-width: 65rem; margin: 0; color: var(--text); font-family: var(--font-display); font-size: clamp(3rem, 7vw, 7rem); font-weight: 500; line-height: 0.9; text-transform: uppercase; }
-.topic-subtitle { position: relative; z-index: 1; max-width: 35rem; margin: 1.8rem 0 0; color: var(--muted); font-size: 1.1rem; line-height: 1.5; }
-.topic-body { max-width: 980px; margin: 0 auto; padding: 0 var(--gutter); }
-.topic-section { padding: 6.5rem 0; border-bottom: 1px solid var(--border); }
-.section-label { display: flex; gap: 1.5rem; align-items: baseline; margin-bottom: 2.2rem; }
+.topic-hero .eyebrow { position: relative; z-index: 1; margin: 2rem 0 0.8rem; }
+.topic-hero h1 { position: relative; z-index: 1; max-width: 1400px; margin: 0; color: var(--text); font-family: var(--font-display); font-size: clamp(2.8rem, 6vw, 6rem); font-weight: 500; line-height: 0.95; text-transform: uppercase; }
+.topic-subtitle { position: relative; z-index: 1; max-width: 55rem; margin: 1.2rem 0 0; color: var(--muted); font-size: 1.1rem; line-height: 1.5; }
+.topic-body { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
+.topic-section { padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
+.section-label { display: flex; gap: 1.5rem; align-items: baseline; margin-bottom: 1.5rem; }
 .section-label span:first-child { color: var(--muted); }
-.intro-section { display: grid; grid-template-columns: 0.65fr 1.35fr; gap: 5rem; }
+.intro-section { display: grid; grid-template-columns: 280px 1fr; gap: 3rem; }
 .intro-copy p, .large-copy { margin: 0 0 1.2rem; color: var(--muted); font-size: 1.06rem; line-height: 1.8; }
-.large-copy { max-width: 55rem; margin-bottom: 0; color: var(--text); font-family: var(--font-display); font-size: clamp(1.7rem, 3vw, 2.7rem); line-height: 1.15; }
-.topic-editorial-figure { margin: 3.5rem 0; border: 1px solid var(--border); background: var(--surface); border-radius: 4px; overflow: hidden; }
+.large-copy { max-width: 100%; margin-bottom: 0; color: var(--text); font-family: var(--font-display); font-size: clamp(1.6rem, 2.6vw, 2.5rem); line-height: 1.2; }
+.topic-editorial-figure { margin: 2.5rem 0; border: 1px solid var(--border); background: var(--surface); border-radius: 4px; overflow: hidden; }
 .topic-editorial-img { display: block; width: 100%; height: auto; max-height: 460px; object-fit: cover; object-position: top center; transition: transform 300ms ease; }
 .topic-editorial-figure:hover .topic-editorial-img { transform: scale(1.015); }
 .topic-editorial-figure figcaption { padding: 0.9rem 1.4rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.72rem; letter-spacing: 0.05em; line-height: 1.5; text-transform: uppercase; }
-.why-section { display: grid; grid-template-columns: 0.65fr 1.35fr; gap: 5rem; }
+.why-section { display: grid; grid-template-columns: 280px 1fr; gap: 3rem; }
 .why-section .section-label { margin: 0; }
-.dilemma-section { display: grid; grid-template-columns: 0.65fr 1.35fr; gap: 5rem; padding: 5rem; border: 1px solid var(--accent); background: rgba(199, 168, 108, 0.07); }
-.dilemma-section h2 { margin: 0; color: var(--text); font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 3rem); font-weight: 500; line-height: 1; }
-.dilemma-section p { margin: 1.5rem 0 0; color: var(--muted); line-height: 1.6; }
+.dilemma-section { display: grid; grid-template-columns: 280px 1fr; gap: 3rem; padding: 3rem; border: 1px solid var(--accent); background: rgba(199, 168, 108, 0.07); }
+.dilemma-section h2 { margin: 0; color: var(--text); font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 3rem); font-weight: 500; line-height: 1.1; }
+.dilemma-section p { margin: 1.2rem 0 0; color: var(--muted); line-height: 1.6; }
 .concerns-list { border-top: 1px solid var(--border); }
 .concern { border-bottom: 1px solid var(--border); }
 .concern-trigger { display: grid; grid-template-columns: 3rem 1fr auto; width: 100%; align-items: center; gap: 1rem; border: 0; background: transparent; padding: 1.35rem 0; color: var(--text); cursor: pointer; text-align: left; }
