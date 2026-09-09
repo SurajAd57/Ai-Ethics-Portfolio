@@ -1,5 +1,5 @@
 :host { display: block; }
-.encounter-hero { border-bottom: 1px solid var(--border); background: radial-gradient(circle at 78% 40%, rgba(199, 168, 108, 0.16), transparent 28rem), var(--surface); }
+.encounter-hero { border-bottom: 1px solid var(--border); background: radial-gradient(circle at 80% 30%, rgba(56, 189, 248, 0.08), transparent 35rem), radial-gradient(circle at 15% 70%, rgba(212, 175, 55, 0.1), transparent 28rem), var(--surface); }
 .encounter-hero-inner { max-width: var(--max-width); margin: 0 auto; padding: 3rem var(--gutter) 2.5rem; }
 .encounter-topline { display: flex; justify-content: space-between; color: var(--accent); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
 .back-link, .text-link { color: var(--muted); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-decoration: none; text-transform: uppercase; }

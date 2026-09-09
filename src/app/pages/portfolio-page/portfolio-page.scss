@@ -1,7 +1,7 @@
 :host { display: block; }
-.portfolio-hero { border-bottom: 1px solid var(--border); background: radial-gradient(circle at 78% 35%, rgba(199, 168, 108, 0.17), transparent 28rem), var(--surface); }
+.portfolio-hero { border-bottom: 1px solid var(--border); background: radial-gradient(circle at 80% 30%, rgba(56, 189, 248, 0.08), transparent 35rem), radial-gradient(circle at 15% 70%, rgba(212, 175, 55, 0.1), transparent 28rem), var(--surface); }
 .portfolio-hero-inner { position: relative; max-width: var(--max-width); min-height: auto; margin: 0 auto; padding: 3rem var(--gutter) 3rem; }
-.portfolio-hero-inner::after { position: absolute; right: 9%; bottom: -13rem; width: 28rem; height: 28rem; border: 1px solid rgba(199, 168, 108, 0.24); border-radius: 50%; content: ''; }
+.portfolio-hero-inner::after { position: absolute; right: 9%; bottom: -13rem; width: 28rem; height: 28rem; border: 1px solid rgba(212, 175, 55, 0.18); border-radius: 50%; content: ''; }
 .portfolio-topline { display: flex; justify-content: space-between; color: var(--accent); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
 .back-link { color: var(--muted); text-decoration: none; }
 .back-link:hover { color: var(--accent); }
@@ -11,10 +11,10 @@
 .portfolio-hero h1 { max-width: 100%; margin: 0; color: var(--text); font-family: var(--font-display); font-size: clamp(3.5rem, 8vw, 7.5rem); font-weight: 500; line-height: 0.88; text-transform: uppercase; }
 .hero-accent { margin: 1.2rem 0 0; color: var(--accent); font-family: var(--font-display); font-size: clamp(1.3rem, 2.4vw, 2.2rem); }
 .hero-intro { max-width: 100%; margin: 1rem 0 0; color: var(--muted); font-size: 1rem; line-height: 1.7; }
-.portfolio-hero-figure { margin: 0; border: 1px solid var(--border); background: #0e1520; border-radius: 4px; overflow: hidden; }
-.portfolio-hero-img { display: block; width: 100%; height: auto; max-height: 380px; object-fit: cover; object-position: top center; transition: transform 300ms ease; }
-.portfolio-hero-figure:hover .portfolio-hero-img { transform: scale(1.02); }
-.portfolio-hero-figure figcaption { padding: 0.85rem 1.2rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.72rem; letter-spacing: 0.05em; line-height: 1.5; text-transform: uppercase; }
+.portfolio-hero-figure { margin: 0; border: 1px solid var(--border); background: var(--surface); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; }
+.portfolio-hero-img { display: block; width: 100%; height: auto; max-height: 380px; object-fit: contain; background: rgba(0, 0, 0, 0.25); transition: transform 300ms ease; }
+.portfolio-hero-figure:hover .portfolio-hero-img { transform: scale(1.015); }
+.portfolio-hero-figure figcaption { padding: 0.85rem 1.2rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.72rem; letter-spacing: 0.05em; line-height: 1.5; text-transform: uppercase; margin-top: auto; }
 .portfolio-section { max-width: var(--max-width); margin: 0 auto; padding: 3.5rem var(--gutter); border-bottom: 1px solid var(--border); }
 .section-label { display: flex; gap: 1.5rem; align-items: baseline; margin-bottom: 2rem; }
 .section-label span:first-child { color: var(--muted); }

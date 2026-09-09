@@ -40,6 +40,11 @@ export const PORTFOLIO_PAGES: Record<string, PortfolioPageData> = {
   artifacts: {
     key: 'artifacts', title: 'Creative Artifacts', accent: 'Make the question visible.',
     intro: 'A gallery of visual work that helps an audience encounter AI ethics through signals, posters, flows and matrices. Each object names its purpose, AI involvement and limits.',
+    image: {
+      url: '/images/creative-artifacts-exhibit.jpg',
+      alt: 'Museum exhibition gallery displaying digital AI ethics creative artifacts, provenance credentials, and forensic waveforms',
+      caption: 'Visualizing ethical questions: translating epistemic trust, synthetic media risks, and creative labor into tangible artifacts.',
+    },
     sections: [
       { title: 'Context first', text: 'Every artifact should state what it is, how AI was used and what question it asks the viewer to consider.' },
       { title: 'Evidence over spectacle', text: 'Visual polish should clarify an ethical issue rather than make an unsupported claim feel authoritative.' },

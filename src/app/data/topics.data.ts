@@ -53,6 +53,11 @@ export const TOPICS: readonly Topic[] = [
       { label: 'Fallis, D. (2015). What Is Disinformation? Library Trends, 63(3), 401–426.', status: 'verified', url: 'https://doi.org/10.1353/lib.2015.0014' },
       { label: 'European Parliament STOA (2021). Tackling Deepfakes in European Policy: Challenges and Options.', status: 'verified', url: 'https://www.europarl.europa.eu/stoa/en/document/EPRS_STU(2021)690039' },
     ],
+    image: {
+      url: '/images/synthetic-reality-epistemic.jpg',
+      alt: 'Forensic inspection of synthetic reality: testing machine generation against epistemic truth and provenance stamps',
+      caption: 'Epistemic verification: distinguishing authentic documentation from synthetic hallucinations and fabricated reality.',
+    },
     leadMember: {
       name: 'Team Member 1',
       role: 'Epistemic Trust & Synthetic Media Lead',
@@ -179,9 +184,9 @@ export const TOPICS: readonly Topic[] = [
       { label: 'Elgammal, A. (2019). AI Is Blurring the Definition of Artist. American Scientist, 107(1), 18–21.', status: 'verified', url: 'https://doi.org/10.1511/2019.107.1.18' },
     ],
     image: {
-      url: '/images/intelligence-crossword.jpg',
-      alt: 'Crossword tiles contrasting artificial intelligence, humanity, and judgment',
-      caption: 'Authorship under question: negotiating the boundaries between human creative craft, machine intelligence, and human judgment.',
+      url: '/images/creative-authorship-labor.jpg',
+      alt: 'Physical oil painter canvas merging with glowing generative algorithmic neural networks',
+      caption: 'Authorship under question: negotiating the boundary between human creative craft, machine intelligence, and fair attribution.',
     },
     leadMember: {
       name: 'Team Member 3',
