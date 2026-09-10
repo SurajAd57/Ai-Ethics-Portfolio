@@ -54,7 +54,7 @@ export const TOPICS: readonly Topic[] = [
       { label: 'European Parliament STOA (2021). Tackling Deepfakes in European Policy: Challenges and Options.', status: 'verified', url: 'https://www.europarl.europa.eu/stoa/en/document/EPRS_STU(2021)690039' },
     ],
     image: {
-      url: '/images/synthetic-reality-epistemic.jpg',
+      url: 'images/synthetic-reality-epistemic.jpg',
       alt: 'Forensic inspection of synthetic reality: testing machine generation against epistemic truth and provenance stamps',
       caption: 'Epistemic verification: distinguishing authentic documentation from synthetic hallucinations and fabricated reality.',
     },
@@ -119,7 +119,7 @@ export const TOPICS: readonly Topic[] = [
       { label: 'Wardle, C., & Derakhshan, H. (2017). Information Disorder: Toward an Interdisciplinary Framework for Research and Policy Making. Council of Europe Report DGI(2017)09.', status: 'verified', url: 'https://rm.coe.int/information-disorder-toward-an-interdisciplinary-framework-for-researc/168076277c' },
     ],
     image: {
-      url: '/images/news-ai-tiles.jpg',
+      url: 'images/news-ai-tiles.jpg',
       alt: 'Letter tiles spelling NEWS and AI on a wooden table',
       caption: 'Information disorder: how synthetic generation alters the landscape of news, evidence, and public persuasion.',
     },
@@ -184,7 +184,7 @@ export const TOPICS: readonly Topic[] = [
       { label: 'Elgammal, A. (2019). AI Is Blurring the Definition of Artist. American Scientist, 107(1), 18–21.', status: 'verified', url: 'https://doi.org/10.1511/2019.107.1.18' },
     ],
     image: {
-      url: '/images/creative-authorship-labor.jpg',
+      url: 'images/creative-authorship-labor.jpg',
       alt: 'Physical oil painter canvas merging with glowing generative algorithmic neural networks',
       caption: 'Authorship under question: negotiating the boundary between human creative craft, machine intelligence, and fair attribution.',
     },
