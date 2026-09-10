@@ -69,19 +69,19 @@ export class Home {
 
   protected readonly team: readonly TeamItem[] = [
     {
-      name: 'Team Member 1',
+      name: 'S M Tejashree Kashyap (2460440)',
       role: 'Epistemic Trust & Media Lead',
       topic: 'Topic 01: Synthetic Reality & Epistemic Risk',
       contribution: 'Researched fallibilist epistemology (Floridi & Fallis), designed C2PA Provenance Placard artifact, and led Section 1.0 philosophical formulation.',
     },
     {
-      name: 'Team Member 2',
+      name: 'Suraj Adhikari (2460457)',
       role: 'Biometric Forensics & Influence Lead',
       topic: 'Topic 02: Misinformation, Deepfakes & Persuasion',
       contribution: 'Analyzed zero-shot voice cloning vectors and the Liar’s Dividend, designed Forensic Audio Warning Poster, and led Section 2.0 deception taxonomy.',
     },
     {
-      name: 'Team Member 3',
+      name: 'Swathi P (2460478)',
       role: 'Intellectual Labor & Authorship Lead',
       topic: 'Topic 03: Authorship, Creativity & Labor',
       contribution: 'Evaluated training data consent and copyright boundaries (UNESCO & US Copyright Office), designed Authorship Spectrum Flow, and led Section 3.0 labor equity analysis.',

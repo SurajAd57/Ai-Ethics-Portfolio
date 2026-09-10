@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsible AI — Project Report</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Times New Roman", Times, serif;
+      color: #000000;
+      background-color: #f3f4f6;
+      line-height: 1.38;
+      font-size: 11pt;
+    }
+
+    /* Screen toolbar */
+    .no-print {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .no-print .btn {
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 7px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .no-print .btn:hover {
+      background: #1d4ed8;
+    }
+
+    /* A4 Sheet Container */
+    .sheet {
+      width: 210mm;
+      height: 297mm;
+      margin: 15px auto;
+      background: #ffffff;
+      padding: 18mm 20mm 18mm 20mm;
+      position: relative;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      page-break-after: always;
+      overflow: hidden;
+    }
+
+    /* ========================================================= */
+    /* COVER PAGE STYLING */
+    /* ========================================================= */
+    .sheet-cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      padding: 24mm 20mm 18mm 20mm;
+    }
+
+    .christ-logo-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .christ-crest {
+      width: 76px;
+      height: 76px;
+    }
+
+    .christ-text-block {
+      text-align: left;
+    }
+
+    .christ-brand {
+      font-size: 38pt;
+      font-weight: bold;
+      color: #14356c;
+      letter-spacing: 1px;
+      line-height: 1;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .christ-sub1 {
+      font-size: 9.5pt;
+      color: #555555;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      margin-top: 2px;
+      text-transform: uppercase;
+    }
+
+    .christ-sub2 {
+      font-size: 8.5pt;
+      color: #555555;
+      letter-spacing: 0.5px;
+      margin-top: 1px;
+      text-transform: uppercase;
+    }
+
+    .cover-dept-title {
+      font-size: 15.5pt;
+      font-weight: bold;
+      color: #000000;
+      letter-spacing: 0.5px;
+      line-height: 1.4;
+      text-transform: uppercase;
+      margin-top: 25px;
+    }
+
+    .cover-subject-box {
+      margin: 25px 0;
+    }
+
+    .cover-subject {
+      font-size: 14pt;
+      font-weight: bold;
+      color: #000000;
+      margin-bottom: 8px;
+    }
+
+    .cover-degree {
+      font-size: 12pt;
+      font-weight: normal;
+      color: #000000;
+    }
+
+    .cover-project-title {
+      font-size: 13pt;
+      font-weight: bold;
+      color: #111827;
+      margin-top: 12px;
+      line-height: 1.35;
+      text-transform: uppercase;
+      max-width: 580px;
+    }
+
+    .cover-authors-box {
+      margin: 20px 0;
+      font-size: 12pt;
+      line-height: 1.7;
+    }
+
+    .cover-guide-box {
+      margin: 15px 0;
+      font-size: 12pt;
+      line-height: 1.4;
+    }
+
+    .cover-footer {
+      font-size: 11pt;
+      line-height: 1.45;
+      color: #000000;
+    }
+
+    /* ========================================================= */
+    /* BODY PAGE HEADER & FOOTER */
+    /* ========================================================= */
+    .page-header {
+      margin-bottom: 12px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11pt;
+      font-style: italic;
+      color: #000000;
+      margin-bottom: 4px;
+    }
+
+    .double-rule {
+      border-top: 1px solid #000000;
+      border-bottom: 1px solid #000000;
+      height: 3px;
+      margin-bottom: 12px;
+    }
+
+    .page-footer {
+      position: absolute;
+      bottom: 15mm;
+      left: 20mm;
+      right: 20mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10.5pt;
+      font-style: italic;
+      border-top: 1px solid #d1d5db;
+      padding-top: 6px;
+    }
+
+    /* ========================================================= */
+    /* CONTENT TYPOGRAPHY */
+    /* ========================================================= */
+    .page-content {
+      height: calc(297mm - 48mm);
+      overflow: hidden;
+    }
+
+    h2.topic-title {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #000000;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    p {
+      text-align: justify;
+      margin-bottom: 8px;
+      font-size: 10.5pt;
+      line-height: 1.38;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 8px;
+      font-size: 10.5pt;
+    }
+
+    li {
+      margin-bottom: 4px;
+      text-align: justify;
+    }
+
+    li strong {
+      color: #000000;
+    }
+
+    /* Tables */
+    table.content-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9pt;
+      margin: 8px 0 10px 0;
+    }
+
+    table.content-table th {
+      background-color: #14356c;
+      color: #ffffff;
+      font-weight: bold;
+      padding: 6px 8px;
+      text-align: left;
+      border: 1px solid #14356c;
+    }
+
+    table.content-table td {
+      border: 1px solid #cccccc;
+      padding: 5px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    table.content-table tr:nth-child(even) td {
+      background-color: #f9fafb;
+    }
+
+    /* Screenshot placement box */
+    .screenshot-box {
+      border: 1px dashed #64748b;
+      background: #f8fafc;
+      padding: 8px 10px;
+      border-radius: 4px;
+      margin: 8px 0;
+      text-align: center;
+    }
+
+    .screenshot-box .ss-meta {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 8.5pt;
+      color: #334155;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    .screenshot-box .ss-placeholder {
+      height: 60px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-style: italic;
+      color: #64748b;
+      font-size: 9pt;
+    }
+
+    .screenshot-box .ss-caption {
+      font-size: 9pt;
+      font-weight: bold;
+      margin-top: 4px;
+      color: #000000;
+    }
+
+    .team-signature-line {
+      margin-top: 6px;
+      font-style: italic;
+      text-align: right;
+      font-size: 9.5pt;
+      color: #334155;
+    }
+
+    @media print {
+      body {
+        background: transparent;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .sheet {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen Toolbar -->
+  <div class="no-print">
+    <div>
+      <strong>CHRIST (Deemed to be University) · Department of Computer Science & Engineering</strong>
+      <span style="opacity: 0.8; font-size: 12px; margin-left: 12px;">Subject: Responsible AI · Guide: Dr. Anoop G L · Created by Angry Birds</span>
+    </div>
+    <div>
+      <button class="btn" onclick="window.print()">
+        <span>🖨️</span> Save as PDF / Print
+      </button>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- PAGE 1: COVER PAGE -->
+  <!-- ================================================================= -->
+  <div class="sheet sheet-cover">
+    
+    <!-- Top Christ Logo -->
+    <div class="christ-logo-box">
+      <!-- Crest emblem SVG -->
+      <svg class="christ-crest" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="46" fill="none" stroke="#b38728" stroke-width="3" />
+        <circle cx="50" cy="50" r="41" fill="none" stroke="#14356c" stroke-width="1.5" />
+        <g stroke="#b38728" stroke-width="1.2" opacity="0.6">
+          <line x1="50" y1="9" x2="50" y2="91" />
+          <line x1="9" y1="50" x2="91" y2="50" />
+          <line x1="21" y1="21" x2="79" y2="79" />
+          <line x1="21" y1="79" x2="79" y2="21" />
+        </g>
+        <path d="M36,28 L64,28 L64,56 C64,68 50,76 50,76 C50,76 36,68 36,56 Z" fill="#ffffff" stroke="#14356c" stroke-width="2" />
+        <path d="M42,35 L58,35 L58,48 C58,54 50,60 50,60 C50,60 42,54 42,48 Z" fill="#f8fafc" stroke="#b38728" stroke-width="1.2" />
+        <text x="50" y="47" font-size="7" font-family="Georgia, serif" text-anchor="middle" fill="#14356c" font-weight="bold">CHRIST</text>
+        <path id="crestArcTop" d="M22,50 A28,28 0 0,1 78,50" fill="none" />
+        <text font-size="5" font-family="Arial, sans-serif" fill="#14356c" letter-spacing="1">
+          <textPath href="#crestArcTop" startOffset="50%" text-anchor="middle">EXCELLENCE AND SERVICE</textPath>
+        </text>
+      </svg>
+      <div class="christ-text-block">
+        <div class="christ-brand">CHRIST</div>
+        <div class="christ-sub1">(DEEMED TO BE UNIVERSITY)</div>
+        <div class="christ-sub2">BANGALORE | DELHI NCR | PUNE</div>
+      </div>
+    </div>
+
+    <!-- Department -->
+    <div class="cover-dept-title">
+      DEPARTMENT OF COMPUTER SCIENCE<br>AND ENGINEERING
+    </div>
+
+    <!-- Subject & Program -->
+    <div class="cover-subject-box">
+      <div class="cover-subject">Responsible AI</div>
+      <div class="cover-degree">B. Tech – Computer Science and Engineering</div>
+      <div class="cover-project-title">
+        AI Ethics Portfolio: Generative AI, Truth, Creativity, and Responsibility
+      </div>
+    </div>
+
+    <!-- Submitted By -->
+    <div class="cover-authors-box">
+      <p style="font-weight: bold; margin-bottom: 4px; text-align: center;">Submitted by:</p>
+      <div style="font-weight: bold; text-align: center;">
+        Suraj Adhikari - 2460457<br>
+        S M Tejashree Kashyap - 2460440<br>
+        Swathi P - 2460478
+      </div>
+    </div>
+
+    <!-- Guidance -->
+    <div class="cover-guide-box">
+      <p style="font-style: italic; margin-bottom: 2px; text-align: center;">Under the Guidance of</p>
+      <div style="font-weight: bold; font-size: 13pt; text-align: center;">Dr. Anoop G L</div>
+      <div style="font-size: 10.5pt; text-align: center;">Department of Computer Science and Engineering</div>
+    </div>
+
+    <!-- Footer Address -->
+    <div class="cover-footer">
+      <strong>School of Engineering and Technology,</strong><br>
+      <strong>CHRIST (Deemed to be University),</strong><br>
+      Kumbalagodu, Bengaluru - 560 074.<br><br>
+      September 2026
+    </div>
+
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- PAGE 2: INTRODUCTION & TOPIC 1 -->
+  <!-- ================================================================= -->
+  <div class="sheet">
+    <div class="page-header">
+      <div class="header-top">
+        <span>Responsible AI</span>
+        <span>Reg. No: 2460457, 2460440, 2460478</span>
+      </div>
+      <div class="double-rule"></div>
+    </div>
+
+    <div class="page-content">
+      <h2 class="topic-title">Introduction</h2>
+      <p>
+        Generative Artificial Intelligence (GenAI)—driven by diffusion models, large multimodal language models, and zero-shot neural voice synthesizers—has shifted computational systems from pattern classification to autonomous content synthesis. In mission-critical deployments, artificial intelligence is no longer merely a passive tool for data processing; it actively creates media that influences human cognition, public belief, legal evidence, and creative labor.
+      </p>
+      <p>
+        Our project, titled <strong>“AI Ethics Portfolio: Generative AI, Truth, Creativity, and Responsibility,”</strong> develops a comprehensive, interactive digital ethics platform designed for the CIA-3 curriculum. The portfolio explores how modern AI systems sever the empirical bond between appearance and reality, and investigates the ethical principles required to govern synthetic generation across three connected themes: Epistemic Truth, Biometric Persuasion, and Cultural Authorship.
+      </p>
+
+      <h2 class="topic-title">The Digital AI Ethics Portfolio – Core Objectives</h2>
+      <p>
+        The platform was developed using <strong>Angular 21</strong> with standalone reactive architecture, serving five primary educational and analytical objectives:
+      </p>
+      <ul>
+        <li><strong>Multi-Dimensional Thematic Analysis:</strong> Examining the societal externalities of synthetic media, deepfakes, and copyright exploitation through formal philosophical frameworks.</li>
+        <li><strong>The Ethics Lab:</strong> An interactive decision engine presenting calibrated moral dilemmas that force users to weigh competing societal trade-offs.</li>
+        <li><strong>Creative Visual Artifacts:</strong> Translating ethical concepts into public awareness posters, provenance placards, and labor diagrams.</li>
+        <li><strong>AI Provenance Auditing:</strong> Practicing transparent engineering by disclosing our own generative tool prompts, models, and bias audits.</li>
+        <li><strong>Continuous Verification Protocol:</strong> Establishing an operational 7-step human-in-the-loop pipeline to fact-check and govern generative AI outputs.</li>
+      </ul>
+
+      <h2 class="topic-title">Topic 01: Synthetic Reality & Epistemic Risk</h2>
+      <p style="margin-bottom: 4px;">
+        <strong>Lead Researcher: S M Tejashree Kashyap (2460440)</strong>
+      </p>
+      <p>
+        Traditional human epistemology relies on photographs, audio recordings, and video clips as empirical anchors: an event is understood to have occurred because physical waves registered on a sensor. Photorealistic generative diffusion models fundamentally sever this evidential link. As philosopher Don Fallis (2015) articulates, epistemic risk impairs an agent’s capacity to acquire justified true beliefs. When synthetic media becomes indistinguishable from reality, the primary casualty is not merely that individuals believe false claims (<em>positive deception</em>); it is that society succumbs to <strong>Epistemic Resignation</strong>, wherein citizens cease to trust legitimate news, forensic documentation, and scientific evidence.
+      </p>
+      <p>
+        To mitigate this collapse, the portfolio explores technical provenance countermeasures, including <strong>C2PA (Coalition for Content Provenance and Authenticity)</strong> cryptographic manifests and latent digital watermarking, while highlighting the asymmetrical verification gap between elite institutions and ordinary citizens.
+      </p>
+
+      <!-- Screenshot Box 1 -->
+      <div class="screenshot-box">
+        <div class="ss-meta">
+          <span><strong>Route:</strong> http://localhost:4200/</span>
+          <span><strong>Feature:</strong> Landing Portal & Topic 01 Deep-Dive</span>
+        </div>
+        <div class="ss-placeholder">[ SCREENSHOT 1: PORTFOLIO HERO SECTION & TOPIC 01 EPISTEMIC INQUIRY ]</div>
+        <div class="ss-caption">Figure 1: AI Ethics Portfolio Home Page — Architecture & Synthetic Reality Exploration.</div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>5 BTCS A</span>
+      <span>2026 - 27</span>
+      <span>Page | 2</span>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- PAGE 3: TOPICS 2 & 3 -->
+  <!-- ================================================================= -->
+  <div class="sheet">
+    <div class="page-header">
+      <div class="header-top">
+        <span>Responsible AI</span>
+        <span>Reg. No: 2460457, 2460440, 2460478</span>
+      </div>
+      <div class="double-rule"></div>
+    </div>
+
+    <div class="page-content">
+      <h2 class="topic-title">Topic 02: Misinformation, Deepfakes & Persuasion</h2>
+      <p style="margin-bottom: 4px;">
+        <strong>Lead Researcher: Suraj Adhikari (2460457)</strong>
+      </p>
+      <p>
+        Persuasion is an established element of human rhetoric, education, and advocacy. However, the ethical boundary is violated when generative systems transform persuasion into <strong>covert manipulation</strong>. Zero-shot neural voice cloning represents a critical vector: using as few as three seconds of reference audio, bad actors synthesize the vocal timbre, breathing cadence, and emotional inflection of a trusted relative, CEO, or public official. This short-circuits rational skepticism by triggering immediate emotional distress during simulated emergencies.
+      </p>
+      <p>
+        Furthermore, legal scholars Robert Chesney and Danielle Citron (2019) identify the <strong>Liar’s Dividend</strong>: as public awareness of deepfakes expands, corrupt actors gain a universal alibi to dismiss authentic, incriminating recordings as "AI-generated fabrications." Deepfakes thus harm democracy both by manufacturing falsehoods and by eroding the evidential power of genuine truth.
+      </p>
+
+      <h2 class="topic-title">Topic 03: Authorship, Creativity & Intellectual Labor</h2>
+      <p style="margin-bottom: 4px;">
+        <strong>Lead Researcher: Swathi P (2460478)</strong>
+      </p>
+      <p>
+        Generative AI fundamentally disrupts cultural production. Foundation models do not create <em>ex nihilo</em>; they represent computational distillations of trillions of human artistic works, essays, and codebases scraped without the consent, credit, or compensation of their creators (Crawford, 2021). While marketed as the "democratization of art," commercial platforms extract private value from the collective human cultural commons, causing severe wage deflation for freelance creators.
+      </p>
+      <p>
+        Our analysis conceptualizes authorship not as a binary toggle between human and machine, but as an <strong>iterative spectrum</strong>: prompt formulation, parameter steering, curatorial filtering, and human refinement. Crucially, while algorithms produce stochastic outputs, <strong>moral agency, legal personhood, and civic accountability remain indivisibly anchored in human creators</strong>.
+      </p>
+
+      <h2 class="topic-title">Core Ethical Domains & Philosophical Dimensions</h2>
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Core Domain</th>
+            <th style="width: 45%;">Ethical Rupture & Societal Harm</th>
+            <th style="width: 30%;">Mitigation Benchmark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Synthetic Reality</strong><br><small>Lead: Tejashree</small></td>
+            <td>Collapse of documentary proof; emergence of public epistemic resignation; unverified viral media.</td>
+            <td>C2PA cryptographic manifests; newsroom media forensic triage desks.</td>
+          </tr>
+          <tr>
+            <td><strong>2. Biometric Deepfakes</strong><br><small>Lead: Suraj Adhikari</small></td>
+            <td>Zero-shot voice cloning scams; emotional panic; the Liar’s Dividend eroding democratic proof.</td>
+            <td>Triple-lock verification; out-of-band callback protocols; strict legal liability.</td>
+          </tr>
+          <tr>
+            <td><strong>3. Intellectual Labor</strong><br><small>Lead: Swathi P</small></td>
+            <td>Uncompensated scraping of artistic commons; creator wage deflation; opacity of attribution.</td>
+            <td>Statutory licensing dividends (UNESCO, 2021); clear contribution disclosures.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Screenshot Box 2 -->
+      <div class="screenshot-box">
+        <div class="ss-meta">
+          <span><strong>Route:</strong> http://localhost:4200/topics/2 & /topics/3</span>
+          <span><strong>Feature:</strong> Deepfakes & Authorship Spectrum</span>
+        </div>
+        <div class="ss-placeholder">[ SCREENSHOT 2: VOICE CLONING THREATS & CREATIVE LABOR SPECTRUM ]</div>
+        <div class="ss-caption">Figure 2: Analysis Modules for Biometric Exploitation and the Spectrum of Authorship.</div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>5 BTCS A</span>
+      <span>2026 - 27</span>
+      <span>Page | 3</span>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- PAGE 4: THE ETHICS LAB & ARTIFACTS -->
+  <!-- ================================================================= -->
+  <div class="sheet">
+    <div class="page-header">
+      <div class="header-top">
+        <span>Responsible AI</span>
+        <span>Reg. No: 2460457, 2460440, 2460478</span>
+      </div>
+      <div class="double-rule"></div>
+    </div>
+
+    <div class="page-content">
+      <h2 class="topic-title">The Ethics Lab – Experiential Moral Dilemmas</h2>
+      <p>
+        Passive study of ethics codes is insufficient to prepare software engineers for real-world dilemmas. Housed at <code>/ethics-lab</code>, our interactive decision engine forces users to choose between competing imperfect policies, explicitly displaying the moral trade-offs accepted:
+      </p>
+      <ul>
+        <li><strong>Encounter 01 (The Synthetic Witness):</strong> An unverified video of political corruption breaks during an election week. Users choose between <em>releasing with a synthetic disclaimer</em> (preserving speed but risking smear) versus <em>holding for cryptographic provenance verification</em> (protecting truth but risking suppression of real breaking events).</li>
+        <li><strong>Encounter 02 (The Persuasive Voice):</strong> A telecom provider faces voice cloning extortion. Users weigh <em>permissive voice deployment with educational disclaimers</em> versus <em>strict biometric friction and mandatory out-of-band verification callback locks</em>.</li>
+        <li><strong>Encounter 03 (The Creative Brief):</strong> A design agency uses an AI model trained on uncredited art. Users evaluate <em>human creative director credit</em> versus <em>joint algorithmic attribution paired with commons licensing dividends</em>.</li>
+      </ul>
+
+      <h2 class="topic-title">Creative Visual Artifacts & AI Provenance Auditing</h2>
+      <p>
+        The portfolio features three code-rendered visual artifacts designed to raise campus and public awareness:
+      </p>
+      <ul>
+        <li><strong>Artifact 01 (Provenance Signal Placard):</strong> Slogan: <em>"If you cannot name the origin, it is not yet evidence."</em> A 3-step literacy prompt testing file origin, cryptographic C2PA credentials, and evidential limits.</li>
+        <li><strong>Artifact 02 (Forensic Voice Warning Poster):</strong> Slogan: <em>"A familiar voice is not a finished identity check."</em> Codifies the <strong>Triple-Lock Verification Protocol</strong> against zero-shot audio fraud: (1) Listen for breath cadence artifacts, (2) Execute out-of-band callback, (3) Issue a shared secret challenge.</li>
+        <li><strong>Artifact 03 (Creative Labor Spectrum Flow):</strong> Slogan: <em>"Who did what before the work was signed?"</em> Dynamically maps contribution from source corpus scraping to human prompt formulation, stochastic generation, curatorial selection, and final human moral liability.</li>
+      </ul>
+
+      <h2 class="topic-title">AI Provenance & Bias Mitigation Audit</h2>
+      <p>
+        In strict compliance with transparent AI usage, our team audited our own exploratory AI drafting:
+      </p>
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th>Artifact Focus</th>
+            <th>Generative Model</th>
+            <th>Human Curatorial Intervention</th>
+            <th>Bias Risk Audit & Mitigation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>01: Provenance Signal</strong><br><small>Lead: Tejashree</small></td>
+            <td>Claude 3.5 Sonnet / GPT-4o</td>
+            <td>Removed alarmist "AI is evil" phrasing; anchored in Floridi's information ethics and C2PA standards.</td>
+            <td>Corrected model bias toward cynicism; preserved legitimate assistive and artistic media use cases.</td>
+          </tr>
+          <tr>
+            <td><strong>02: Voice Warning</strong><br><small>Lead: Suraj Adhikari</small></td>
+            <td>Claude 3.5 Sonnet / GPT-4o</td>
+            <td>Reframed from expensive commercial detection apps to low-tech out-of-band phone callbacks.</td>
+            <td>Corrected smartphone-centric bias; ensured protocol protects landline users facing distress calls.</td>
+          </tr>
+          <tr>
+            <td><strong>03: Labor Flow</strong><br><small>Lead: Swathi P</small></td>
+            <td>Claude 3.5 Sonnet</td>
+            <td>Replaced binary "human vs AI" duality with a multi-layered creative labor spectrum.</td>
+            <td>Overcame AI responses minimizing scraped training data; enforced explicit Node 1 source artist labor node.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Screenshot Box 3 -->
+      <div class="screenshot-box">
+        <div class="ss-meta">
+          <span><strong>Route:</strong> http://localhost:4200/ethics-lab & /artifacts</span>
+          <span><strong>Feature:</strong> Decision Matrix & Visual Artifact Gallery</span>
+        </div>
+        <div class="ss-placeholder">[ SCREENSHOT 3: INTERACTIVE ETHICS LAB & CREATIVE ARTIFACTS GALLERY ]</div>
+        <div class="ss-caption">Figure 3: Interactive Dilemma Trade-Off Engine and Disclosed Creative Visual Artifacts.</div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>5 BTCS A</span>
+      <span>2026 - 27</span>
+      <span>Page | 4</span>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- PAGE 5: RESPONSIBLE AI, GOVERNANCE & CONCLUSION -->
+  <!-- ================================================================= -->
+  <div class="sheet">
+    <div class="page-header">
+      <div class="header-top">
+        <span>Responsible AI</span>
+        <span>Reg. No: 2460457, 2460440, 2460478</span>
+      </div>
+      <div class="double-rule"></div>
+    </div>
+
+    <div class="page-content">
+      <h2 class="topic-title">Responsible AI – The 7-Step Verification Workflow</h2>
+      <p>
+        Responsible AI must be an active operational discipline. Our portfolio operationalizes the <strong>7-Step Continuous AI Verification Pipeline</strong>:
+      </p>
+      <ul>
+        <li><strong>Step 1 (Question Framing):</strong> Define evidential boundaries, task stakes, and audience vulnerability.</li>
+        <li><strong>Step 2 (GenAI Drafting):</strong> Treat generated outputs strictly as a rough hypothesis, never as authority.</li>
+        <li><strong>Step 3 (Critical Review):</strong> Actively audit outputs for hallucinations, omissions, bias, and false certainty.</li>
+        <li><strong>Step 4 (Empirical Fact-Checking):</strong> Cross-reference all assertions with primary peer-reviewed literature.</li>
+        <li><strong>Step 5 (Ethical & Harm Audit):</strong> Check for privacy leaks, non-consensual likeness use, and disparate harms.</li>
+        <li><strong>Step 6 (Human Curatorial Editing):</strong> Substantively rewrite, contextualize, and remove unverified claims.</li>
+        <li><strong>Step 7 (Responsible Output):</strong> Publish with transparent provenance disclosure and named human liability.</li>
+      </ul>
+
+      <h2 class="topic-title">Multi-Tiered Governance & Policy Blueprint</h2>
+      <ul>
+        <li><strong>Technical Tier:</strong> Enforce mandatory C2PA metadata signing on commercial foundation model pipelines; implement perturbation-resilient latent watermarks (SynthID).</li>
+        <li><strong>Institutional Tier:</strong> Institutionalize multi-channel out-of-band verification protocols across financial and enterprise communication; establish forensic media verification desks in newsrooms.</li>
+        <li><strong>Regulatory Tier:</strong> Enforce strict liability for non-consensual biometric impersonation; establish statutory training dataset licensing dividends (UNESCO, 2021); mandate conspicuous synthetic labels.</li>
+      </ul>
+
+      <h2 class="topic-title">Team Division of Labor & Equal Participation</h2>
+      <p>
+        In accordance with course guidelines, all three co-authors contributed equally (33.3% share):
+      </p>
+      <ul>
+        <li><strong>Suraj Adhikari (2460457) — Lead for Topic 02:</strong> Investigated zero-shot voice cloning threat models, covert manipulation, and the Liar’s Dividend; coded and designed Artifact 02 (Forensic Voice Warning Poster); formulated out-of-band triage protocols.</li>
+        <li><strong>S M Tejashree Kashyap (2460440) — Lead for Topic 01:</strong> Researched epistemic trust collapse and Fallis & Floridi epistemological frameworks; coded and designed Artifact 01 (Provenance Signal Placard); authored Section 1.0 evidentiary analysis.</li>
+        <li><strong>Swathi P (2460478) — Lead for Topic 03:</strong> Evaluated Crawford’s data extractivism and UNESCO creative labor frameworks; coded and designed Artifact 03 (Creative Labor Spectrum Flow); formulated Section 3.0 labor equity analysis.</li>
+      </ul>
+
+      <h2 class="topic-title">Conclusion</h2>
+      <p>
+        The AI Ethics Portfolio demonstrates that while generative models unlock transformative creative access, they introduce profound epistemic and social risks. Technological fixes alone are insufficient; sustainable safety requires institutional friction, cryptographic provenance (C2PA), and behavioral skepticism. Ultimately, while machines synthesize plausible tokens, <strong>human judgment remains the irreplaceable anchor of truth, creativity, and moral responsibility</strong>.
+      </p>
+
+      <h2 class="topic-title">References</h2>
+      <p style="font-size: 8.5pt; line-height: 1.25; margin-bottom: 4px;">
+        [1] L. Floridi, <em>The Logic of Information</em>, Oxford University Press, 2020. · [2] D. Fallis, "What Is Disinformation?," <em>Library Trends</em>, vol. 63, no. 3, 2015. · [3] R. Chesney and D. Citron, "Deep Fakes: A Looming Challenge for Privacy, Democracy, and National Security," <em>Calif. Law Rev.</em>, vol. 107, 2019. · [4] K. Crawford, <em>Atlas of AI</em>, Yale University Press, 2021. · [5] UNESCO, <em>Recommendation on the Ethics of Artificial Intelligence</em>, UNESCO General Conference, 2021. · [6] C. Wardle and H. Derakhshan, <em>Information Disorder</em>, Council of Europe Report, 2017.
+      </p>
+
+      <!-- Screenshot Box 4 -->
+      <div class="screenshot-box">
+        <div class="ss-meta">
+          <span><strong>Route:</strong> http://localhost:4200/responsible-ai & /presentation</span>
+          <span><strong>Feature:</strong> 7-Step Verification & Presentation Deck</span>
+        </div>
+        <div class="ss-placeholder">[ SCREENSHOT 4: RESPONSIBLE AI VERIFICATION PIPELINE & 5–7M PRESENTATION DECK ]</div>
+        <div class="ss-caption">Figure 4: Operational Verification Workflow and Time-Boxed Presentation Mode.</div>
+      </div>
+
+      <div class="team-signature-line">
+        <strong>Created by Angry Birds</strong>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>5 BTCS A</span>
+      <span>2026 - 27</span>
+      <span>Page | 5</span>
+    </div>
+  </div>
+
+</body>
+</html>

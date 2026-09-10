@@ -59,7 +59,7 @@ export const TOPICS: readonly Topic[] = [
       caption: 'Epistemic verification: distinguishing authentic documentation from synthetic hallucinations and fabricated reality.',
     },
     leadMember: {
-      name: 'Team Member 1',
+      name: 'S M Tejashree Kashyap (2460440)',
       role: 'Epistemic Trust & Synthetic Media Lead',
       contribution: 'Investigated epistemic injustice, synthetic watermarking standards (C2PA), and Fallis & Floridi epistemology frameworks.',
     },
@@ -124,7 +124,7 @@ export const TOPICS: readonly Topic[] = [
       caption: 'Information disorder: how synthetic generation alters the landscape of news, evidence, and public persuasion.',
     },
     leadMember: {
-      name: 'Team Member 2',
+      name: 'Suraj Adhikari (2460457)',
       role: 'Forensic Misinformation & Deepfake Lead',
       contribution: 'Analyzed biometric cloning vulnerabilities, information disorder types (Wardle & Derakhshan), and the Liar’s Dividend.',
     },
@@ -189,7 +189,7 @@ export const TOPICS: readonly Topic[] = [
       caption: 'Authorship under question: negotiating the boundary between human creative craft, machine intelligence, and fair attribution.',
     },
     leadMember: {
-      name: 'Team Member 3',
+      name: 'Swathi P (2460478)',
       role: 'Intellectual Labor & Creative Authorship Lead',
       contribution: 'Evaluated copyright fair-use boundaries, training data consent models, and UNESCO AI ethics labor equity guidelines.',
     },
