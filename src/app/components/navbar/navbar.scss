@@ -25,16 +25,20 @@
   text-decoration: none;
 }
 
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 2.2rem;
-  height: 2.2rem;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-family: var(--font-display);
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
+.brand-logo {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25), 0 0 4px rgba(212, 175, 55, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: block;
+}
+
+.brand:hover .brand-logo {
+  transform: scale(1.06);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.45), 0 0 8px rgba(212, 175, 55, 0.4);
 }
 
 .brand-copy { display: grid; gap: 0.1rem; }
